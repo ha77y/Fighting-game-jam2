@@ -15,9 +15,9 @@ public class Railgun : MonoBehaviour
         evnt = new AnimationEvent();
 
         evnt.intParameter = 12345;
-        evnt.time = 1.3f;
+        evnt.time = 0.5f;
         evnt.functionName = "Shoot";
-        anim = GetComponent<Animator>();
+        anim = gameObject.GetComponent(typeof(Animator)) as Animator;
 
         //clip = anim.runtimeAnimatorController.animationClips[0];
         clip = anim.runtimeAnimatorController.animationClips[0];
