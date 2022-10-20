@@ -14,12 +14,11 @@ public class Railgun : MonoBehaviour
         AnimationEvent evnt;
         evnt = new AnimationEvent();
 
-        evnt.intParameter = 12345;
         evnt.time = 0.5f;
         evnt.functionName = "Shoot";
         anim = gameObject.GetComponent(typeof(Animator)) as Animator;
 
-        //clip = anim.runtimeAnimatorController.animationClips[0];
+        clip = anim.runtimeAnimatorController.animationClips[0];
         clip = anim.runtimeAnimatorController.animationClips[0];
         clip.AddEvent(evnt);
     }
@@ -29,7 +28,7 @@ public class Railgun : MonoBehaviour
     {
         
     }
-    public void Shoot(int i)
+    public void Shoot()
     {
         print("Shoot!!");
     }
