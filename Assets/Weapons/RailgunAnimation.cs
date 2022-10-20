@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
 
-public class Railgun : MonoBehaviour
+public class RailgunAnimation : MonoBehaviour
 {
     // Start is called before the first frame update
     public AnimationClip clip;
     public Animator anim;
-    
+
     void Start()
     {
         AnimationEvent evnt;
@@ -26,7 +26,7 @@ public class Railgun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void Shoot()
     {
