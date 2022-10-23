@@ -8,6 +8,7 @@
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
+/[Uu]ser[Ss]ettings/
 /[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
@@ -54,10 +55,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-
-# User settings or something
-default-2021.dwlt
-UserSettings/Layouts/default-2021.dwlt
 
 # Crashlytics generated file
 crashlytics-build.properties
