@@ -97,3 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef53e511ee0c785498b8d5b55f33eb6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isshooting: 1
+  isreloading: 0
+  ammo: -1
