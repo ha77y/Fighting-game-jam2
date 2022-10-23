@@ -55,7 +55,7 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-#User settings or something
+# User settings or something
 default-2021.dwlt
 UserSettings/Layouts/default-2021.dwlt
 
