@@ -55,6 +55,9 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+#User settings or something
+default-2021.dwlt
+
 # Crashlytics generated file
 crashlytics-build.properties
 
