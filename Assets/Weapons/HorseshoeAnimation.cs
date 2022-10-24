@@ -19,27 +19,37 @@ public class HorseshoeAnimation : MonoBehaviour
 
         //Shoot animation event
         evnt = new AnimationEvent();
+        //clip.events[0] == evnt;
         evnt.time = 0.1f;
         evnt.functionName = "Shoot";
         anim = gameObject.GetComponent(typeof(Animator)) as Animator;
         clip = anim.runtimeAnimatorController.animationClips[2];
-        clip.AddEvent(evnt);
-        evnt.time = 0.3f;
-        clip.AddEvent(evnt);
-        evnt.time = 0.5f;
-        clip.AddEvent(evnt);
-        evnt.time = 0.7f;
-        clip.AddEvent(evnt);
-        evnt.time = 0.9f;
-        clip.AddEvent(evnt);
-        evnt.time = 1.1f;
-        clip.AddEvent(evnt);
+        if (!(clip.events[0] == evnt))
+        {
+            clip.AddEvent(evnt);
+            evnt.time = 0.3f;
+            clip.AddEvent(evnt);
+            evnt.time = 0.5f;
+            clip.AddEvent(evnt);
+            evnt.time = 0.7f;
+            clip.AddEvent(evnt);
+            evnt.time = 0.9f;
+            clip.AddEvent(evnt);
+            evnt.time = 1.1f;
+            clip.AddEvent(evnt);
+        }
+        
 
-        //Reload animation event 
+        //Reload animation event
+        
+        
         clip = anim.runtimeAnimatorController.animationClips[1];
         evnt.time = 1.0f;
         evnt.functionName = "Reload";
-        clip.AddEvent(evnt);
+        if (!(clip.events[clip.events.Length] == evnt))
+        {
+            clip.AddEvent(evnt);
+        }
     }
 
     // Update is called once per frame
@@ -63,7 +73,7 @@ public class HorseshoeAnimation : MonoBehaviour
     {
         print("HorseshoeShoot!!");
         Rigidbody2D b = Instantiate(bullet, new Vector3(this.gameObject.transform.GetChild(0).position.x, this.gameObject.transform.GetChild(0).position.y, this.gameObject.transform.GetChild(0).position.z), Quaternion.identity);
-        b.velocity = transform.right * 10.0f;
+        b.velocity = transform.right * -10.0f;
         if (b.velocity.x < 0)
         {
             b.transform.Rotate(0f, 0f, 90f);
