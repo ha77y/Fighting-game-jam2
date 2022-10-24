@@ -10,22 +10,23 @@ public class HorseshoeAnimation : MonoBehaviour
     public AnimationClip clip;
     public Animator anim;
     public Rigidbody2D bullet;
+    static public Boolean horseshoeAddEvents = true;
 
     void Start()
     {
         //anim = gameObject.GetComponent(typeof(Animator)) as Animator;
         this.transform.parent.GetComponent<Enemy>().ammo = 5;
-        AnimationEvent evnt;
-
-        //Shoot animation event
-        evnt = new AnimationEvent();
-        //clip.events[0] == evnt;
-        evnt.time = 0.1f;
-        evnt.functionName = "Shoot";
-        anim = gameObject.GetComponent(typeof(Animator)) as Animator;
-        clip = anim.runtimeAnimatorController.animationClips[2];
-        if (!(clip.events[0] == evnt))
+       
+        
+        if (horseshoeAddEvents)
         {
+            //Shoot animation event
+            AnimationEvent evnt;
+            evnt = new AnimationEvent();
+            evnt.time = 0.1f;
+            evnt.functionName = "Shoot";
+            anim = gameObject.GetComponent(typeof(Animator)) as Animator;
+            clip = anim.runtimeAnimatorController.animationClips[2];
             clip.AddEvent(evnt);
             evnt.time = 0.3f;
             clip.AddEvent(evnt);
@@ -37,19 +38,15 @@ public class HorseshoeAnimation : MonoBehaviour
             clip.AddEvent(evnt);
             evnt.time = 1.1f;
             clip.AddEvent(evnt);
-        }
-        
 
-        //Reload animation event
-        
-        
-        clip = anim.runtimeAnimatorController.animationClips[1];
-        evnt.time = 1.0f;
-        evnt.functionName = "Reload";
-        if (!(clip.events[clip.events.Length] == evnt))
-        {
+            //Reload animation event
+            clip = anim.runtimeAnimatorController.animationClips[1];
+            evnt.time = 1.1f;
+            evnt.functionName = "Reload";
             clip.AddEvent(evnt);
+            horseshoeAddEvents = false;
         }
+        
     }
 
     // Update is called once per frame
