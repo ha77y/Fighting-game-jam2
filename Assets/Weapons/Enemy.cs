@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public Boolean isreloading = false;
     public Boolean ispatroling = false;
     public int ammo = -1;
+    public float health = 100;
     void Start()
     {
         
@@ -33,6 +34,11 @@ public class Enemy : MonoBehaviour
         {
             isreloading = true;
             isshooting = false;
+        }
+
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
         }
         
     }

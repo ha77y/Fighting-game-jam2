@@ -8,6 +8,11 @@ public class Platform_Player_Script : MonoBehaviour
     [SerializeField] private float JumpForce;
     [SerializeField] private Rigidbody2D Rigidbody2D;
     [SerializeField] private Transform GroundCheckTransform = null;
+    [SerializeField] private Transform Pointer;
+    private Vector3 mousepos;
+    private float mouserotX;
+    private float mouserotY;
+    private Quaternion RotQuaternion;
 
     private int jumps = 1;
     // Start is called before the first frame update
@@ -28,7 +33,7 @@ public class Platform_Player_Script : MonoBehaviour
                 Rigidbody2D.velocity = Vector3.zero;
                 Rigidbody2D.AddForce(Vector3.up * JumpForce, ForceMode2D.Impulse);
                 jumps -= 1;
-                JumpForce = 5f;
+                JumpForce = 8f;
                 
             }
         }
@@ -37,5 +42,15 @@ public class Platform_Player_Script : MonoBehaviour
             jumps = 1;
             JumpForce = 10f;
         }
+        mousepos = Input.mousePosition;
+        mousepos = Camera.main.ScreenToWorldPoint(mousepos);
+        /*
+        mouserotX = Mathf.Atan2(mousepos.x,gameObject.transform.position.x);
+        mouserotY = Mathf.Atan2(mousepos.y, gameObject.transform.position.y);
+        Pointer.rotation = new Quaternion(mouserotX,mouserotY,0,0);
+        */
+        Vector3 relativePos = mousepos - gameObject.transform.position;
+        Pointer.rotation = Quaternion.LookRotation(relativePos, new Vector3(0,0,1)) ;
+        
     }
 }
