@@ -69,7 +69,7 @@ public class HorseshoeAnimation : MonoBehaviour
     public void Shoot()
     {
         print("HorseshoeShoot!!");
-        Rigidbody2D b = Instantiate(bullet, new Vector3(this.gameObject.transform.GetChild(0).position.x, this.gameObject.transform.GetChild(0).position.y, this.gameObject.transform.GetChild(0).position.z), Quaternion.identity);
+        Rigidbody2D b = Instantiate(bullet, new Vector2(this.gameObject.transform.GetChild(0).position.x, this.gameObject.transform.GetChild(0).position.y), Quaternion.identity);
         b.velocity = transform.right * -10.0f;
         if (b.velocity.x < 0)
         {
