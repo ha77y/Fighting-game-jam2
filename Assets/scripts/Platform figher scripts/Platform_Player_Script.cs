@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Platform_Player_Script : MonoBehaviour
@@ -25,8 +26,8 @@ public class Platform_Player_Script : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-        transform.position = new Vector3(transform.position.x + (Input.GetAxis("Horizontal")* speed * Time.deltaTime ), transform.position.y);
+    {
+        transform.position = new Vector3(transform.position.x + (Input.GetAxis("Horizontal") * speed * Time.deltaTime), transform.position.y);
 
         if (jumps > 0)
         {
@@ -36,7 +37,7 @@ public class Platform_Player_Script : MonoBehaviour
                 Rigidbody2D.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
                 jumps -= 1;
                 jumpForce = secondJumpForce;
-                
+
             }
         }
         if (Physics2D.OverlapCircle(new Vector3(GroundCheckTransform.position.x, GroundCheckTransform.position.y), 0.1f, LayerMask.GetMask("SolidTiles")))
@@ -52,7 +53,7 @@ public class Platform_Player_Script : MonoBehaviour
         Pointer.rotation = new Quaternion(mouserotX,mouserotY,0,0);
         */
         Vector3 relativePos = mousepos - gameObject.transform.position;
-        Pointer.rotation = Quaternion.LookRotation(relativePos, new Vector3(0,0,1)) ;
-        
+        Pointer.rotation = Quaternion.LookRotation(relativePos, new Vector3(0, 0, 1));
+
     }
 }

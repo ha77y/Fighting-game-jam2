@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,13 +7,9 @@ using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //public float speed = 20f;
-    //public Rigidbody2D rb;
-
+    public int damage = 10;
     void Start()
     {
-        //rb.velocity = transform.right * speed; 
     }
 
     // Update is called once per frame
@@ -21,8 +18,18 @@ public class Bullet : MonoBehaviour
 
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Player")
+        {
+            print("Damage Player");
+            PlayerStats player = collision.GetComponent<PlayerStats>();
+            if (player != null)
+            {
+                player.Damaged(damage);
+            }
+            
+        }
         Expire();
     }
     public void Expire()

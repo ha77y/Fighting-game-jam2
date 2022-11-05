@@ -10,6 +10,9 @@ public class Enemy : MonoBehaviour
     public Boolean isshooting = true;
     public Boolean isreloading = false;
     public Boolean ispatroling = false;
+    public Boolean playerInRange = false;
+    public Boolean playerInLOS = false;
+
     public int ammo = -1;
     public float health = 100;
     void Start()
@@ -20,19 +23,23 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ammo == 0 & !isreloading & !ispatroling)
+        if (ammo == 0 & !isreloading)
         {
             isshooting = false;
             isreloading = true;
         }
-        else if (!ispatroling & !isreloading)
+        else if (!isreloading & playerInLOS)
         {
             isshooting = true;
             isreloading = false;
         }
-        else if (ispatroling & ammo < 3 & !isreloading)
+        else if (ispatroling & ammo < 3 & !isreloading & ammo != -1)
         {
             isreloading = true;
+            isshooting = false;
+        } else if (!playerInLOS & !isreloading)
+        {
+            ispatroling = true;
             isshooting = false;
         }
 

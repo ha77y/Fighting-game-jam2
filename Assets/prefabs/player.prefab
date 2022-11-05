@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 4823316836073135889}
   - component: {fileID: 4823316836073135895}
   - component: {fileID: 4823316836073135891}
+  - component: {fileID: 5192418753507714202}
   - component: {fileID: 5642923832823170916}
   m_Layer: 3
   m_Name: player
@@ -270,10 +271,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  JumpForce: 700
+  firstJumpForce: 10
+  secondJumpForce: 8
   Rigidbody2D: {fileID: 4823316836073135895}
   GroundCheckTransform: {fileID: 4823316834911499373}
   Pointer: {fileID: 4908721372181104515}
+--- !u!114 &5192418753507714202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4823316836073135892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b21f6326719c5c4984a23a0a793ee99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &5642923832823170916
 BoxCollider2D:
   m_ObjectHideFlags: 0

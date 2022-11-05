@@ -10,6 +10,7 @@ public class HorseshoeAnimation : MonoBehaviour
     public AnimationClip clip;
     public Animator anim;
     public Rigidbody2D bullet;
+    public int damage = 5;
     static public Boolean horseshoeAddEvents = true;
 
     void Start()
@@ -71,6 +72,7 @@ public class HorseshoeAnimation : MonoBehaviour
         print("HorseshoeShoot!!");
         Rigidbody2D b = Instantiate(bullet, new Vector2(this.gameObject.transform.GetChild(0).position.x, this.gameObject.transform.GetChild(0).position.y), Quaternion.identity);
         b.velocity = transform.right * -10.0f;
+        b.GetComponent<Bullet>().damage = damage;
         if (b.velocity.x < 0)
         {
             b.transform.Rotate(0f, 0f, 90f);

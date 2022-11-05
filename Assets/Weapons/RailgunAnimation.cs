@@ -16,6 +16,7 @@ public class RailgunAnimation : MonoBehaviour
     static public Boolean railgunAddEvents = true;
     public LineRenderer lineRenderer;
     public float laserWidth = 0.1f;
+    public int damage = 10;
 
     void Start()
     {
@@ -57,9 +58,13 @@ public class RailgunAnimation : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(firingPoint, Vector2.left, Mathf.Infinity, LayerMask.GetMask("SolidTiles"));
         RaycastHit2D hit2 = Physics2D.Raycast(firingPoint, Vector2.left, Mathf.Infinity, LayerMask.GetMask("Player"));
 
-        if (hit.distance > hit2.distance) // If hit player before wall
+        if ((hit.distance > hit2.distance & hit2.distance != 0) | (hit.distance == 0 & hit2.distance > 0)) // If hit player before wall
         {
-            //player takes a big bomb
+            PlayerStats player = hit2.collider.GetComponent<PlayerStats>();
+            if (player != null) {
+                player.Damaged(damage);
+            }
+            
         }
         lineRenderer.SetPosition(0, firingPoint);
         lineRenderer.SetPosition(1, hit.point);
