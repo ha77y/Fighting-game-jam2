@@ -5,10 +5,12 @@ using UnityEngine;
 public class Platform_Player_Script : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private float JumpForce;
+    [SerializeField] private float firstJumpForce = 10f;
+    [SerializeField] private float secondJumpForce = 8f;
     [SerializeField] private Rigidbody2D Rigidbody2D;
     [SerializeField] private Transform GroundCheckTransform = null;
     [SerializeField] private Transform Pointer;
+    float jumpForce;
     private Vector3 mousepos;
     private float mouserotX;
     private float mouserotY;
@@ -18,7 +20,7 @@ public class Platform_Player_Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        jumpForce = firstJumpForce;
     }
 
     // Update is called once per frame
@@ -31,16 +33,16 @@ public class Platform_Player_Script : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Rigidbody2D.velocity = Vector3.zero;
-                Rigidbody2D.AddForce(Vector3.up * JumpForce, ForceMode2D.Impulse);
+                Rigidbody2D.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
                 jumps -= 1;
-                JumpForce = 8f;
+                jumpForce = secondJumpForce;
                 
             }
         }
-        if (Physics2D.OverlapCircle(new Vector3(GroundCheckTransform.position.x, GroundCheckTransform.position.y), 0.1f, layerMask:3))
+        if (Physics2D.OverlapCircle(new Vector3(GroundCheckTransform.position.x, GroundCheckTransform.position.y), 0.1f, LayerMask.GetMask("SolidTiles")))
         {
             jumps = 1;
-            JumpForce = 10f;
+            jumpForce = firstJumpForce;
         }
         mousepos = Input.mousePosition;
         mousepos = Camera.main.ScreenToWorldPoint(mousepos);
