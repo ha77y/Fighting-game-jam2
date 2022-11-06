@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 5642923832823170916}
   m_Layer: 3
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,8 +304,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  firstJumpForce: 10
-  secondJumpForce: 8
+  firstJumpForce: 20
+  secondJumpForce: 15
   Rigidbody2D: {fileID: 4823316836073135895}
   GroundCheckTransform: {fileID: 4823316834911499373}
   Pointer: {fileID: 4908721372181104515}

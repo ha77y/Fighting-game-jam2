@@ -307,33 +307,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4823316836073135891, guid: c8eb928337fb74c45bf84f4820eb79fc, type: 3}
-      propertyPath: JumpForce
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4823316836073135891, guid: c8eb928337fb74c45bf84f4820eb79fc, type: 3}
-      propertyPath: firstJumpForce
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4823316836073135891, guid: c8eb928337fb74c45bf84f4820eb79fc, type: 3}
-      propertyPath: secondJumpForce
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 4823316836073135892, guid: c8eb928337fb74c45bf84f4820eb79fc, type: 3}
       propertyPath: m_Name
       value: player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4823316836073135892, guid: c8eb928337fb74c45bf84f4820eb79fc, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5642923832823170916, guid: c8eb928337fb74c45bf84f4820eb79fc, type: 3}
-      propertyPath: m_UsedByEffector
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5642923832823170916, guid: c8eb928337fb74c45bf84f4820eb79fc, type: 3}
-      propertyPath: m_UsedByComposite
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8eb928337fb74c45bf84f4820eb79fc, type: 3}
