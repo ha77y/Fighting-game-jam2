@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1663140547}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,6 +103,8 @@ MonoBehaviour:
   isshooting: 1
   isreloading: 0
   ispatroling: 0
+  playerInRange: 0
+  playerInLOS: 0
   ammo: -1
   health: 100
 --- !u!50 &1663140546

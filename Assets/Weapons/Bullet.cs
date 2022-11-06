@@ -20,7 +20,16 @@ public class Bullet : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Deflect")
+        {
+            print("Bullet Deflected!");
+            gameObject.layer = LayerMask.GetMask("Friendly");
+            Rigidbody2D b = this.transform.GetComponent<Rigidbody2D>();
+            Transform t = collision.transform.parent.GetChild(2);
+            b.velocity = Vector2.zero;
+            b.velocity = t.right * 10f;
+
+        } else if (collision.gameObject.tag == "Player")
         {
             print("Damage Player");
             PlayerStats player = collision.GetComponent<PlayerStats>();
@@ -28,9 +37,16 @@ public class Bullet : MonoBehaviour
             {
                 player.Damaged(damage);
             }
-            
+            Expire();
+        } else if (collision.gameObject.tag == "Enemy" & gameObject.layer == LayerMask.GetMask("Friendly"))
+        {
+            print("Damage Enemy");
+            Expire();
+        } else
+        {
+            Expire();
         }
-        Expire();
+        
     }
     public void Expire()
     {
