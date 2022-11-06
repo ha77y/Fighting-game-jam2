@@ -25,14 +25,14 @@ public class RailgunAnimation : MonoBehaviour
         {
             AnimationEvent evnt;
             evnt = new AnimationEvent();
-            evnt.time = 0.5f;
+            evnt.time = 1.4f;
             evnt.functionName = "Shoot";
             //anim = gameObject.GetComponent(typeof(Animator)) as Animator;
             clip = anim.runtimeAnimatorController.animationClips[1];
             clip.AddEvent(evnt);
-            evnt.time = 0.7f;
-            evnt.functionName = "HideLaser";
-            clip.AddEvent(evnt);
+            //evnt.time = 0.7f;
+            //evnt.functionName = "HideLaser";
+            //clip.AddEvent(evnt);
             railgunAddEvents = false;
         }
         
@@ -51,7 +51,7 @@ public class RailgunAnimation : MonoBehaviour
         
 
     }
-    public void Shoot()
+    public IEnumerator Shoot()
     {        
         Vector2 firingPoint = new Vector2(this.gameObject.transform.parent.GetChild(1).position.x, this.gameObject.transform.parent.GetChild(1).position.y);
         Vector2 playerPos = this.transform.parent.parent.parent.GetChild(0).GetComponent<Sensor>().Player.position;
@@ -71,12 +71,16 @@ public class RailgunAnimation : MonoBehaviour
             lineRenderer.SetPosition(0, firingPoint);
             lineRenderer.SetPosition(1, hit.point);
             lineRenderer.enabled = true;
+            yield return new WaitForSeconds(0.2f);
+            lineRenderer.enabled = false;
         }
         else
         {
             lineRenderer.SetPosition(0, firingPoint);
             lineRenderer.SetPosition(1, (playerPos * 10) - (firingPoint * 9));
             lineRenderer.enabled = true;
+            yield return new WaitForSeconds(0.2f);
+            lineRenderer.enabled = false;
         }
     }
     public void HideLaser()
