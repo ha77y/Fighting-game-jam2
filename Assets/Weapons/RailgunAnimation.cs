@@ -27,7 +27,7 @@ public class RailgunAnimation : MonoBehaviour
             evnt = new AnimationEvent();
             evnt.time = 0.5f;
             evnt.functionName = "Shoot";
-            anim = gameObject.GetComponent(typeof(Animator)) as Animator;
+            //anim = gameObject.GetComponent(typeof(Animator)) as Animator;
             clip = anim.runtimeAnimatorController.animationClips[1];
             clip.AddEvent(evnt);
             evnt.time = 0.7f;
@@ -42,7 +42,7 @@ public class RailgunAnimation : MonoBehaviour
     void Update()
     {
         
-        if (this.transform.parent.GetComponent<Enemy>().isshooting)
+        if (this.transform.parent.parent.parent.GetComponent<Enemy>().isshooting)
         {
             anim.Play("RailgunShoot");
         } else {
@@ -52,25 +52,32 @@ public class RailgunAnimation : MonoBehaviour
 
     }
     public void Shoot()
-    {
-        //ContactFilter2D contactFilter;
-        //contactFilter.layerMask = LayerMask.GetMask("SolidTiles");
-        //contactFilter.useLayerMask = true;
-        Vector2 firingPoint = new Vector2(this.gameObject.transform.GetChild(0).position.x, this.gameObject.transform.GetChild(0).position.y);
-        RaycastHit2D hit = Physics2D.Raycast(firingPoint, Vector2.left, Mathf.Infinity, LayerMask.GetMask("SolidTiles"));
-        RaycastHit2D hit2 = Physics2D.Raycast(firingPoint, Vector2.left, Mathf.Infinity, LayerMask.GetMask("Player"));
+    {        
+        Vector2 firingPoint = new Vector2(this.gameObject.transform.parent.GetChild(1).position.x, this.gameObject.transform.parent.GetChild(1).position.y);
+        Vector2 playerPos = this.transform.parent.parent.parent.GetChild(0).GetComponent<Sensor>().Player.position;
+        RaycastHit2D hit = Physics2D.Raycast(firingPoint, playerPos - firingPoint, Mathf.Infinity, LayerMask.GetMask("SolidTiles"));
+        RaycastHit2D hit2 = Physics2D.Raycast(firingPoint, playerPos - firingPoint, Mathf.Infinity, LayerMask.GetMask("Player"));
 
         if ((hit.distance > hit2.distance & hit2.distance != 0) | (hit.distance == 0 & hit2.distance > 0)) // If hit player before wall
         {
             PlayerStats player = hit2.collider.GetComponent<PlayerStats>();
-            if (player != null) {
+            if (player != null)
+            {
                 player.Damaged(damage);
             }
-            
         }
-        lineRenderer.SetPosition(0, firingPoint);
-        lineRenderer.SetPosition(1, hit.point);
-        lineRenderer.enabled = true;
+        if (hit.distance != 0)
+        {
+            lineRenderer.SetPosition(0, firingPoint);
+            lineRenderer.SetPosition(1, hit.point);
+            lineRenderer.enabled = true;
+        }
+        else
+        {
+            lineRenderer.SetPosition(0, firingPoint);
+            lineRenderer.SetPosition(1, (playerPos * 10) - (firingPoint * 9));
+            lineRenderer.enabled = true;
+        }
     }
     public void HideLaser()
     {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEditor.UIElements;
 using UnityEngine;
 
@@ -28,9 +29,19 @@ public class Enemy : MonoBehaviour
             Vector2 target = this.transform.GetChild(0).GetComponent<Sensor>().Player.position;
             this.transform.GetChild(1).transform.rotation = Quaternion.LookRotation(target);
         }*/
-
-
-
+        if (playerInLOS & playerInRange)
+        {
+            Vector2 localPlayerPos;
+            Vector2 playerPos = this.transform.GetChild(0).GetComponent<Sensor>().Player.position;
+            if (playerPos != null)
+            {
+                localPlayerPos.x = this.transform.position.x - playerPos.x;
+                localPlayerPos.y = this.transform.position.y - playerPos.y;
+                float angle = Mathf.Atan2(localPlayerPos.y, localPlayerPos.x) * Mathf.Rad2Deg;
+                Transform gun = this.transform.GetChild(1);
+                gun.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            }
+        }
 
         if (ammo == 0 & !isreloading)
         {

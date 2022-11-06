@@ -16,7 +16,7 @@ public class HorseshoeAnimation : MonoBehaviour
     void Start()
     {
         //anim = gameObject.GetComponent(typeof(Animator)) as Animator;
-        this.transform.parent.GetComponent<Enemy>().ammo = 5;
+        this.transform.parent.parent.parent.GetComponent<Enemy>().ammo = 5;
        
         
         if (horseshoeAddEvents)
@@ -26,7 +26,7 @@ public class HorseshoeAnimation : MonoBehaviour
             evnt = new AnimationEvent();
             evnt.time = 0.1f;
             evnt.functionName = "Shoot";
-            anim = gameObject.GetComponent(typeof(Animator)) as Animator;
+            //anim = gameObject.GetComponent(typeof(Animator)) as Animator;
             clip = anim.runtimeAnimatorController.animationClips[2];
             clip.AddEvent(evnt);
             evnt.time = 0.3f;
@@ -54,11 +54,11 @@ public class HorseshoeAnimation : MonoBehaviour
     void Update()
     {
 
-        if (this.transform.parent.GetComponent<Enemy>().isshooting)
+        if (this.transform.parent.parent.parent.GetComponent<Enemy>().isshooting)
         {
             anim.Play("HorseshoeShoot");
         }
-        else if (this.transform.parent.GetComponent<Enemy>().isreloading)    
+        else if (this.transform.parent.parent.parent.GetComponent<Enemy>().isreloading)    
         {
             anim.Play("HorseshoeReload");
         } else
@@ -70,7 +70,7 @@ public class HorseshoeAnimation : MonoBehaviour
     public void Shoot()
     {
         print("HorseshoeShoot!!");
-        Rigidbody2D b = Instantiate(bullet, new Vector2(this.gameObject.transform.GetChild(0).position.x, this.gameObject.transform.GetChild(0).position.y), Quaternion.identity);
+        Rigidbody2D b = Instantiate(bullet, new Vector2(this.gameObject.transform.parent.GetChild(1).position.x, this.gameObject.transform.parent.GetChild(1).position.y), Quaternion.identity);
         b.velocity = transform.right * -10.0f;
         b.GetComponent<Bullet>().damage = damage;
         if (b.velocity.x < 0)
@@ -81,16 +81,15 @@ public class HorseshoeAnimation : MonoBehaviour
             b.transform.Rotate(0f, 0f, -90f);
         }
            
-        if (this.transform.parent.GetComponent<Enemy>().ammo != 0) 
+        if (this.transform.parent.parent.parent.GetComponent<Enemy>().ammo != 0) 
         { 
-            this.transform.parent.GetComponent<Enemy>().ammo -= 1;
-            Vector2 pos = this.transform.GetComponentInParent<Sensor>().Player.position;
+            this.transform.parent.parent.parent.GetComponent<Enemy>().ammo -= 1;
         }
     }
     public void Reload()
     {
         print("HorseshoeReloaded!");
-        this.transform.parent.GetComponent<Enemy>().ammo = 5;
-        this.transform.parent.GetComponent<Enemy>().isreloading = false;
+        this.transform.parent.parent.parent.GetComponent<Enemy>().ammo = 5;
+        this.transform.parent.parent.parent.GetComponent<Enemy>().isreloading = false;
     }
 }

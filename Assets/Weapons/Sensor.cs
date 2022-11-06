@@ -21,10 +21,7 @@ public class Sensor : MonoBehaviour
     {
         if (this.transform.parent.GetComponent<Enemy>().playerInRange)
         {
-            //lineRenderer.SetPosition(0, Player.position);
-            //lineRenderer.SetPosition(1, transform.position);
-            //lineRenderer.enabled = true;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Player.position, Vector2.Distance(transform.position, Player.position), LayerMask.GetMask("SolidTiles"));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Player.position - transform.position, Mathf.Infinity, LayerMask.GetMask("SolidTiles"));
             if (hit.distance != 0)
             {
                 transform.parent.GetComponent<Enemy>().playerInLOS = false;
