@@ -45,15 +45,29 @@ public class Platform_Player_Script : MonoBehaviour
             jumps = 1;
             jumpForce = firstJumpForce;
         }
-        mousepos = Input.mousePosition;
+        /*mousepos = Input.mousePosition;
         mousepos = Camera.main.ScreenToWorldPoint(mousepos);
-        /*
         mouserotX = Mathf.Atan2(mousepos.x,gameObject.transform.position.x);
         mouserotY = Mathf.Atan2(mousepos.y, gameObject.transform.position.y);
         Pointer.rotation = new Quaternion(mouserotX,mouserotY,0,0);
-        */
         Vector3 relativePos = mousepos - gameObject.transform.position;
-        Pointer.rotation = Quaternion.LookRotation(relativePos, new Vector3(0, 0, 1));
+        Pointer.rotation = Quaternion.LookRotation(relativePos, new Vector3(0, 0, 0));
+        */
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = 5.23f;
+
+        Vector3 gunPos = Camera.main.WorldToScreenPoint(Pointer.transform.position);
+        mousePos.x = mousePos.x - gunPos.x;
+        mousePos.y = mousePos.y - gunPos.y;
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        if (transform.localScale.x==1)
+        {
+            Pointer.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        } else if (transform.localScale.x==-1)
+        {
+            Pointer.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -angle));
+        }
+
 
     }
 }

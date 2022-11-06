@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class RailgunAnimation : MonoBehaviour
 {
@@ -47,6 +48,7 @@ public class RailgunAnimation : MonoBehaviour
         } else {
             anim.Play("RailgunIdle");
         }
+        
 
     }
     public void Shoot()

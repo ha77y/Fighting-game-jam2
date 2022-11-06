@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+      
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

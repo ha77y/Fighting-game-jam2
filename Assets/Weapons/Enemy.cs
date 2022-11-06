@@ -23,6 +23,15 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*if (playerInLOS)
+        {
+            Vector2 target = this.transform.GetChild(0).GetComponent<Sensor>().Player.position;
+            this.transform.GetChild(1).transform.rotation = Quaternion.LookRotation(target);
+        }*/
+
+
+
+
         if (ammo == 0 & !isreloading)
         {
             isshooting = false;

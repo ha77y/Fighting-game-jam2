@@ -83,7 +83,8 @@ public class HorseshoeAnimation : MonoBehaviour
            
         if (this.transform.parent.GetComponent<Enemy>().ammo != 0) 
         { 
-            this.transform.parent.GetComponent<Enemy>().ammo -= 1; 
+            this.transform.parent.GetComponent<Enemy>().ammo -= 1;
+            Vector2 pos = this.transform.GetComponentInParent<Sensor>().Player.position;
         }
     }
     public void Reload()
