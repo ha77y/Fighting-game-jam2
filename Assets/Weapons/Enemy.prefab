@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef53e511ee0c785498b8d5b55f33eb6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   isshooting: 1
   isreloading: 0
   ispatroling: 0
@@ -210,6 +210,7 @@ MonoBehaviour:
   rightFoot: {fileID: 4343215976342895843}
   left: {fileID: 9044023189526331459}
   right: {fileID: 2031751191484328105}
+  kiteDistance: 5
   ammo: -1
   health: 100
 --- !u!50 &1663140546

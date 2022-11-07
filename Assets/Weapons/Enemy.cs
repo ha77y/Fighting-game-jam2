@@ -21,7 +21,17 @@ public class Enemy : MonoBehaviour
     public Transform rightFoot;
     public Transform left;
     public Transform right;
+    public int kiteDistance;
 
+
+    private RaycastHit2D groundBelowLeft;
+    private RaycastHit2D groundBelowRight;
+    private RaycastHit2D groundAboveLeft;
+    private RaycastHit2D groundAboveRight;
+    private RaycastHit2D highgroundLeft;
+    private RaycastHit2D highgroundRight;
+    private RaycastHit2D dropLeft;
+    public RaycastHit2D dropRight;
 
     public int ammo = -1;
     public int health = 30;
@@ -35,41 +45,44 @@ public class Enemy : MonoBehaviour
     {
         Transform player = transform.GetChild(0).GetComponent<Sensor>().Player;
 
-        Debug.DrawRay(leftFoot.transform.position, -Vector2.up);
-        Debug.DrawRay(rightFoot.transform.position, -Vector2.up);
-        Debug.DrawRay(leftFoot.transform.position, Vector2.up);
-        Debug.DrawRay(rightFoot.transform.position, Vector2.up);
+        //Debug.DrawRay(leftFoot.transform.position, -Vector2.up);
+        //Debug.DrawRay(rightFoot.transform.position, -Vector2.up);
+        //Debug.DrawRay(leftFoot.transform.position, Vector2.up);
+        //Debug.DrawRay(rightFoot.transform.position, Vector2.up);
 
-        Debug.DrawRay(transform.position, Vector2.left);
-        Debug.DrawRay(transform.position, Vector2.right);
+        Debug.DrawRay(transform.position, Vector2.left*2);
+        Debug.DrawRay(transform.position, Vector2.right*2);
 
-        Debug.DrawRay(left.transform.position, Vector2.up);
-        Debug.DrawRay(right.transform.position, Vector2.up);
+        //Debug.DrawRay(left.transform.position, Vector2.up);
+        //Debug.DrawRay(right.transform.position, Vector2.up);
 
-        Debug.DrawRay(left.transform.position, Vector2.down);
-        Debug.DrawRay(right.transform.position, Vector2.down);
+        //Debug.DrawRay(left.transform.position, Vector2.down);
+        //Debug.DrawRay(right.transform.position, Vector2.down);
 
-        RaycastHit2D groundAboveLeft = Physics2D.Raycast(leftFoot.transform.position, -Vector2.up, Mathf.Infinity);
-        RaycastHit2D groundAboveright = Physics2D.Raycast(rightFoot.transform.position, Vector2.up, Mathf.Infinity);
-        RaycastHit2D groundBelowLeft = Physics2D.Raycast(leftFoot.transform.position, -Vector2.up, Mathf.Infinity);
-        RaycastHit2D groundBelowright = Physics2D.Raycast(rightFoot.transform.position, Vector2.up, Mathf.Infinity);
+        
 
-        RaycastHit2D wallLeft = Physics2D.Raycast(transform.position, Vector2.left, Mathf.Infinity);
-        RaycastHit2D wallRight = Physics2D.Raycast(transform.position, Vector2.right, Mathf.Infinity);
+        RaycastHit2D groundAboveLeft = Physics2D.Raycast(leftFoot.transform.position, -Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        RaycastHit2D groundAboveright = Physics2D.Raycast(rightFoot.transform.position, Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        RaycastHit2D groundBelowLeft = Physics2D.Raycast(leftFoot.transform.position, -Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        RaycastHit2D groundBelowRight = Physics2D.Raycast(rightFoot.transform.position, Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
 
-        RaycastHit2D highgroundLeft = Physics2D.Raycast(left.transform.position, Vector2.up, Mathf.Infinity);
-        RaycastHit2D highgroundRight = Physics2D.Raycast(right.transform.position, Vector2.up, Mathf.Infinity);
+        RaycastHit2D wallLeft = Physics2D.Raycast(transform.position, Vector2.left*2, Vector2.Distance(transform.position, Vector2.left/10), (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        RaycastHit2D wallRight = Physics2D.Raycast(transform.position, Vector2.right*2, Vector2.Distance(transform.position, Vector2.right/10), (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
 
-        RaycastHit2D dropLeft = Physics2D.Raycast(left.transform.position, Vector2.down, Mathf.Infinity);
-        RaycastHit2D dropRight = Physics2D.Raycast(right.transform.position, Vector2.down, Mathf.Infinity);
+        RaycastHit2D highgroundLeft = Physics2D.Raycast(left.transform.position, Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        RaycastHit2D highgroundRight = Physics2D.Raycast(right.transform.position, Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
 
+        RaycastHit2D dropLeft = Physics2D.Raycast(left.transform.position, Vector2.down, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        RaycastHit2D dropRight = Physics2D.Raycast(right.transform.position, Vector2.down, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
 
+        print(groundBelowLeft.distance);
+        print(groundBelowRight.distance);
         if (playerInLOS & playerInRange)
         {
-            if ((transform.position.x - player.position.x) > 5 & wallLeft.distance == 0)
+            if ((transform.position.x - player.position.x) > kiteDistance & (wallLeft.distance == 0 | wallLeft.distance > 1))
             {
                 Walk("left");
-            } else if ((transform.position.x - player.position.x) < 5 & wallRight.distance == 0)
+            } else if ((transform.position.x - player.position.x) < kiteDistance & (wallRight.distance == 0 | wallRight.distance > 1))
             {
                 Walk("right");
             }
@@ -118,11 +131,23 @@ public class Enemy : MonoBehaviour
     {
         if (direction == "left")
         {
-            transform.position = new Vector3(transform.position.x + (Vector2.left.x * speed * Time.deltaTime), transform.position.y);
+            if (groundBelowLeft.distance < 1)
+            {
+                transform.position = new Vector3(transform.position.x + (Vector2.left.x * speed * Time.deltaTime), transform.position.y);
+            } else
+            {
+                transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            }
+           
         } else if (direction == "right")
-        {
-            transform.position = new Vector3(transform.position.x + (-Vector2.left.x * speed * Time.deltaTime), transform.position.y);
-        }
+        
+            if (groundBelowRight.distance < 1)
+            {
+                transform.position = new Vector3(transform.position.x + (-Vector2.left.x * speed * Time.deltaTime), transform.position.y);
+            } else
+            {
+                transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            }
 
 
     }
