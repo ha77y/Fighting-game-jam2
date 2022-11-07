@@ -8,11 +8,20 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float speed;
     public Boolean isshooting = true;
     public Boolean isreloading = false;
     public Boolean ispatroling = false;
     public Boolean playerInRange = false;
     public Boolean playerInLOS = false;
+    public Boolean willDrop = false;
+    public Boolean highgroundSeeking = false;
+    public Boolean wander = false;
+    public Transform leftFoot;
+    public Transform rightFoot;
+    public Transform left;
+    public Transform right;
+
 
     public int ammo = -1;
     public int health = 30;
@@ -24,9 +33,52 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Transform player = transform.GetChild(0).GetComponent<Sensor>().Player;
+
+        Debug.DrawRay(leftFoot.transform.position, -Vector2.up);
+        Debug.DrawRay(rightFoot.transform.position, -Vector2.up);
+        Debug.DrawRay(leftFoot.transform.position, Vector2.up);
+        Debug.DrawRay(rightFoot.transform.position, Vector2.up);
+
+        Debug.DrawRay(transform.position, Vector2.left);
+        Debug.DrawRay(transform.position, Vector2.right);
+
+        Debug.DrawRay(left.transform.position, Vector2.up);
+        Debug.DrawRay(right.transform.position, Vector2.up);
+
+        Debug.DrawRay(left.transform.position, Vector2.down);
+        Debug.DrawRay(right.transform.position, Vector2.down);
+
+        RaycastHit2D groundAboveLeft = Physics2D.Raycast(leftFoot.transform.position, -Vector2.up, Mathf.Infinity);
+        RaycastHit2D groundAboveright = Physics2D.Raycast(rightFoot.transform.position, Vector2.up, Mathf.Infinity);
+        RaycastHit2D groundBelowLeft = Physics2D.Raycast(leftFoot.transform.position, -Vector2.up, Mathf.Infinity);
+        RaycastHit2D groundBelowright = Physics2D.Raycast(rightFoot.transform.position, Vector2.up, Mathf.Infinity);
+
+        RaycastHit2D wallLeft = Physics2D.Raycast(transform.position, Vector2.left, Mathf.Infinity);
+        RaycastHit2D wallRight = Physics2D.Raycast(transform.position, Vector2.right, Mathf.Infinity);
+
+        RaycastHit2D highgroundLeft = Physics2D.Raycast(left.transform.position, Vector2.up, Mathf.Infinity);
+        RaycastHit2D highgroundRight = Physics2D.Raycast(right.transform.position, Vector2.up, Mathf.Infinity);
+
+        RaycastHit2D dropLeft = Physics2D.Raycast(left.transform.position, Vector2.down, Mathf.Infinity);
+        RaycastHit2D dropRight = Physics2D.Raycast(right.transform.position, Vector2.down, Mathf.Infinity);
+
+
+        if (playerInLOS & playerInRange)
+        {
+            if ((transform.position.x - player.position.x) > 5 & wallLeft.distance == 0)
+            {
+                Walk("left");
+            } else if ((transform.position.x - player.position.x) < 5 & wallRight.distance == 0)
+            {
+                Walk("right");
+            }
+        }
+
         if (playerInLOS & playerInRange)
         {
             Vector2 localPlayerPos;
+
             Vector2 playerPos = this.transform.GetChild(0).GetComponent<Sensor>().Player.position;
             if (playerPos != null)
             {
@@ -61,6 +113,20 @@ public class Enemy : MonoBehaviour
 
         
     }
+
+    public void Walk(string direction)
+    {
+        if (direction == "left")
+        {
+            transform.position = new Vector3(transform.position.x + (Vector2.left.x * speed * Time.deltaTime), transform.position.y);
+        } else if (direction == "right")
+        {
+            transform.position = new Vector3(transform.position.x + (-Vector2.left.x * speed * Time.deltaTime), transform.position.y);
+        }
+
+
+    }
+
     public void Damaged(int amount)
     {
         health -= amount;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,6 +12,7 @@ public class Platform_Player_Script : MonoBehaviour
     [SerializeField] private Rigidbody2D Rigidbody2D;
     [SerializeField] private Transform GroundCheckTransform = null;
     [SerializeField] private Transform Pointer;
+    public Boolean isNSFW;
     float jumpForce;
     private Vector3 mousepos;
     private float mouserotX;
@@ -40,7 +42,7 @@ public class Platform_Player_Script : MonoBehaviour
 
             }
         }
-        if (Physics2D.OverlapCircle(new Vector3(GroundCheckTransform.position.x, GroundCheckTransform.position.y), 0.1f, LayerMask.GetMask("SolidTiles")))
+        if (Physics2D.OverlapCircle(new Vector3(GroundCheckTransform.position.x, GroundCheckTransform.position.y), 0.1f, LayerMask.GetMask("SolidTiles")) | Physics2D.OverlapCircle(new Vector3(GroundCheckTransform.position.x, GroundCheckTransform.position.y), 0.1f, LayerMask.GetMask("Default")))
         {
             jumps = 1;
             jumpForce = firstJumpForce;
@@ -62,10 +64,23 @@ public class Platform_Player_Script : MonoBehaviour
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         if (transform.localScale.x==1)
         {
-            Pointer.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            if (isNSFW)
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            } else
+            {
+                Pointer.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            }
         } else if (transform.localScale.x==-1)
         {
-            Pointer.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -angle));
+            if (isNSFW)
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, -angle));
+            }
+            else
+            {
+                Pointer.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -angle));
+            }
         }
 
 

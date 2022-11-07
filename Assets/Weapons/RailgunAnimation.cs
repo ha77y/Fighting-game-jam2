@@ -10,6 +10,7 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
+using static UnityEngine.Rendering.DebugUI;
 
 public class RailgunAnimation : MonoBehaviour
 {
@@ -86,6 +87,10 @@ public class RailgunAnimation : MonoBehaviour
                 deflectedLineRenderer.enabled = true;
             }
 
+            yield return new WaitForSeconds(0.2f);
+            lineRenderer.enabled = false;
+            deflectedLineRenderer.enabled = false;
+
             foreach (RaycastHit2D result in deflectHit2) //damage each enemy hit if they are hit before a solid wall
             {
                 if ((deflectHit.distance > result.distance & result.distance != 0) | (deflectHit.distance == 0 & result.distance > 0)) // If hit enemy before wall
@@ -97,10 +102,6 @@ public class RailgunAnimation : MonoBehaviour
                     }
                 }
             }
-
-            yield return new WaitForSeconds(0.2f);
-            lineRenderer.enabled = false;
-            deflectedLineRenderer.enabled = false;
         }
         else
         {
