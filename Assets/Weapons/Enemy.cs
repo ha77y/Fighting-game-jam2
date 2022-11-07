@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     public Boolean playerInLOS = false;
 
     public int ammo = -1;
-    public float health = 100;
+    public int health = 30;
     void Start()
     {
         
@@ -24,11 +24,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (playerInLOS)
-        {
-            Vector2 target = this.transform.GetChild(0).GetComponent<Sensor>().Player.position;
-            this.transform.GetChild(1).transform.rotation = Quaternion.LookRotation(target);
-        }*/
         if (playerInLOS & playerInRange)
         {
             Vector2 localPlayerPos;
@@ -63,33 +58,32 @@ public class Enemy : MonoBehaviour
             isshooting = false;
         }
 
-        if (health <= 0)
-        {
-            Destroy(this.gameObject);
-        }
         
     }
     public void Damaged(int amount)
     {
-
+        health -= amount;
+        StartCoroutine(spriteFlash(0.6f, 0.15f));
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
-    /*public IEnumerator spriteFlash(float duration, float delta)
+    public IEnumerator spriteFlash(float duration, float delta)
     {
-        invincible = true;
         for (float i = 0; i < duration; i += delta)
         {
-            if (sprite.transform.localScale == Vector3.one)
+            if (transform.localScale == Vector3.one)
             {
-                sprite.transform.localScale = Vector3.zero;
+                transform.localScale = Vector3.zero;
             }
             else
             {
-                sprite.transform.localScale = Vector3.one;
+                transform.localScale = Vector3.one;
             }
             yield return new WaitForSeconds(delta);
-
         }
-        invincible = false;
-    }*/
+        transform.localScale = Vector3.one;
+    }
 }

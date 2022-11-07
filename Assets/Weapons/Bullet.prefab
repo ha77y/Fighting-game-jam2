@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0cdb3bf4feed0d429c8824b7b303af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  flyAnimation: {fileID: 7400000, guid: 1b1d4f20e6fb8a147bbf822148d4d4f7, type: 2}
 --- !u!50 &6545462476269784612
 Rigidbody2D:
   serializedVersion: 4

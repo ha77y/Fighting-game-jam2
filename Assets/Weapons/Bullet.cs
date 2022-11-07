@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class Bullet : MonoBehaviour
 {
     public int damage = 10;
+    public AnimationClip flyAnimation;
     void Start()
     {
     }
@@ -37,18 +38,25 @@ public class Bullet : MonoBehaviour
             {
                 player.Damaged(damage);
             }
-            Expire();
+            ExpireCollision();
         } else if (collision.gameObject.tag == "Enemy" & gameObject.layer == LayerMask.GetMask("Friendly"))
         {
             print("Damage Enemy");
-            Expire();
+            collision.transform.GetComponent<Enemy>().Damaged(damage);
+            ExpireCollision();
         } else
         {
-            Expire();
+            ExpireCollision();
         }
         
     }
     public void Expire()
+    {
+        if (this.gameObject.layer == LayerMask.GetMask("Friendly")) return;
+        print("Bullet Expired");
+        Destroy(this.gameObject);
+    }
+    public void ExpireCollision()
     {
         print("Bullet Expired");
         Destroy(this.gameObject);
