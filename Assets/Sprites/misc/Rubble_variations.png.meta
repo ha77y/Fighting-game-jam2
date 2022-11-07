@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1723d04b05db5bb47a1193f9e42557ab
+guid: 0510202f3988923468ccd3ea8a6eed2f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,29 +101,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Concrete_Tiles_Background_With_supports_0
+      name: Rubble_variations_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 256
-        height: 256
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b22f133f3f77934ca03a4faac261bb7
-      internalID: 1314051997
+      spriteID: 28c2a45e6328daa4ca9847c30c104ead
+      internalID: 294262032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Concrete_Tiles_Background_With_supports_1
+      name: Rubble_variations_1
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
-        width: 256
-        height: 256
+        x: 512
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13e089dac9e797847ba75285e92ad14e
-      internalID: 1849068428
+      spriteID: 00ae82d7496b27847aa4d625377a978f
+      internalID: 869669428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Concrete_Tiles_Background_With_supports_2
+      name: Rubble_variations_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15ee0c64ef11b784c964bab2fa24df90
-      internalID: 365811824
+      spriteID: d8c03261045b1cd4fa6d618f3019909b
+      internalID: 1489715377
       vertices: []
       indices: 
       edges: []
@@ -190,9 +178,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Concrete_Tiles_Background_With_supports_1: 1849068428
-      Concrete_Tiles_Background_With_supports_2: 365811824
-      Concrete_Tiles_Background_With_supports_0: 1314051997
+      Rubble_variations_2: 1489715377
+      Rubble_variations_1: 869669428
+      Rubble_variations_0: 294262032
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
