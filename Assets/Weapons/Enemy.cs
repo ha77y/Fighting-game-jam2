@@ -69,4 +69,27 @@ public class Enemy : MonoBehaviour
         }
         
     }
+    public void Damaged(int amount)
+    {
+
+    }
+
+    /*public IEnumerator spriteFlash(float duration, float delta)
+    {
+        invincible = true;
+        for (float i = 0; i < duration; i += delta)
+        {
+            if (sprite.transform.localScale == Vector3.one)
+            {
+                sprite.transform.localScale = Vector3.zero;
+            }
+            else
+            {
+                sprite.transform.localScale = Vector3.one;
+            }
+            yield return new WaitForSeconds(delta);
+
+        }
+        invincible = false;
+    }*/
 }
