@@ -57,8 +57,8 @@ public class Enemy : MonoBehaviour
         //Debug.DrawRay(left.transform.position, Vector2.up);
         //Debug.DrawRay(right.transform.position, Vector2.up);
 
-        Debug.DrawRay(leftFoot.transform.position, Vector2.down, Color.red, 1f);
-        Debug.DrawRay(rightFoot.transform.position, Vector2.down, Color.red, 1f);
+        //Debug.DrawRay(leftFoot.transform.position, Vector2.down, Color.red, 1f);
+        //Debug.DrawRay(rightFoot.transform.position, Vector2.down, Color.red, 1f);
 
         
 
@@ -76,8 +76,8 @@ public class Enemy : MonoBehaviour
         RaycastHit2D dropLeft = Physics2D.Raycast(left.transform.position, Vector2.down, Vector2.Distance(left.transform.position, Vector2.down), (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
         RaycastHit2D dropRight = Physics2D.Raycast(right.transform.position, Vector2.down, Vector2.Distance(right.transform.position, Vector2.down), (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
 
-        Debug.DrawRay(groundBelowLeft.point, new Vector2 (leftFoot.transform.position.x, leftFoot.transform.position.y) - groundBelowLeft.point, Color.blue, 1f);
-        Debug.DrawRay(groundBelowRight.point, new Vector2(rightFoot.transform.position.x, rightFoot.transform.position.y) - groundBelowRight.point, Color.blue, 1f);
+        //Debug.DrawRay(groundBelowLeft.point, new Vector2 (leftFoot.transform.position.x, leftFoot.transform.position.y) - groundBelowLeft.point, Color.blue, 1f);
+        //Debug.DrawRay(groundBelowRight.point, new Vector2(rightFoot.transform.position.x, rightFoot.transform.position.y) - groundBelowRight.point, Color.blue, 1f);
 
         
         if (playerInLOS & playerInRange)
