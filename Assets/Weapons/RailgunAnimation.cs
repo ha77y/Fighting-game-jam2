@@ -84,7 +84,6 @@ public class RailgunAnimation : MonoBehaviour
                 deflectedLineRenderer.SetPosition(0, deflect.point);
                 deflectedLineRenderer.SetPosition(1, mousePoint);
                 deflectedLineRenderer.enabled = true;
-               
             }
 
             foreach (RaycastHit2D result in deflectHit2) //damage each enemy hit if they are hit before a solid wall
