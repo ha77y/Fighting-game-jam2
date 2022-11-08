@@ -30,6 +30,14 @@ public class Platform_Player_Script : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(transform.position.x + (Input.GetAxis("Horizontal") * speed * Time.deltaTime), transform.position.y);
+        if (Input.GetAxis("Horizontal") > 0 )
+        {
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (Input.GetAxis("Horizontal") < 0)
+        {
+            gameObject.transform.localScale = new Vector3(-1, 1, 1); 
+        }
 
         if (jumps > 0)
         {
