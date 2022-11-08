@@ -13,6 +13,7 @@ public class Platform_Player_Script : MonoBehaviour
     [SerializeField] private Transform GroundCheckTransform = null;
     [SerializeField] private Transform Pointer;
     public Boolean isNSFW;
+    public Boolean canWalk = true;
     float jumpForce;
     private Vector3 mousepos;
     private float mouserotX;
@@ -29,14 +30,17 @@ public class Platform_Player_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(transform.position.x + (Input.GetAxis("Horizontal") * speed * Time.deltaTime), transform.position.y);
-        if (Input.GetAxis("Horizontal") > 0 )
+        if (transform.GetComponent<PlayerStats>().canWalk)
         {
-            gameObject.transform.localScale = new Vector3(1, 1, 1);
-        }
-        else if (Input.GetAxis("Horizontal") < 0)
-        {
-            gameObject.transform.localScale = new Vector3(-1, 1, 1); 
+            transform.position = new Vector3(transform.position.x + (Input.GetAxis("Horizontal") * speed * Time.deltaTime), transform.position.y);
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                gameObject.transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (Input.GetAxis("Horizontal") < 0)
+            {
+                gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            }
         }
 
         if (jumps > 0)

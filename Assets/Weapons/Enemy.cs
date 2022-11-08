@@ -143,9 +143,6 @@ public class Enemy : MonoBehaviour
             ispatroling = true;
             isshooting = false;
         }
-        
-
-        
     }
 
     public void Walk(string direction)
@@ -183,6 +180,17 @@ public class Enemy : MonoBehaviour
                 yield return new WaitForSeconds(Time.deltaTime);
             }
             jumping = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Dash")
+        {
+            Damaged(collision.transform.parent.parent.GetComponent<PlayerStats>().dashDamage);
+        } else if (collision.gameObject.tag == "Attack")
+        {
+            Damaged(collision.transform.parent.parent.GetComponent<PlayerStats>().attackDamage);
         }
     }
 
