@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class PlayerStats : MonoBehaviour
     public GameObject sprite;
     public float invincibilityDuration = 1.35f;
     public float invincibilityDelta = 0.15f;
+    public Boolean isAttacking = false;
+    public Boolean isDeflecting = false;
     // Start is called before the first frame update
     void Start()
     {
