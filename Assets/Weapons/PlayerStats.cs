@@ -13,6 +13,9 @@ public class PlayerStats : MonoBehaviour
     public float invincibilityDelta = 0.15f;
     public Boolean isAttacking = false;
     public Boolean isDeflecting = false;
+    public Boolean isDashing = false;
+    public Collider2D deflectCollision;
+    public Collider2D attackCollision;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +25,16 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
+        if (isDeflecting)
+        {
+            deflectCollision.gameObject.SetActive(true);
+            attackCollision.gameObject.SetActive(false);
+        }
+        else if (isAttacking)
+        {
+            deflectCollision.gameObject.SetActive(false);
+            attackCollision.gameObject.SetActive(true);
+        }
     }
     public void Damaged(int amount)
     {
