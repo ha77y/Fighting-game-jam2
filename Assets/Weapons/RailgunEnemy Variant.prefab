@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: kiteDistance
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1966370423958646727, guid: 85ebdccf2c9517843a4a9cdf79ed1a16, type: 3}
+      propertyPath: highgroundSeeking
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2031751191484328105, guid: 85ebdccf2c9517843a4a9cdf79ed1a16, type: 3}
       propertyPath: m_RootOrder
       value: 5

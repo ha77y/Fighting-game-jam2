@@ -80,13 +80,17 @@ PrefabInstance:
       propertyPath: health
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 1966370423958646727, guid: 85ebdccf2c9517843a4a9cdf79ed1a16, type: 3}
+      propertyPath: willDrop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2031751191484328105, guid: 85ebdccf2c9517843a4a9cdf79ed1a16, type: 3}
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2681768129979237989, guid: 85ebdccf2c9517843a4a9cdf79ed1a16, type: 3}
       propertyPath: m_Name
-      value: HorseshoeEnemy
+      value: HorseshoeEnemy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2681768129979237989, guid: 85ebdccf2c9517843a4a9cdf79ed1a16, type: 3}
       propertyPath: m_Layer
