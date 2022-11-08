@@ -254,6 +254,7 @@ MonoBehaviour:
   Rigidbody2D: {fileID: 2043169828453822498}
   GroundCheckTransform: {fileID: 2043169828445685283}
   Pointer: {fileID: 2043169827647869556}
+  isNSFW: 0
 --- !u!114 &2043169828453822500
 MonoBehaviour:
   m_ObjectHideFlags: 0
