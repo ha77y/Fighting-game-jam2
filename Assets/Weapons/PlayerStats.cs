@@ -37,10 +37,13 @@ public class PlayerStats : MonoBehaviour
     public Transform foot;
     public Boolean isWallLeft;
     public Boolean isWallRight;
+    public Transform canvas;
+
     // Start is called before the first frame update
     void Start()
     {
-       
+        canvas.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        canvas.transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -97,6 +100,7 @@ public class PlayerStats : MonoBehaviour
         {
             isDeflecting = true;
             StartCoroutine(Cooldown("isDeflecting", deflectDuration));
+            canvas.transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             deflectCooldown = true;
             StartCoroutine(Cooldown("deflectCooldown", deflectCooldownLength));
         } 
@@ -106,6 +110,7 @@ public class PlayerStats : MonoBehaviour
             invincible = true;
             canWalk = false;
             StartCoroutine(Cooldown("isDashing", dashDuration*2f));
+            canvas.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             dashCooldown = true;
             StartCoroutine(Cooldown("dashCooldown", dashCooldownLength));
             StartCoroutine(Dash(dashDuration));
@@ -116,16 +121,26 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+
+
     public IEnumerator Cooldown(string boolean, float duration)
     {
         yield return new WaitForSeconds(duration);
         if (boolean == "isDeflecting") isDeflecting = !isDeflecting;
-        else if (boolean == "deflectCooldown") deflectCooldown = !deflectCooldown;
+        else if (boolean == "deflectCooldown")
+        {
+            deflectCooldown = !deflectCooldown;
+            canvas.transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        }
         else if (boolean == "isDashing")
         {
             isDashing = !isDashing;
         }
-        else if (boolean == "dashCooldown") dashCooldown = !dashCooldown;
+        else if (boolean == "dashCooldown") 
+        {
+            canvas.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            dashCooldown = !dashCooldown;
+        }
         else if (boolean == "isAttacking") isAttacking = !isAttacking;
         
             
