@@ -20,6 +20,7 @@ public class Platform_Player_Script : MonoBehaviour
     private float mouserotY;
     private Quaternion RotQuaternion;
 
+
     private int jumps = 1;
     // Start is called before the first frame update
     void Start()
@@ -99,4 +100,8 @@ public class Platform_Player_Script : MonoBehaviour
 
 
     }
+    
 }
+
+
+
