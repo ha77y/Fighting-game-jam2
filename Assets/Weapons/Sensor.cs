@@ -10,7 +10,7 @@ public class Sensor : MonoBehaviour
     public CircleCollider2D sensorBox;
     public Transform Player = null;
     public bool showGizmos = true;
-    public LineRenderer lineRenderer;
+    public Transform head;
     void Start()
     {
         
@@ -21,7 +21,7 @@ public class Sensor : MonoBehaviour
     {
         if (this.transform.parent.GetComponent<Enemy>().playerInRange)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Player.position - transform.position, Vector2.Distance(transform.position, Player.position), LayerMask.GetMask("SolidTiles"));
+            RaycastHit2D hit = Physics2D.Raycast(head.transform.position, Player.position - head.transform.position, Vector2.Distance(head.transform.position, Player.position), LayerMask.GetMask("SolidTiles"));
             if (hit.distance != 0)
             {
                 transform.parent.GetComponent<Enemy>().playerInLOS = false;
