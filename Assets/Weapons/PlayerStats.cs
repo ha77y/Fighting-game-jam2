@@ -8,16 +8,19 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public int health = 100;
+    public int healing = 45;
     public bool invincible = false;
     public GameObject sprite;
     public float invincibilityDuration = 1.35f;
     public float invincibilityDelta = 0.15f;
+
     public Boolean isAttacking = false;
     public Boolean isDeflecting = false;
     public Boolean isDashing = false;
     public Boolean deflectCooldown = false;
     public Boolean dashCooldown = false;
     public Boolean canWalk = true;
+
     public int deflectCooldownLength = 10;
     public int dashCooldownLength = 3;
     public int deflectDuration = 5;
@@ -25,6 +28,7 @@ public class PlayerStats : MonoBehaviour
     public float attackDuration = 0.1f;
     public int attackDamage = 5;
     public float dashDuration = 0.1f;
+
     public Collider2D deflectCollision;
     public Collider2D attackCollision;
     public Collider2D dashCollision;
@@ -155,6 +159,21 @@ public class PlayerStats : MonoBehaviour
         }
         sprite.transform.localScale = Vector3.one;
         invincible = false;
+    }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Healthpack")
+        {
+
+            if (health + healing > 100)
+            {
+                healing = 100 - health;
+            }
+
+            health += healing;
+            healing = 45;
+            Destroy(collision.gameObject);
+        }
     }
     public void GameOver()
     {
