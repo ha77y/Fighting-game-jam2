@@ -21,21 +21,23 @@ public class RailgunAnimation : MonoBehaviour
     public LineRenderer lineRenderer;
     public float laserWidth = 0.1f;
     public int damage = 10;
+    public LineRenderer targetingLaser;
 
     void Start()
     {
+        targetingLaser.startColor = Color.green;
+        targetingLaser.endColor = new Color(0.08f, 0.84f, 0.15f, 1);
         if (railgunAddEvents)
         {
             AnimationEvent evnt;
             evnt = new AnimationEvent();
-            evnt.time = 1.4f;
+            evnt.time = 2.3f;
             evnt.functionName = "Shoot";
-            //anim = gameObject.GetComponent(typeof(Animator)) as Animator;
             clip = anim.runtimeAnimatorController.animationClips[1];
             clip.AddEvent(evnt);
-            //evnt.time = 0.7f;
-            //evnt.functionName = "HideLaser";
-            //clip.AddEvent(evnt);
+            evnt.time = 2f;
+            evnt.functionName = "TargetingLaserColor";
+            clip.AddEvent(evnt);
             railgunAddEvents = false;
         }
         
@@ -44,7 +46,19 @@ public class RailgunAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (this.transform.parent.parent.parent.GetComponent<Enemy>().playerInLOS)
+        {
+            Vector2 firingPoint = new Vector2(this.gameObject.transform.parent.GetChild(1).position.x, this.gameObject.transform.parent.GetChild(1).position.y);
+            Vector2 playerPos = this.transform.parent.parent.parent.GetChild(0).GetComponent<Sensor>().Player.position;
+            targetingLaser.SetPosition(0, firingPoint);
+            targetingLaser.SetPosition(1, playerPos);
+            targetingLaser.enabled = true;
+        } else
+        {
+            targetingLaser.enabled = false;
+        }
+
+
         if (this.transform.parent.parent.parent.GetComponent<Enemy>().isshooting)
         {
             anim.Play("RailgunShoot");
@@ -61,6 +75,8 @@ public class RailgunAnimation : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(firingPoint, playerPos - firingPoint, Mathf.Infinity, LayerMask.GetMask("SolidTiles"));
         RaycastHit2D hit2 = Physics2D.Raycast(firingPoint, playerPos - firingPoint, Mathf.Infinity, LayerMask.GetMask("Player"));
         RaycastHit2D deflect = Physics2D.Raycast(firingPoint, playerPos - firingPoint, Mathf.Infinity, LayerMask.GetMask("Deflect"));
+        targetingLaser.startColor = Color.green;
+        targetingLaser.endColor = new Color(0.08f, 0.84f, 0.15f, 1);
 
         if (deflect.distance != 0) //if the player deflects the ray
         {
@@ -136,5 +152,10 @@ public class RailgunAnimation : MonoBehaviour
     public void HideLaser()
     {
         lineRenderer.enabled = false;
+    }
+    public void TargetingLaserColor()
+    {
+        targetingLaser.startColor = Color.yellow;
+        targetingLaser.endColor = new Color(0.84f, 0.81f, 0.04f, 1);
     }
 }
