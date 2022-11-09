@@ -32,13 +32,15 @@ public class Platform_Player_Script : MonoBehaviour
     {
         if (transform.GetComponent<PlayerStats>().canWalk)
         {
-            transform.position = new Vector3(transform.position.x + (Input.GetAxis("Horizontal") * speed * Time.deltaTime), transform.position.y);
-            if (Input.GetAxis("Horizontal") > 0)
+            
+            if (Input.GetAxis("Horizontal") > 0 & !transform.GetComponent<PlayerStats>().isWallRight)
             {
+                transform.position = new Vector3(transform.position.x + (Input.GetAxis("Horizontal") * speed * Time.deltaTime), transform.position.y);
                 gameObject.transform.localScale = new Vector3(1, 1, 1);
             }
-            else if (Input.GetAxis("Horizontal") < 0)
+            else if (Input.GetAxis("Horizontal") < 0 & !transform.GetComponent<PlayerStats>().isWallLeft)
             {
+                transform.position = new Vector3(transform.position.x + (Input.GetAxis("Horizontal") * speed * Time.deltaTime), transform.position.y);
                 gameObject.transform.localScale = new Vector3(-1, 1, 1);
             }
         }

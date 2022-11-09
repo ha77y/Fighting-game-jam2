@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1451252421031750081}
   - component: {fileID: 2470572732292652383}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DashCollision
   m_TagString: Dash
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.4899661, y: 0.050742984}
@@ -228,7 +228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043169828445685284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.958, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -345,12 +345,15 @@ MonoBehaviour:
   dashDamage: 15
   attackDuration: 0.1
   attackDamage: 5
-  dashDuration: 0.2
+  dashDuration: 0.15
   deflectCollision: {fileID: 2043169828713357198}
   attackCollision: {fileID: 2043169827521143640}
   dashCollision: {fileID: 2470572732292652383}
   dashDamageCollision: {fileID: 5142276077109704989}
   rb: {fileID: 2043169828453822498}
+  foot: {fileID: 2043169828445685283}
+  isWallLeft: 0
+  isWallRight: 0
 --- !u!61 &2043169828453822501
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -791,7 +794,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2763068270777958132}
   - component: {fileID: 5142276077109704989}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DashDamageCollision
   m_TagString: Dash
   m_Icon: {fileID: 0}

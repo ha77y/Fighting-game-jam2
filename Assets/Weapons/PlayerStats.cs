@@ -30,6 +30,9 @@ public class PlayerStats : MonoBehaviour
     public Collider2D dashCollision;
     public Collider2D dashDamageCollision;
     public Rigidbody2D rb;
+    public Transform foot;
+    public Boolean isWallLeft;
+    public Boolean isWallRight;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +42,27 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDeflecting)
+        RaycastHit2D wallLeft = Physics2D.Raycast(transform.position, Vector2.left, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        RaycastHit2D wallRight = Physics2D.Raycast(transform.position, Vector2.right, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        RaycastHit2D wallLeftFoot = Physics2D.Raycast(foot.transform.position, Vector2.left, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        RaycastHit2D wallRightFoot = Physics2D.Raycast(foot.transform.position, Vector2.right, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+
+        if ((wallLeft.distance < 0.8f & wallLeft.distance != 0) | (wallLeftFoot.distance < 0.8f & wallLeftFoot.distance != 0))
+        {
+            Debug.DrawRay(wallLeft.point, Vector2.right);
+            isWallLeft = true;
+        }
+        else isWallLeft = false;
+
+        if ((wallRight.distance < 0.8f & wallRight.distance != 0) | (wallRightFoot.distance < 0.8f & wallRightFoot.distance != 0))
+        {
+            Debug.DrawRay(wallRight.point, Vector2.left);
+            isWallRight = true;
+        }
+        else isWallRight = false;
+
+
+            if (isDeflecting)
         {
             deflectCollision.gameObject.SetActive(true);
             attackCollision.gameObject.SetActive(false);
@@ -97,8 +120,6 @@ public class PlayerStats : MonoBehaviour
         else if (boolean == "isDashing")
         {
             isDashing = !isDashing;
-            invincible = false;
-            canWalk = true;
         }
         else if (boolean == "dashCooldown") dashCooldown = !dashCooldown;
         else if (boolean == "isAttacking") isAttacking = !isAttacking;
@@ -112,16 +133,19 @@ public class PlayerStats : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         for (float i = 0; i < duration; i += Time.deltaTime/2)
         {
-            if (gameObject.transform.localScale == new Vector3(-1, 1, 1))
+            if (gameObject.transform.localScale == new Vector3(-1, 1, 1) & !isWallLeft)
             {
                 transform.position = new Vector3(transform.position.x + (Vector2.left.x * 30 * Time.deltaTime), transform.position.y);
-            } else if (gameObject.transform.localScale == new Vector3(1, 1, 1))
+            } else if (gameObject.transform.localScale == new Vector3(1, 1, 1) & !isWallRight)
             {
                 transform.position = new Vector3(transform.position.x + (-Vector2.left.x * 30 * Time.deltaTime), transform.position.y);
             }
             yield return new WaitForSeconds(Time.deltaTime/2);
         }
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        yield return new WaitForSeconds(duration);
+        invincible = false;
+        canWalk = true;
 
     }
 

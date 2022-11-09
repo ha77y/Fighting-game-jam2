@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public Boolean wander = false;
     public Boolean jumping = false;
     public Boolean canJump = false;
+    public Boolean invincible = false;
     public Transform leftFoot;
     public Transform rightFoot;
     public Transform left;
@@ -196,7 +197,9 @@ public class Enemy : MonoBehaviour
 
     public void Damaged(int amount)
     {
+        if (invincible) return;
         health -= amount;
+        invincible = true;
         StartCoroutine(spriteFlash(0.6f, 0.15f));
         if (health <= 0)
         {
@@ -218,7 +221,9 @@ public class Enemy : MonoBehaviour
                 sprite.transform.localScale = Vector3.one;
             }
             yield return new WaitForSeconds(delta);
+            invincible = false;
         }
+       
         sprite.transform.localScale = Vector3.one;
     }
 }
