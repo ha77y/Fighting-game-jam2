@@ -55,62 +55,13 @@ public class Enemy : MonoBehaviour
     {
         Transform player = transform.GetChild(0).GetComponent<Sensor>().Player;
 
-        groundAboveLeft = Physics2D.Raycast(leftFoot.transform.position, Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-        groundAboveRight = Physics2D.Raycast(rightFoot.transform.position, Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-        groundBelowLeft = Physics2D.Raycast(leftFoot.transform.position, -Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-        groundBelowRight = Physics2D.Raycast(rightFoot.transform.position, -Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        groundAboveLeft = Physics2D.Raycast(leftFoot.transform.position, Vector2.up, 10, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        groundAboveRight = Physics2D.Raycast(rightFoot.transform.position, Vector2.up, 10, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        groundBelowLeft = Physics2D.Raycast(leftFoot.transform.position, -Vector2.up, 2, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        groundBelowRight = Physics2D.Raycast(rightFoot.transform.position, -Vector2.up, 2, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
 
-        wallLeft = Physics2D.Raycast(leftFoot.transform.position, Vector2.left * 2, Vector2.Distance(transform.position, Vector2.left / 10), (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-        wallRight = Physics2D.Raycast(rightFoot.transform.position, Vector2.right * 2, Vector2.Distance(transform.position, Vector2.right / 10), (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-
-        highgroundLeft = Physics2D.Raycast(left.transform.position, Vector2.up, Mathf.Infinity, LayerMask.GetMask("Water"));
-        highgroundRight = Physics2D.Raycast(right.transform.position, Vector2.up, Mathf.Infinity, LayerMask.GetMask("Water"));
-    }
-
-    void Update() { 
-        if (playerInLOS & playerInRange & !jumping)
-        {
-            Transform player = transform.GetChild(0).GetComponent<Sensor>().Player;
-            if (groundBelowLeft.distance < 0.5 | groundBelowRight.distance < 0.5)
-            {
-                canJump = true;
-            }
-
-            if ((kiteDistance / 2) > (Vector2.Distance(player.position, transform.position)))
-                {
-                tooClose = true;
-                }
-
-            if (
-                ((Math.Abs(transform.position.x - player.position.x) > kiteDistance) & (player.position.x < transform.position.x) | (Math.Abs(transform.position.x - player.position.x) < kiteDistance) & (player.position.x > transform.position.x))
-                & (wallLeft.distance == 0 | wallLeft.distance > 1)) // if no wall left
-            {
-                if ((groundBelowLeft.distance < 1)|((willDrop | tooClose) & (groundBelowLeft.distance < 50))) // if will not fall off platform unless willDrop == true or player is within 1/4 kite distance
-                {
-                    Walk("left");
-                    if (highgroundLeft.distance > 1 & highgroundLeft.distance < 6 & (groundAboveLeft.distance == 0 | groundAboveLeft.distance > 8) & canJump)
-                    {
-                        jumpDirection = "left";
-                        StartCoroutine("Jump");
-                    }
-                }
-                
-            } else if (
-                ((Math.Abs(transform.position.x - player.position.x) > kiteDistance) & (player.position.x > transform.position.x) | (Math.Abs(transform.position.x - player.position.x) < kiteDistance) & (player.position.x < transform.position.x))
-                & (wallRight.distance == 0 | wallRight.distance > 1))
-            {
-                if ((groundBelowRight.distance < 1 )|((willDrop | tooClose) & (groundBelowRight.distance < 50))) // if will not fall off platform unless willDrop == true
-                {
-                    Walk("right");
-                    if (highgroundRight.distance > 1 & highgroundRight.distance < 6 & (groundAboveRight.distance == 0 | groundAboveRight.distance > 8) & canJump)
-                    {
-                        jumpDirection = "right";
-                        StartCoroutine("Jump");
-                    }
-                }
-            }
-            tooClose = false;
-        }
+        highgroundLeft = Physics2D.Raycast(left.transform.position, Vector2.up, 15, LayerMask.GetMask("Water"));
+        highgroundRight = Physics2D.Raycast(right.transform.position, Vector2.up, 15, LayerMask.GetMask("Water"));
 
         if (playerInLOS & playerInRange)
         {
@@ -126,7 +77,6 @@ public class Enemy : MonoBehaviour
                 gun.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
             }
         }
-
         if (ammo == 0 & !isreloading)
         {
             isshooting = false;
@@ -141,11 +91,65 @@ public class Enemy : MonoBehaviour
         {
             isreloading = true;
             isshooting = false;
-        } else if (!playerInLOS & !isreloading)
+        }
+        else if (!playerInLOS & !isreloading)
         {
             ispatroling = true;
             isshooting = false;
         }
+    }
+
+    void Update() {
+        wallLeft = Physics2D.Raycast(leftFoot.transform.position, Vector2.left * 2, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles") | LayerMask.GetMask("Enemy")));
+        wallRight = Physics2D.Raycast(rightFoot.transform.position, Vector2.right * 2, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles") | LayerMask.GetMask("Enemy")));
+        Transform player = transform.GetChild(0).GetComponent<Sensor>().Player;
+        if (playerInLOS & playerInRange & !jumping)
+        {
+            
+            if (groundBelowLeft.distance < 0.5 | groundBelowRight.distance < 0.5)
+            {
+                canJump = true;
+            }
+
+            if ((kiteDistance / 2) > (Vector2.Distance(player.position, transform.position)))
+                {
+                tooClose = true;
+                }
+
+            if (
+                ((Math.Abs(transform.position.x - player.position.x) > kiteDistance+1) & (player.position.x < transform.position.x) | (Math.Abs(transform.position.x - player.position.x) < kiteDistance-1) & (player.position.x > transform.position.x))
+                & (wallLeft.distance == 0 | wallLeft.distance > 1)) // if no wall left
+            {
+                if ((groundBelowLeft.distance < 1)|((willDrop | tooClose) & (groundBelowLeft.distance < 50))) // if will not fall off platform unless willDrop == true or player is within 1/4 kite distance
+                {
+                    Walk("left");
+                    if (highgroundLeft.distance > 1 & highgroundLeft.distance < 6 & (groundAboveLeft.distance == 0 | groundAboveLeft.distance > 8) & canJump)
+                    {
+                        jumpDirection = "left";
+                        StartCoroutine("Jump");
+                    }
+                }
+                
+            } else if (
+                ((Math.Abs(transform.position.x - player.position.x) > kiteDistance+1) & (player.position.x > transform.position.x) | (Math.Abs(transform.position.x - player.position.x) < kiteDistance-1) & (player.position.x < transform.position.x))
+                & (wallRight.distance == 0 | wallRight.distance > 1))
+            {
+                if ((groundBelowRight.distance < 1 )|((willDrop | tooClose) & (groundBelowRight.distance < 50))) // if will not fall off platform unless willDrop == true
+                {
+                    Walk("right");
+                    if (highgroundRight.distance > 1 & highgroundRight.distance < 6 & (groundAboveRight.distance == 0 | groundAboveRight.distance > 8) & canJump)
+                    {
+                        jumpDirection = "right";
+                        StartCoroutine("Jump");
+                    }
+                }
+            }
+            tooClose = false;
+        }
+
+        
+
+        
     }
 
     public void Walk(string direction)

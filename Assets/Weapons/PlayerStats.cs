@@ -54,6 +54,36 @@ public class PlayerStats : MonoBehaviour
         wallRight = Physics2D.Raycast(transform.position, Vector2.right, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
         wallLeftFoot = Physics2D.Raycast(foot.transform.position, Vector2.left, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
         wallRightFoot = Physics2D.Raycast(foot.transform.position, Vector2.right, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+
+        if (isDeflecting)
+        {
+            deflectCollision.gameObject.SetActive(true);
+            attackCollision.gameObject.SetActive(false);
+            dashCollision.gameObject.SetActive(false);
+            dashDamageCollision.gameObject.SetActive(false);
+        }
+        else if (isAttacking)
+        {
+            deflectCollision.gameObject.SetActive(false);
+            attackCollision.gameObject.SetActive(true);
+            dashCollision.gameObject.SetActive(false);
+            dashDamageCollision.gameObject.SetActive(false);
+        }
+        else if (isDashing)
+        {
+            deflectCollision.gameObject.SetActive(false);
+            attackCollision.gameObject.SetActive(false);
+            dashCollision.gameObject.SetActive(true);
+            dashDamageCollision.gameObject.SetActive(true);
+        }
+        else
+        {
+            deflectCollision.gameObject.SetActive(false);
+            attackCollision.gameObject.SetActive(false);
+            dashCollision.gameObject.SetActive(false);
+            dashDamageCollision.gameObject.SetActive(false);
+        }
+
     }
     void Update() { 
         if ((wallLeft.distance < 0.8f & wallLeft.distance != 0) | (wallLeftFoot.distance < 0.8f & wallLeftFoot.distance != 0))
@@ -69,34 +99,6 @@ public class PlayerStats : MonoBehaviour
             isWallRight = true;
         }
         else isWallRight = false;
-
-
-            if (isDeflecting)
-        {
-            deflectCollision.gameObject.SetActive(true);
-            attackCollision.gameObject.SetActive(false);
-            dashCollision.gameObject.SetActive(false);
-            dashDamageCollision.gameObject.SetActive(false);
-        }
-        else if (isAttacking)
-        {
-            deflectCollision.gameObject.SetActive(false);
-            attackCollision.gameObject.SetActive(true);
-            dashCollision.gameObject.SetActive(false);
-            dashDamageCollision.gameObject.SetActive(false);
-        } else if (isDashing)
-        {
-            deflectCollision.gameObject.SetActive(false);
-            attackCollision.gameObject.SetActive(false);
-            dashCollision.gameObject.SetActive(true);
-            dashDamageCollision.gameObject.SetActive(true);
-        } else
-        {
-            deflectCollision.gameObject.SetActive(false);
-            attackCollision.gameObject.SetActive(false);
-            dashCollision.gameObject.SetActive(false);
-            dashDamageCollision.gameObject.SetActive(false);
-        }
 
         if ((Input.GetKeyDown(KeyCode.E) | Input.GetKeyDown(KeyCode.Mouse1)) & !deflectCooldown & !isAttacking & !isDashing)
         {

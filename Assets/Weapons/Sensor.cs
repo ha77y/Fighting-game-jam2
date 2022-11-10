@@ -17,7 +17,7 @@ public class Sensor : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (this.transform.parent.GetComponent<Enemy>().playerInRange)
         {
