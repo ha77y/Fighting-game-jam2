@@ -84,6 +84,7 @@ public class Platform_Player_Script : MonoBehaviour
         mousePos.x = mousePos.x - gunPos.x;
         mousePos.y = mousePos.y - gunPos.y;
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        print(mousePos);
         if (transform.localScale.x==1)
         {
             if (isNSFW)
@@ -103,6 +104,14 @@ public class Platform_Player_Script : MonoBehaviour
             {
                 Pointer.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -angle));
             }
+        }
+
+        if (mousePos.x > 30 & !transform.GetComponent<PlayerStats>().facingByMovement) {
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
+        } 
+        else if (mousePos.x < -10 & !transform.GetComponent<PlayerStats>().facingByMovement)
+        {
+            gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
 
 
