@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6dcc55ae332a3d546bd8698a48fc5758
+guid: 7cd07825efd56a14e978851632602e8a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MC_DASH-Sheet_0
+      name: MC_ParryA-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f161714235c58b47a75cf63ca35b93d
-      internalID: -996730260
+      spriteID: 6edeaf4bb2b37044ea06b3fced0d3895
+      internalID: -598204803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_DASH-Sheet_1
+      name: MC_ParryA-Sheet_1
       rect:
         serializedVersion: 2
         x: 375
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de118698916391045a5df435a0c5c7b8
-      internalID: -1896631301
+      spriteID: bc5fc8e07d7b74a428c7b1659fe5dcf6
+      internalID: -1606649973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_DASH-Sheet_2
+      name: MC_ParryA-Sheet_2
       rect:
         serializedVersion: 2
         x: 750
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0614ee1296e8e7245a03239768b4d858
-      internalID: 1613764118
+      spriteID: 3214f59794f7b314e80455458b5bc4ca
+      internalID: 1148270176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_DASH-Sheet_3
+      name: MC_ParryA-Sheet_3
       rect:
         serializedVersion: 2
         x: 1125
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b2f631e8ffb9fa4ea58c432baa9701f
-      internalID: 1649136898
+      spriteID: ee9a2cd32acd7194b838542db29f513e
+      internalID: -1831811000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_DASH-Sheet_4
+      name: MC_ParryA-Sheet_4
       rect:
         serializedVersion: 2
         x: 1500
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db9b3eed16aa80f49a3648e6722db810
-      internalID: -2030492326
+      spriteID: 93d02146c2da39641992b76b1e3481bb
+      internalID: -946605643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_DASH-Sheet_5
+      name: MC_ParryA-Sheet_5
       rect:
         serializedVersion: 2
         x: 1875
@@ -236,8 +236,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e8e9b653fad6a54d96ce23f9aa2f25d
-      internalID: -1557938335
+      spriteID: 5590eac961e9cdc4c910a2223569416e
+      internalID: 840927112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC_ParryA-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 0
+        width: 375
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91fafe59b01b04649bb9caa4f27948dd
+      internalID: 672451116
       vertices: []
       indices: 
       edges: []
@@ -253,12 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MC_DASH-Sheet_1: -1896631301
-      MC_DASH-Sheet_2: 1613764118
-      MC_DASH-Sheet_0: -996730260
-      MC_DASH-Sheet_4: -2030492326
-      MC_DASH-Sheet_5: -1557938335
-      MC_DASH-Sheet_3: 1649136898
+      MC_ParryA-Sheet_5: 840927112
+      MC_ParryA-Sheet_2: 1148270176
+      MC_ParryA-Sheet_1: -1606649973
+      MC_ParryA-Sheet_0: -598204803
+      MC_ParryA-Sheet_6: 672451116
+      MC_ParryA-Sheet_4: -946605643
+      MC_ParryA-Sheet_3: -1831811000
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

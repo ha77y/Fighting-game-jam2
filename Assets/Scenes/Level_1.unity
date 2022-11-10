@@ -100001,6 +100001,22 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 262629889}
+    - target: {fileID: 2043169828453822500, guid: c8eb928337fb74c45bf84f4820eb79fc, type: 3}
+      propertyPath: attackDuration
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043169828453822500, guid: c8eb928337fb74c45bf84f4820eb79fc, type: 3}
+      propertyPath: deflectDuration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043169828453822500, guid: c8eb928337fb74c45bf84f4820eb79fc, type: 3}
+      propertyPath: dashCooldownLength
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043169828453822500, guid: c8eb928337fb74c45bf84f4820eb79fc, type: 3}
+      propertyPath: deflectCooldownLength
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4823316836073135888, guid: c8eb928337fb74c45bf84f4820eb79fc, type: 3}
       propertyPath: m_RootOrder
       value: 4

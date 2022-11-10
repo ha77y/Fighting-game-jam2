@@ -23,7 +23,7 @@ public class PlayerStats : MonoBehaviour
     public int dashCooldownLength = 3;
     public int deflectDuration = 5;
     public int dashDamage = 15;
-    public float attackDuration = 0.1f;
+    public float attackDuration = 0.5f;
     public int attackDamage = 5;
     public float dashDuration = 0.1f;
 
@@ -36,6 +36,7 @@ public class PlayerStats : MonoBehaviour
     public Boolean isWallLeft;
     public Boolean isWallRight;
     public Transform canvas;
+    public Animator animator;
 
     RaycastHit2D wallLeft, wallRight, wallLeftFoot, wallRightFoot;
   
@@ -88,14 +89,12 @@ public class PlayerStats : MonoBehaviour
     void Update() { 
         if ((wallLeft.distance < 0.8f & wallLeft.distance != 0) | (wallLeftFoot.distance < 0.8f & wallLeftFoot.distance != 0))
         {
-            Debug.DrawRay(wallLeft.point, Vector2.right);
             isWallLeft = true;
         }
         else isWallLeft = false;
 
         if ((wallRight.distance < 0.8f & wallRight.distance != 0) | (wallRightFoot.distance < 0.8f & wallRightFoot.distance != 0))
         {
-            Debug.DrawRay(wallRight.point, Vector2.left);
             isWallRight = true;
         }
         else isWallRight = false;
@@ -103,26 +102,44 @@ public class PlayerStats : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.E) | Input.GetKeyDown(KeyCode.Mouse1)) & !deflectCooldown & !isAttacking & !isDashing)
         {
             isDeflecting = true;
+            animator.Play("PlayerDeflect");
             StartCoroutine(Cooldown("isDeflecting", deflectDuration));
             canvas.transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             deflectCooldown = true;
             StartCoroutine(Cooldown("deflectCooldown", deflectCooldownLength));
         } 
-        if ((Input.GetKeyDown(KeyCode.LeftShift) | Input.GetKeyDown(KeyCode.Mouse2)) & !dashCooldown & !isAttacking & !isDeflecting)
+        else if ((Input.GetKeyDown(KeyCode.LeftShift) | Input.GetKeyDown(KeyCode.Mouse2)) & !dashCooldown & !isAttacking & !isDeflecting)
         {
             isDashing = true;
             invincible = true;
             canWalk = false;
+            animator.Play("PlayerDash");
             StartCoroutine(Cooldown("isDashing", dashDuration*2f));
             canvas.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             dashCooldown = true;
             StartCoroutine(Cooldown("dashCooldown", dashCooldownLength));
             StartCoroutine(Dash(dashDuration));
         }
-        if ((Input.GetKeyDown(KeyCode.Q) | Input.GetKeyDown(KeyCode.Mouse0)) & !isAttacking & !isDeflecting & !isDashing) {
+        else if ((Input.GetKeyDown(KeyCode.Q) | Input.GetKeyDown(KeyCode.Mouse0)) & !isAttacking & !isDeflecting & !isDashing) {
             isAttacking = true;
+            animator.Play("PlayerAttack");
             StartCoroutine(Cooldown("isAttacking", attackDuration));
         }
+        if (!isAttacking & !isDeflecting & !isDashing)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) & transform.GetComponent<Platform_Player_Script>().jumps != 0)
+            {
+                animator.Play("PlayerJump");
+            }
+            else if (Input.GetAxis("Horizontal") != 0 & Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles")))
+            {
+                animator.Play("PlayerRun");
+            } else
+            {
+                animator.Play("PlayerIdle");
+            }
+        }
+        
     }
 
 
