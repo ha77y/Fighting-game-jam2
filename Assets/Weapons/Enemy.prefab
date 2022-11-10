@@ -156,6 +156,7 @@ MonoBehaviour:
   wander: 0
   jumping: 0
   canJump: 0
+  invincible: 0
   leftFoot: {fileID: 4756494312470469929}
   rightFoot: {fileID: 4343215976342895843}
   left: {fileID: 9044023189526331459}
@@ -186,7 +187,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1663140547
 BoxCollider2D:

@@ -42,7 +42,7 @@ public class RailgunAnimation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (this.transform.parent.parent.parent.GetComponent<Enemy>().playerInLOS)
         {
