@@ -39,7 +39,6 @@ public class Sensor : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            print("Player Entered");
             sensorBox.radius = transform.parent.GetComponent<Enemy>().leaveLOSRange;
             transform.parent.GetComponent<Enemy>().playerInRange = true;
             Player = collision.gameObject.transform;
@@ -50,7 +49,6 @@ public class Sensor : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            print("Player Exited");
             sensorBox.radius = transform.parent.GetComponent<Enemy>().enterLOSRange;
             transform.parent.GetComponent<Enemy>().playerInRange = false;
             Player = null;

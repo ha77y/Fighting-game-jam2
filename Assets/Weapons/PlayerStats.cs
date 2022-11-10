@@ -37,6 +37,9 @@ public class PlayerStats : MonoBehaviour
     public Boolean isWallRight;
     public Transform canvas;
 
+    RaycastHit2D wallLeft, wallRight, wallLeftFoot, wallRightFoot;
+  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,13 +48,14 @@ public class PlayerStats : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        RaycastHit2D wallLeft = Physics2D.Raycast(transform.position, Vector2.left, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-        RaycastHit2D wallRight = Physics2D.Raycast(transform.position, Vector2.right, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-        RaycastHit2D wallLeftFoot = Physics2D.Raycast(foot.transform.position, Vector2.left, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-        RaycastHit2D wallRightFoot = Physics2D.Raycast(foot.transform.position, Vector2.right, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-
+        wallLeft = Physics2D.Raycast(transform.position, Vector2.left, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        wallRight = Physics2D.Raycast(transform.position, Vector2.right, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        wallLeftFoot = Physics2D.Raycast(foot.transform.position, Vector2.left, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        wallRightFoot = Physics2D.Raycast(foot.transform.position, Vector2.right, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+    }
+    void Update() { 
         if ((wallLeft.distance < 0.8f & wallLeft.distance != 0) | (wallLeftFoot.distance < 0.8f & wallLeftFoot.distance != 0))
         {
             Debug.DrawRay(wallLeft.point, Vector2.right);
@@ -146,7 +150,6 @@ public class PlayerStats : MonoBehaviour
     }
     public IEnumerator Dash(float duration)
     {
-        print("Dash");
         rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         for (float i = 0; i < duration; i += Time.deltaTime/2)
         {
@@ -169,7 +172,6 @@ public class PlayerStats : MonoBehaviour
     public void Damaged(int amount)
     {
         if (invincible) return;
-        print("Player Damaged");
         health -= amount;
         if (health <= 0)
         {     

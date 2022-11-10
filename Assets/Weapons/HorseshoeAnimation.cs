@@ -69,7 +69,6 @@ public class HorseshoeAnimation : MonoBehaviour
     }
     public void Shoot()
     {
-        print("HorseshoeShoot!!");
         Rigidbody2D b = Instantiate(bullet, new Vector2(this.gameObject.transform.parent.GetChild(1).position.x, this.gameObject.transform.parent.GetChild(1).position.y), Quaternion.identity);
         b.velocity = transform.right * -10.0f;
         b.GetComponent<Bullet>().damage = damage;
@@ -88,7 +87,6 @@ public class HorseshoeAnimation : MonoBehaviour
     }
     public void Reload()
     {
-        print("HorseshoeReloaded!");
         this.transform.parent.parent.parent.GetComponent<Enemy>().ammo = 5;
         this.transform.parent.parent.parent.GetComponent<Enemy>().isreloading = false;
     }

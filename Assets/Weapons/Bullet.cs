@@ -25,7 +25,6 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "Deflect")
         {
 
-            print("Bullet Deflected!");
             Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             Vector2 mousePoint = new Vector2(mouseRay.direction.x + mouseRay.origin.x, mouseRay.direction.y + mouseRay.origin.y);
             mousePoint = mousePoint - new Vector2(collision.transform.position.x, collision.transform.position.y);
@@ -37,7 +36,6 @@ public class Bullet : MonoBehaviour
 
             } else if (collision.gameObject.tag == "Player")
         {
-            print("Damage Player");
             PlayerStats player = collision.GetComponent<PlayerStats>();
             if (player != null)
             {
@@ -46,7 +44,6 @@ public class Bullet : MonoBehaviour
             ExpireCollision();
         } else if (collision.gameObject.tag == "Enemy" & gameObject.layer == 11)
         {
-            print("Damage Enemy");
             collision.transform.GetComponent<Enemy>().Damaged(damage);
             ExpireCollision();
         } else
@@ -58,12 +55,10 @@ public class Bullet : MonoBehaviour
     public void Expire()
     {
         if (this.gameObject.layer == 11) return;
-        print("Bullet Expired");
         Destroy(this.gameObject);
     }
     public void ExpireCollision()
     {
-        print("Bullet Expired");
         Destroy(this.gameObject);
     }
 }

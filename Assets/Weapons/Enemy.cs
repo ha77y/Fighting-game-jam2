@@ -39,8 +39,8 @@ public class Enemy : MonoBehaviour
     private RaycastHit2D groundAboveRight;
     private RaycastHit2D highgroundLeft;
     private RaycastHit2D highgroundRight;
-    private RaycastHit2D dropLeft;
-    private RaycastHit2D dropRight;
+    private RaycastHit2D wallLeft;
+    private RaycastHit2D wallRight;
 
     public int ammo = -1;
     public int maxAmmo = -1;
@@ -51,23 +51,26 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Transform player = transform.GetChild(0).GetComponent<Sensor>().Player;
 
-        RaycastHit2D groundAboveLeft = Physics2D.Raycast(leftFoot.transform.position, Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-        RaycastHit2D groundAboveRight = Physics2D.Raycast(rightFoot.transform.position, Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-        RaycastHit2D groundBelowLeft = Physics2D.Raycast(leftFoot.transform.position, -Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-        RaycastHit2D groundBelowRight = Physics2D.Raycast(rightFoot.transform.position, -Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        groundAboveLeft = Physics2D.Raycast(leftFoot.transform.position, Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        groundAboveRight = Physics2D.Raycast(rightFoot.transform.position, Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        groundBelowLeft = Physics2D.Raycast(leftFoot.transform.position, -Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        groundBelowRight = Physics2D.Raycast(rightFoot.transform.position, -Vector2.up, Mathf.Infinity, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
 
-        RaycastHit2D wallLeft = Physics2D.Raycast(transform.position, Vector2.left*2, Vector2.Distance(transform.position, Vector2.left/10), (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-        RaycastHit2D wallRight = Physics2D.Raycast(transform.position, Vector2.right*2, Vector2.Distance(transform.position, Vector2.right/10), (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        wallLeft = Physics2D.Raycast(leftFoot.transform.position, Vector2.left * 2, Vector2.Distance(transform.position, Vector2.left / 10), (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        wallRight = Physics2D.Raycast(rightFoot.transform.position, Vector2.right * 2, Vector2.Distance(transform.position, Vector2.right / 10), (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
 
-        RaycastHit2D highgroundLeft = Physics2D.Raycast(left.transform.position, Vector2.up, Mathf.Infinity, LayerMask.GetMask("Water"));
-        RaycastHit2D highgroundRight = Physics2D.Raycast(right.transform.position, Vector2.up, Mathf.Infinity, LayerMask.GetMask("Water"));
+        highgroundLeft = Physics2D.Raycast(left.transform.position, Vector2.up, Mathf.Infinity, LayerMask.GetMask("Water"));
+        highgroundRight = Physics2D.Raycast(right.transform.position, Vector2.up, Mathf.Infinity, LayerMask.GetMask("Water"));
+    }
 
+    void Update() { 
         if (playerInLOS & playerInRange & !jumping)
         {
+            Transform player = transform.GetChild(0).GetComponent<Sensor>().Player;
             if (groundBelowLeft.distance < 0.5 | groundBelowRight.distance < 0.5)
             {
                 canJump = true;
