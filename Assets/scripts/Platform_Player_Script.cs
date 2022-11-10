@@ -14,13 +14,15 @@ public class Platform_Player_Script : MonoBehaviour
     public Boolean isNSFW;
     public Boolean canWalk = true;
     float jumpForce;
+    public int jumps = 1;
+    public Animator animator;
     private Vector3 mousepos;
     private float mouserotX;
     private float mouserotY;
     private Quaternion RotQuaternion;
 
 
-    private int jumps = 1;
+
     // Start is called before the first frame update
     void Start()
     {
