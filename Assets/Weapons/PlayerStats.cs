@@ -18,6 +18,7 @@ public class PlayerStats : MonoBehaviour
     public Boolean deflectCooldown = false;
     public Boolean dashCooldown = false;
     public Boolean canWalk = true;
+    public Boolean facingByMovement = true;
 
     public int deflectCooldownLength = 10;
     public int dashCooldownLength = 3;
@@ -102,6 +103,7 @@ public class PlayerStats : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.E) | Input.GetKeyDown(KeyCode.Mouse1)) & !deflectCooldown & !isAttacking & !isDashing)
         {
             isDeflecting = true;
+            facingByMovement = false;
             animator.Play("PlayerDeflect");
             StartCoroutine(Cooldown("isDeflecting", deflectDuration));
             canvas.transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
@@ -147,7 +149,11 @@ public class PlayerStats : MonoBehaviour
     public IEnumerator Cooldown(string boolean, float duration)
     {
         yield return new WaitForSeconds(duration);
-        if (boolean == "isDeflecting") isDeflecting = !isDeflecting;
+        if (boolean == "isDeflecting")
+        {
+            isDeflecting = !isDeflecting;
+            facingByMovement = true;
+        }
         else if (boolean == "deflectCooldown")
         {
             deflectCooldown = !deflectCooldown;
@@ -157,7 +163,7 @@ public class PlayerStats : MonoBehaviour
         {
             isDashing = !isDashing;
         }
-        else if (boolean == "dashCooldown") 
+        else if (boolean == "dashCooldown")
         {
             canvas.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
             dashCooldown = !dashCooldown;
