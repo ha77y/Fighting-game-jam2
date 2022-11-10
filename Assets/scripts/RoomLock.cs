@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class RoomLock : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool PlayerEnter;
+    public bool locked;
+    private Enemy enemy;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerStay2D(Collider2D collider)
     {
-        
+        if (collider.name == "Enemy" && PlayerEnter == true)
+        {
+            locked = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.name == "Enemy" && PlayerEnter == true)
+        {
+            locked = false;
+        }
     }
 }
