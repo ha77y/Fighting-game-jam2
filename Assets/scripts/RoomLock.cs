@@ -6,8 +6,8 @@ using UnityEngine.Tilemaps;
 public class RoomLock : MonoBehaviour
 {
     public bool PlayerEnter;
-    public Transform door1;
-    public Transform door2;
+    public Tilemap door1;
+    public Tilemap door2;
     private ContactFilter2D filter;
 
     private void Start()
@@ -31,6 +31,7 @@ public class RoomLock : MonoBehaviour
             door1.GetComponent<TilemapCollider2D>().enabled = false;
             door2.GetComponent<TilemapRenderer>().enabled = false;
             door2.GetComponent<TilemapCollider2D>().enabled = false;
+            PlayerEnter = false;
         }
     }
 
