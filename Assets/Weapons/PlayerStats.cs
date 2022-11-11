@@ -105,6 +105,10 @@ public class PlayerStats : MonoBehaviour
         }
         else isWallRight = false;
 
+    }
+    private void Update()
+    {
+
         if ((Input.GetKeyDown(KeyCode.E) | Input.GetKeyDown(KeyCode.Mouse1)) & !deflectCooldown & !isAttacking & !isDashing)
         {
             isDeflecting = true;
@@ -132,7 +136,7 @@ public class PlayerStats : MonoBehaviour
             animator.Play("PlayerAttack");
             StartCoroutine(Cooldown("isAttacking", attackDuration));
         }
-        if (/*Input.GetAxis("Horizontal") != 0 &*/ Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles") | LayerMask.GetMask("Default")))
+        if (Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles", "Default")))
         {
             jumps = 1;
             jumpForce = firstJumpForce;
@@ -149,7 +153,7 @@ public class PlayerStats : MonoBehaviour
         }
         if (!isAttacking & !isDeflecting & !isDashing & !isJumping)
         {
-            if (Input.GetAxis("Horizontal") != 0 & Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles") | LayerMask.GetMask("Default")))
+            if (Input.GetAxis("Horizontal") != 0 & Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles", "Default")))
             {
                 animator.Play("PlayerRun");
             } else
