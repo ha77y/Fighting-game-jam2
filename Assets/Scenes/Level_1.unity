@@ -101448,6 +101448,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1420906078}
     - target: {fileID: 2043169828453822500, guid: c8eb928337fb74c45bf84f4820eb79fc, type: 3}
+      propertyPath: hp
+      value: 
+      objectReference: {fileID: 2047169699}
+    - target: {fileID: 2043169828453822500, guid: c8eb928337fb74c45bf84f4820eb79fc, type: 3}
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1401652976}
