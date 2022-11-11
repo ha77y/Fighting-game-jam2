@@ -5,27 +5,40 @@ using UnityEngine;
 public class RoomLock : MonoBehaviour
 {
     public bool PlayerEnter;
-    public bool locked;
-    private Enemy enemy;
     public Collider2D door1;
     public Collider2D door2;
+    private ContactFilter2D filter;
 
-    private void OnTriggerStay2D(Collider2D collider)
+    private void Start()
     {
-        if (collider.name == "Enemy" && PlayerEnter == true)
+        filter.useLayerMask = true;
+        filter.layerMask = LayerMask.GetMask("Enemy");
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "player")
         {
-            locked = true;
+            PlayerEnter = true;
             door1.enabled = true;
             door2.enabled = true;
         }
+        
     }
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.name == "Enemy" && PlayerEnter == true)
+
+        if(collider.tag == "Enemy")
         {
-            locked = false;
-            door1.enabled = false;
-            door2.enabled = false;
+            Collider2D[] results = new Collider2D[10];
+            int enemyCount = transform.GetComponent < Collider2D>().OverlapCollider(filter,results);
+            print(enemyCount);
+            if (enemyCount == 0)
+            {
+                door1.enabled = false;
+                door2.enabled = false;
+            }
         }
+        
     }
+
 }
