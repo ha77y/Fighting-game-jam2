@@ -37,7 +37,9 @@ public class RoomLock : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "player")
+        Collider2D[] results = new Collider2D[10];
+        int enemyCount = transform.GetComponent<Collider2D>().OverlapCollider(filter, results);
+        if (collision.name == "player" & enemyCount != 0)
         {
             PlayerEnter = true;
             door1.GetComponent<TilemapRenderer>().enabled = true;
