@@ -9,6 +9,7 @@ TagManager:
   - Dash
   - Attack
   - Healthpack
+  - collectable
   layers:
   - Default
   - TransparentFX
