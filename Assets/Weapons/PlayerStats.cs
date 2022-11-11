@@ -21,7 +21,12 @@ public class PlayerStats : MonoBehaviour
     public Boolean dashCooldown = false;
     public Boolean canWalk = true;
     public Boolean facingByMovement = true;
+    public Boolean isJumping = false;
 
+    public int jumps = 2;
+    public int jumpForce = 0;
+    public int firstJumpForce = 20;
+    public int secondJumpForce = 15;
     public int deflectCooldownLength = 10;
     public int dashCooldownLength = 3;
     public int deflectDuration = 5;
@@ -129,13 +134,22 @@ public class PlayerStats : MonoBehaviour
             animator.Play("PlayerAttack");
             StartCoroutine(Cooldown("isAttacking", attackDuration));
         }
-        if (!isAttacking & !isDeflecting & !isDashing)
+        if (Input.GetAxis("Horizontal") != 0 & Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles")))
         {
-            if (Input.GetKeyDown(KeyCode.Space) & transform.GetComponent<Platform_Player_Script>().jumps != 0)
-            {
-                animator.Play("PlayerJump");
-            }
-            else if (Input.GetAxis("Horizontal") != 0 & Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles")))
+            jumps = 2;
+            jumpForce = firstJumpForce;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.Play("PlayerJump");
+            rb.velocity = Vector3.zero;
+            rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+            jumps -= 1;
+            jumpForce = secondJumpForce;
+        }
+            if (!isAttacking & !isDeflecting & !isDashing & !isJumping)
+        {
+            if (Input.GetAxis("Horizontal") != 0 & Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles")))
             {
                 animator.Play("PlayerRun");
             } else
@@ -143,7 +157,6 @@ public class PlayerStats : MonoBehaviour
                 animator.Play("PlayerIdle");
             }
         }
-        
     }
 
 

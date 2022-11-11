@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b1b37b0f422957645b6e239eac5f678b
+guid: 8cf071777d45e424abafb6e5d48b07ce
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,7 +106,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,7 +117,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tutorial_button_2_0
+      name: idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610e0fc7d869379459d8f99ab796a34c
+      internalID: 1335267457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eea9a17dead303148b7ddb0e2db7ce1e
+      internalID: 678880434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e774f4d4019f8344a194e340d5ff2e2
+      internalID: 437143163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_3
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1a63c01ab97cc64d9b1cca5dc0b7555
-      internalID: 1971206954
+      spriteID: 32adc5593b266ce43b6e33d4a57f25d7
+      internalID: -1660843983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_button_2_1
+      name: idle_4
       rect:
         serializedVersion: 2
         x: 256
@@ -152,14 +215,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2458b8a7955d6fd4aa17cc489e98319c
-      internalID: -141766976
+      spriteID: 8c20e199b9af7f4469eb67db7d36d2c5
+      internalID: -2045405862
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_button_2_2
+      name: idle_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2999b3ba083e3724ab449f9e3f2f52ee
+      internalID: 1278945419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_6
       rect:
         serializedVersion: 2
         x: 0
@@ -173,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25f4d9a4a6f49be49ab939ca92005bc9
-      internalID: -1737862020
+      spriteID: 7d0009e0467bc0d4b9deed6d7fa5047d
+      internalID: 1014200335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_button_2_3
+      name: idle_7
       rect:
         serializedVersion: 2
         x: 256
@@ -194,14 +278,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 622011626f0bc844faad4c6e021c4b6f
-      internalID: -1066684405
+      spriteID: da393a390135a4f489a0302cccd3b419
+      internalID: 1061060277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_button_2_4
+      name: idle_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f5f9f886d799546978f7668212423a
+      internalID: -893215700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_9
       rect:
         serializedVersion: 2
         x: 0
@@ -215,29 +320,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65098ba0553a7be4885c8e9aa1ae4a8d
-      internalID: -408291007
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tutorial_button_2_5
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c74e7b137f3e55499c9b97179dc9872
-      internalID: 398116796
+      spriteID: 9949238c470b2fe47a14a4d012532d0c
+      internalID: -2100943437
       vertices: []
       indices: 
       edges: []
@@ -253,12 +337,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tutorial_button_2_0: 1971206954
-      tutorial_button_2_2: -1737862020
-      tutorial_button_2_4: -408291007
-      tutorial_button_2_3: -1066684405
-      tutorial_button_2_5: 398116796
-      tutorial_button_2_1: -141766976
+      idle_4: -2045405862
+      idle_3: -1660843983
+      idle_0: 1335267457
+      idle_1: 678880434
+      idle_8: -893215700
+      idle_6: 1014200335
+      idle_7: 1061060277
+      idle_2: 437143163
+      idle_5: 1278945419
+      idle_9: -2100943437
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

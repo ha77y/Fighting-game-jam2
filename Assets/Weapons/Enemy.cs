@@ -32,6 +32,8 @@ public class Enemy : MonoBehaviour
     private bool tooClose;
     private int counter;
     private string jumpDirection;
+    bool flipped = true;
+    bool flipped2 = false;
 
     private RaycastHit2D groundBelowLeft;
     private RaycastHit2D groundBelowRight;
@@ -74,7 +76,30 @@ public class Enemy : MonoBehaviour
                 localPlayerPos.y = this.transform.position.y - playerPos.y;
                 float angle = Mathf.Atan2(localPlayerPos.y, localPlayerPos.x) * Mathf.Rad2Deg;
                 Transform gun = this.transform.GetChild(1);
+                Transform sprite = transform.GetChild(2);
                 gun.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                if (localPlayerPos.x >= 0) {
+                    //gameObject.transform.localScale = new Vector3(1, 1, 1);
+                    sprite.transform.localScale = new Vector3(1, 1, 1);
+                    gun.transform.localScale = new Vector3(1, 1, 1);
+                    if (!flipped)
+                    {
+                        gun.transform.position = new Vector3(gun.transform.position.x -1.1f, gun.transform.position.y, gun.transform.position.z);
+                        flipped = true;
+                        flipped2 = false;
+                    }
+                } else
+                {
+                    //gameObject.transform.localScale = new Vector3(-1, 1, 1);
+                    gun.transform.localScale = new Vector3(1, -1, 1);
+                    sprite.transform.localScale = new Vector3(-1, 1, 1);
+                    if (!flipped2)
+                    {
+                        gun.transform.position = new Vector3(gun.transform.position.x+1.1f, gun.transform.position.y, gun.transform.position.z);
+                        flipped2 = true;
+                        flipped = false;
+                    }
+                }
             }
         }
         if (ammo == 0 & !isreloading)

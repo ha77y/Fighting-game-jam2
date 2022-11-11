@@ -343,6 +343,8 @@ MonoBehaviour:
   deflectCooldown: 0
   dashCooldown: 0
   canWalk: 1
+  facingByMovement: 1
+  isJumping: 0
   deflectCooldownLength: 10
   dashCooldownLength: 5
   deflectDuration: 5
@@ -350,6 +352,10 @@ MonoBehaviour:
   attackDuration: 0.1
   attackDamage: 5
   dashDuration: 0.15
+  jumps: 2
+  jumpForce: 20
+  firstJumpForce: 20
+  secondJumpForce: 15
   deflectCollision: {fileID: 2043169828713357198}
   attackCollision: {fileID: 2043169827521143640}
   dashCollision: {fileID: 2470572732292652383}
