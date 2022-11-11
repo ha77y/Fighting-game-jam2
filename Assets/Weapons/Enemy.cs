@@ -244,18 +244,17 @@ public class Enemy : MonoBehaviour
         Transform sprite = transform.GetChild(2);
         for (float i = 0; i < duration; i += delta)
         {
-            if (sprite.transform.localScale == Vector3.one)
+            if (sprite.GetComponent<SpriteRenderer>().enabled)
             {
-                sprite.transform.localScale = Vector3.zero;
+                sprite.GetComponent<SpriteRenderer>().enabled = false;
             }
             else
             {
-                sprite.transform.localScale = Vector3.one;
+                sprite.GetComponent<SpriteRenderer>().enabled = true;
             }
             yield return new WaitForSeconds(delta);
             invincible = false;
         }
-       
-        sprite.transform.localScale = Vector3.one;
+        sprite.GetComponent<SpriteRenderer>().enabled = true;
     }
 }
