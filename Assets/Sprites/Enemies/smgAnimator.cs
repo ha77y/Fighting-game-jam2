@@ -50,7 +50,7 @@ public class smgAnimator : MonoBehaviour
     {
         transform.GetComponent<Enemy>().isLanding = true;
         anim.Play("smgLand");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         transform.GetComponent<Enemy>().isLanding = false;
     }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using System.Net.Http.Headers;
 using System.Reflection;
 using UnityEngine;
 
@@ -134,7 +135,7 @@ public class Enemy : MonoBehaviour
         if (playerInLOS & playerInRange & !jumping &!isLanding)
         {
             
-            if (groundBelowLeft.distance < 0.5 | groundBelowRight.distance < 0.5)
+            if (groundBelowLeft.distance < 0.3f | groundBelowRight.distance < 0.3f)
             {
                 if (canJump == false)
                 {
@@ -205,13 +206,17 @@ public class Enemy : MonoBehaviour
         if (canJump)
         {
             counter = 100;
-            transform.GetComponent<Rigidbody2D>().AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             canJump = false;
             jumping = true;
-            if (enemyAnim == "smg") {
+            
+            if (enemyAnim == "smg")
+            {
                 transform.GetComponent<smgAnimator>().Jump();
             }
+            yield return new WaitForSeconds(0.2f);
+            transform.GetComponent<Rigidbody2D>().AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             while (counter-- > 0)
+            
             {
                 if (jumpDirection == "left")
                 {
@@ -222,7 +227,13 @@ public class Enemy : MonoBehaviour
                 {
                     transform.position = new Vector3(transform.position.x + (-Vector2.left.x * (speed*2) * Time.deltaTime), transform.position.y);
                 }
+                
                 yield return new WaitForSeconds(Time.deltaTime);
+                /*print(groundBelowLeft.distance);
+                if ((groundBelowLeft.distance < 0.93 & groundBelowLeft.distance != 0) | (groundBelowRight.distance < 0.93 & groundAboveRight.distance != 0) & counter < 50)
+                {
+                    counter = 0;
+                }*/
             }
             jumping = false;
         }
