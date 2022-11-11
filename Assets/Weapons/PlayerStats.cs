@@ -59,7 +59,7 @@ public class PlayerStats : MonoBehaviour
         StartCoroutine(Cooldown("deflectCooldown", deflectCooldownLength));                     //deactivates the black box infront of hud after deflect cooldown 
     }
 
-    private void dash()
+    private void playerDash()
     {
         isDashing = true;   //sets bools 
         invincible = true;
@@ -152,7 +152,7 @@ public class PlayerStats : MonoBehaviour
          // on press left shift or middle mouse in 
         else if ((Input.GetKeyDown(KeyCode.LeftShift) | Input.GetKeyDown(KeyCode.Mouse2)) & !dashCooldown & !isAttacking & !isDeflecting)
         {
-            dash();
+            playerDash();
         }
 
          // on press q or left click
