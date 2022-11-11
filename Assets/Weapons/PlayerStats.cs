@@ -48,6 +48,39 @@ public class PlayerStats : MonoBehaviour
 
     RaycastHit2D wallLeft, wallRight, wallLeftFoot, wallRightFoot;
   
+    private void deflect()
+    {
+        isDeflecting = true; 
+        facingByMovement = false;                                                               // character no longer faces direction of motion
+        animator.Play("PlayerDeflect");
+        StartCoroutine(Cooldown("isDeflecting", deflectDuration));                              // after deflect length, player faces direction of motion again
+        canvas.transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().enabled = true; // enables the black box infront of the hud icon
+        deflectCooldown = true;
+        StartCoroutine(Cooldown("deflectCooldown", deflectCooldownLength));                     //deactivates the black box infront of hud after deflect cooldown 
+    }
+
+    private void dash()
+    {
+        isDashing = true;   //sets bools 
+        invincible = true;
+        canWalk = false;
+        animator.Play("PlayerDash");
+        StartCoroutine(Cooldown("isDashing", dashDuration * 2f));                               // starts 2 second timer for isDashing boolean to swithc back  
+        canvas.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = true; //enables the black box infront of the hud icon
+        dashCooldown = true;
+        StartCoroutine(Cooldown("dashCooldown", dashCooldownLength));                           //deactivates the black box infront of hud after dash cooldown 
+        StartCoroutine(Dash(dashDuration));                                                     // initaites the actual dash
+    }
+
+    private void attack()
+    {
+        isAttacking = true;
+        animator.Play("PlayerAttack");
+        StartCoroutine(Cooldown("isAttacking", attackDuration));
+    }
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -59,17 +92,19 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        wallLeft = Physics2D.Raycast(transform.position, Vector2.left, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-        wallRight = Physics2D.Raycast(transform.position, Vector2.right, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-        wallLeftFoot = Physics2D.Raycast(foot.transform.position, Vector2.left, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
-        wallRightFoot = Physics2D.Raycast(foot.transform.position, Vector2.right, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
+        // casting raycasts to stop movement into walls 
+        wallLeft = Physics2D.Raycast(transform.position, Vector2.left, 5, (LayerMask.GetMask("Default","SolidTiles")));
+        wallRight = Physics2D.Raycast(transform.position, Vector2.right, 5, (LayerMask.GetMask("Default","SolidTiles")));
+        wallLeftFoot = Physics2D.Raycast(foot.transform.position, Vector2.left, 5, (LayerMask.GetMask("Default","SolidTiles")));
+        wallRightFoot = Physics2D.Raycast(foot.transform.position, Vector2.right, 5, (LayerMask.GetMask("Default","SolidTiles")));
 
+        //sets booleans for neccessary colliders
         if (isDeflecting)
         {
-            deflectCollision.gameObject.SetActive(true);
-            attackCollision.gameObject.SetActive(false);
-            dashCollision.gameObject.SetActive(false);
-            dashDamageCollision.gameObject.SetActive(false);
+            deflectCollision.gameObject.SetActive(true); // can deflect
+            attackCollision.gameObject.SetActive(false); // can't attack
+            dashCollision.gameObject.SetActive(false); // can't dash
+            dashDamageCollision.gameObject.SetActive(false); // ^^
         }
         else if (isAttacking)
         {
@@ -85,7 +120,7 @@ public class PlayerStats : MonoBehaviour
             dashCollision.gameObject.SetActive(true);
             dashDamageCollision.gameObject.SetActive(true);
         }
-        else
+        else  // when not attacking, deflecting or dashing 
         {
             deflectCollision.gameObject.SetActive(false);
             attackCollision.gameObject.SetActive(false);
@@ -108,40 +143,34 @@ public class PlayerStats : MonoBehaviour
     }
     private void Update()
     {
-
+         // on press E or right click
         if ((Input.GetKeyDown(KeyCode.E) | Input.GetKeyDown(KeyCode.Mouse1)) & !deflectCooldown & !isAttacking & !isDashing)
         {
-            isDeflecting = true;
-            facingByMovement = false;
-            animator.Play("PlayerDeflect");
-            StartCoroutine(Cooldown("isDeflecting", deflectDuration));
-            canvas.transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            deflectCooldown = true;
-            StartCoroutine(Cooldown("deflectCooldown", deflectCooldownLength));
+            deflect();
         } 
+
+         // on press left shift or middle mouse in 
         else if ((Input.GetKeyDown(KeyCode.LeftShift) | Input.GetKeyDown(KeyCode.Mouse2)) & !dashCooldown & !isAttacking & !isDeflecting)
         {
-            isDashing = true;
-            invincible = true;
-            canWalk = false;
-            animator.Play("PlayerDash");
-            StartCoroutine(Cooldown("isDashing", dashDuration*2f));
-            canvas.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            dashCooldown = true;
-            StartCoroutine(Cooldown("dashCooldown", dashCooldownLength));
-            StartCoroutine(Dash(dashDuration));
+            dash();
         }
-        else if ((Input.GetKeyDown(KeyCode.Q) | Input.GetKeyDown(KeyCode.Mouse0)) & !isAttacking & !isDeflecting & !isDashing) {
-            isAttacking = true;
-            animator.Play("PlayerAttack");
-            StartCoroutine(Cooldown("isAttacking", attackDuration));
+
+         // on press q or left click
+        else if ((Input.GetKeyDown(KeyCode.Q) | Input.GetKeyDown(KeyCode.Mouse0)) & !isAttacking & !isDeflecting & !isDashing)
+        {
+            attack();
         }
+
+
+        // jump reset on floor collison
         if (Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles", "Default")))
         {
-            jumps = 1;
+            jumps = 2;
             jumpForce = firstJumpForce;
             isJumping = false;
         }
+
+        // jumping
         if (Input.GetKeyDown(KeyCode.Space) && jumps !=0)
         {
             isJumping = true;
@@ -151,12 +180,15 @@ public class PlayerStats : MonoBehaviour
             jumps -= 1;
             jumpForce = secondJumpForce;
         }
+
+
         if (!isAttacking & !isDeflecting & !isDashing & !isJumping)
         {
+            // play run animation when moving without actions or being in air
             if (Input.GetAxis("Horizontal") != 0 & Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles", "Default")))
             {
                 animator.Play("PlayerRun");
-            } else
+            } else // play idle when idle
             {
                 animator.Play("PlayerIdle");
             }
