@@ -34,4 +34,16 @@ public class fatguyAnimator : MonoBehaviour
         }
         oldPos = transform.position;
     }
+    public void Jump()
+    {
+        anim.Play("fatguyJump");
+    }
+
+    public IEnumerator Land()
+    {
+        transform.GetComponent<Enemy>().isLanding = true;
+        anim.Play("fatguyLand");
+        yield return new WaitForSeconds(0.5f);
+        transform.GetComponent<Enemy>().isLanding = false;
+    }
 }
