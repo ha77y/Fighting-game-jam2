@@ -294,9 +294,10 @@ public class PlayerStats : MonoBehaviour
             Destroy(collision.gameObject);
 
         }
-        if(collision.gameObject.tag == "Collectables")
+        if(collision.gameObject.tag == "Collectable")
         {
             Data.collectables++;
+            Destroy(collision.gameObject);
         }
     }
 
