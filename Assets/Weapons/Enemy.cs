@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     public int leaveLOSRange = 18;
     public int enterLOSRange = 12;
     public float jumpForce = 10f;
+    public float gunOffset = 1.1f;
 
     private bool tooClose;
     private int counter;
@@ -84,7 +85,7 @@ public class Enemy : MonoBehaviour
                     gun.transform.localScale = new Vector3(1, 1, 1);
                     if (!flipped)
                     {
-                        gun.transform.position = new Vector3(gun.transform.position.x -1.1f, gun.transform.position.y, gun.transform.position.z);
+                        gun.transform.position = new Vector3(gun.transform.position.x -gunOffset, gun.transform.position.y, gun.transform.position.z);
                         flipped = true;
                         flipped2 = false;
                     }
@@ -95,7 +96,7 @@ public class Enemy : MonoBehaviour
                     sprite.transform.localScale = new Vector3(-1, 1, 1);
                     if (!flipped2)
                     {
-                        gun.transform.position = new Vector3(gun.transform.position.x+1.1f, gun.transform.position.y, gun.transform.position.z);
+                        gun.transform.position = new Vector3(gun.transform.position.x+gunOffset, gun.transform.position.y, gun.transform.position.z);
                         flipped2 = true;
                         flipped = false;
                     }

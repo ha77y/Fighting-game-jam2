@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-public class smgAnimator : MonoBehaviour
+public class fatguyAnimator : MonoBehaviour
 {
     public Animator anim;
     public SpriteRenderer gunSprite;
@@ -21,16 +19,17 @@ public class smgAnimator : MonoBehaviour
     {
         if (rb.velocity.magnitude != 0 | oldPos.x != transform.position.x)
         {
-            anim.Play("smgWalk");
+            anim.Play("fatguyWalk");
             gunSprite.enabled = true;
         }
         else if (transform.GetComponent<Enemy>().playerInLOS | transform.GetComponent<Enemy>().isshooting)
         {
-            anim.Play("smgIdle2");
+            anim.Play("fatguyIdle2");
             gunSprite.enabled = true;
-        } else
+        }
+        else
         {
-            anim.Play("smgIdle");
+            anim.Play("fatguyIdle");
             gunSprite.enabled = false;
         }
         oldPos = transform.position;

@@ -93,13 +93,13 @@ public class PlayerStats : MonoBehaviour
             dashDamageCollision.gameObject.SetActive(false);
         }
 
-        if ((wallLeft.distance < 0.8f & wallLeft.distance != 0) | (wallLeftFoot.distance < 0.8f & wallLeftFoot.distance != 0))
+        if ((wallLeft.distance <1.5f & wallLeft.distance != 0) | (wallLeftFoot.distance <1.5f & wallLeftFoot.distance != 0))
         {
             isWallLeft = true;
         }
         else isWallLeft = false;
 
-        if ((wallRight.distance < 0.8f & wallRight.distance != 0) | (wallRightFoot.distance < 0.8f & wallRightFoot.distance != 0))
+        if ((wallRight.distance <1.5f & wallRight.distance != 0) | (wallRightFoot.distance <1.5f & wallRightFoot.distance != 0))
         {
             isWallRight = true;
         }
