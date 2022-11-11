@@ -93,8 +93,6 @@ public class PlayerStats : MonoBehaviour
             dashDamageCollision.gameObject.SetActive(false);
         }
 
-    }
-    void Update() { 
         if ((wallLeft.distance < 0.8f & wallLeft.distance != 0) | (wallLeftFoot.distance < 0.8f & wallLeftFoot.distance != 0))
         {
             isWallLeft = true;
@@ -134,22 +132,24 @@ public class PlayerStats : MonoBehaviour
             animator.Play("PlayerAttack");
             StartCoroutine(Cooldown("isAttacking", attackDuration));
         }
-        if (/*Input.GetAxis("Horizontal") != 0 &*/ Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles","Default")))
+        if (/*Input.GetAxis("Horizontal") != 0 &*/ Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles") | LayerMask.GetMask("Default")))
         {
             jumps = 1;
             jumpForce = firstJumpForce;
+            isJumping = false;
         }
         if (Input.GetKeyDown(KeyCode.Space) && jumps !=0)
         {
+            isJumping = true;
             animator.Play("PlayerJump");
             rb.velocity = Vector3.zero;
             rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             jumps -= 1;
             jumpForce = secondJumpForce;
         }
-            if (!isAttacking & !isDeflecting & !isDashing & !isJumping)
+        if (!isAttacking & !isDeflecting & !isDashing & !isJumping)
         {
-            if (Input.GetAxis("Horizontal") != 0 & Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles")))
+            if (Input.GetAxis("Horizontal") != 0 & Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles") | LayerMask.GetMask("Default")))
             {
                 animator.Play("PlayerRun");
             } else

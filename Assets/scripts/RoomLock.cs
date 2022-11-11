@@ -14,6 +14,19 @@ public class RoomLock : MonoBehaviour
         filter.useLayerMask = true;
         filter.layerMask = LayerMask.GetMask("Enemy");
     }
+
+    private void FixedUpdate()
+    {
+        Collider2D[] results = new Collider2D[10];
+        int enemyCount = transform.GetComponent<Collider2D>().OverlapCollider(filter, results);
+        print(enemyCount);
+        if (enemyCount == 0)
+        {
+            door1.enabled = false;
+            door2.enabled = false;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.name == "player")
@@ -22,23 +35,6 @@ public class RoomLock : MonoBehaviour
             door1.enabled = true;
             door2.enabled = true;
         }
-        
-    }
-    private void OnTriggerExit2D(Collider2D collider)
-    {
 
-        if(collider.tag == "Enemy")
-        {
-            Collider2D[] results = new Collider2D[10];
-            int enemyCount = transform.GetComponent < Collider2D>().OverlapCollider(filter,results);
-            print(enemyCount);
-            if (enemyCount == 0)
-            {
-                door1.enabled = false;
-                door2.enabled = false;
-            }
-        }
-        
     }
-
 }
