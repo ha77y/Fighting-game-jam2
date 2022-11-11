@@ -228,7 +228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043169828445685284}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.95799994, z: 0}
+  m_LocalPosition: {x: -0.06, y: -1.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -310,14 +310,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  firstJumpForce: 20
-  secondJumpForce: 15
   Rigidbody2D: {fileID: 2043169828453822498}
-  GroundCheckTransform: {fileID: 2043169828445685283}
   Pointer: {fileID: 2043169827647869556}
   isNSFW: 0
   canWalk: 1
-  jumps: 1
   animator: {fileID: 0}
 --- !u!114 &2043169828453822500
 MonoBehaviour:
@@ -337,6 +333,7 @@ MonoBehaviour:
   sprite: {fileID: 2043169829073024269}
   invincibilityDuration: 1.35
   invincibilityDelta: 0.15
+  hp: {fileID: 0}
   isAttacking: 0
   isDeflecting: 0
   isDashing: 0
@@ -345,6 +342,10 @@ MonoBehaviour:
   canWalk: 1
   facingByMovement: 1
   isJumping: 0
+  jumps: 2
+  jumpForce: 20
+  firstJumpForce: 20
+  secondJumpForce: 15
   deflectCooldownLength: 10
   dashCooldownLength: 5
   deflectDuration: 5
@@ -352,10 +353,6 @@ MonoBehaviour:
   attackDuration: 0.1
   attackDamage: 5
   dashDuration: 0.15
-  jumps: 2
-  jumpForce: 20
-  firstJumpForce: 20
-  secondJumpForce: 15
   deflectCollision: {fileID: 2043169828713357198}
   attackCollision: {fileID: 2043169827521143640}
   dashCollision: {fileID: 2470572732292652383}
