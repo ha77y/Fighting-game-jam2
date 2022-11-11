@@ -134,12 +134,12 @@ public class PlayerStats : MonoBehaviour
             animator.Play("PlayerAttack");
             StartCoroutine(Cooldown("isAttacking", attackDuration));
         }
-        if (Input.GetAxis("Horizontal") != 0 & Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles")))
+        if (/*Input.GetAxis("Horizontal") != 0 &*/ Physics2D.OverlapCircle(new Vector3(foot.position.x, foot.position.y), 0.1f, LayerMask.GetMask("SolidTiles","Default")))
         {
-            jumps = 2;
+            jumps = 1;
             jumpForce = firstJumpForce;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && jumps !=0)
         {
             animator.Play("PlayerJump");
             rb.velocity = Vector3.zero;
