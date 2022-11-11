@@ -19,20 +19,39 @@ public class smgAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rb.velocity.magnitude != 0 | oldPos.x != transform.position.x)
+        if (!transform.GetComponent<Enemy>().isLanding & !transform.GetComponent<Enemy>().jumping)
         {
-            anim.Play("smgWalk");
-            gunSprite.enabled = true;
-        }
-        else if (transform.GetComponent<Enemy>().playerInLOS | transform.GetComponent<Enemy>().isshooting)
-        {
-            anim.Play("smgIdle2");
-            gunSprite.enabled = true;
-        } else
-        {
-            anim.Play("smgIdle");
-            gunSprite.enabled = false;
+            if (rb.velocity.magnitude != 0 | oldPos.x != transform.position.x)
+            {
+                anim.Play("smgWalk");
+                gunSprite.enabled = true;
+            }
+            else if (transform.GetComponent<Enemy>().playerInLOS | transform.GetComponent<Enemy>().isshooting)
+            {
+                anim.Play("smgIdle2");
+                gunSprite.enabled = true;
+            }
+            else
+            {
+                anim.Play("smgIdle");
+                gunSprite.enabled = false;
+            }
         }
         oldPos = transform.position;
+        
+
     }
+    public void Jump()
+    {
+        anim.Play("smgJump");
+    }
+
+    public IEnumerator Land()
+    {
+        transform.GetComponent<Enemy>().isLanding = true;
+        anim.Play("smgLand");
+        yield return new WaitForSeconds(1f);
+        transform.GetComponent<Enemy>().isLanding = false;
+    }
+
 }

@@ -24,7 +24,6 @@ public class RoomLock : MonoBehaviour
     {
         Collider2D[] results = new Collider2D[10];
         int enemyCount = transform.GetComponent<Collider2D>().OverlapCollider(filter, results);
-        print(enemyCount);
         if (enemyCount == 0)
         {
             door1.GetComponent<TilemapRenderer>().enabled = false;

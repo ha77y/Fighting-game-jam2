@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public Boolean jumping = false;
     public Boolean canJump = false;
     public Boolean invincible = false;
+    public Boolean isLanding = false;
     public Transform leftFoot;
     public Transform rightFoot;
     public Transform left;
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour
     public int enterLOSRange = 12;
     public float jumpForce = 10f;
     public float gunOffset = 1.1f;
+    public string enemyAnim;
 
     private bool tooClose;
     private int counter;
@@ -129,11 +131,18 @@ public class Enemy : MonoBehaviour
         wallLeft = Physics2D.Raycast(leftFoot.transform.position, Vector2.left * 2, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles") | LayerMask.GetMask("Enemy")));
         wallRight = Physics2D.Raycast(rightFoot.transform.position, Vector2.right * 2, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles") | LayerMask.GetMask("Enemy")));
         Transform player = transform.GetChild(0).GetComponent<Sensor>().Player;
-        if (playerInLOS & playerInRange & !jumping)
+        if (playerInLOS & playerInRange & !jumping &!isLanding)
         {
             
             if (groundBelowLeft.distance < 0.5 | groundBelowRight.distance < 0.5)
             {
+                if (canJump == false)
+                {
+                    if (enemyAnim == "smg")
+                    {
+                        StartCoroutine(transform.GetComponent<smgAnimator>().Land());
+                    }
+                }
                 canJump = true;
             }
 
@@ -199,6 +208,9 @@ public class Enemy : MonoBehaviour
             transform.GetComponent<Rigidbody2D>().AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             canJump = false;
             jumping = true;
+            if (enemyAnim == "smg") {
+                transform.GetComponent<smgAnimator>().Jump();
+            }
             while (counter-- > 0)
             {
                 if (jumpDirection == "left")
