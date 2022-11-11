@@ -231,10 +231,12 @@ public class Enemy : MonoBehaviour
     {
         if (invincible) return;
         health -= amount;
+        Data.DamageDealt += amount;
         invincible = true;
         StartCoroutine(spriteFlash(0.6f, 0.15f));
         if (health <= 0)
         {
+            Data.EnemiesKilled++;
             Destroy(this.gameObject);
         }
     }

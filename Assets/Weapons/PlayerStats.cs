@@ -249,6 +249,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (invincible) return;
         health -= amount;
+        Data.DamageTaken += amount;
         hp.SetHealth(health);
         if (health <= 0)
         {     
@@ -287,9 +288,15 @@ public class PlayerStats : MonoBehaviour
             }
 
             health += healing;
+            Data.amountHealed += healing;
             healing = 45;
             hp.SetHealth(health);
             Destroy(collision.gameObject);
+
+        }
+        if(collision.gameObject.tag == "Collectables")
+        {
+            Data.collectables++;
         }
     }
 

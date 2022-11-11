@@ -10,6 +10,10 @@ public class secrets : MonoBehaviour
     {
         secretPath.GetComponent<TilemapRenderer>().enabled = false;
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        secretPath.GetComponent<TilemapRenderer>().enabled = false;
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         secretPath.GetComponent<TilemapRenderer>().enabled = true;
