@@ -6,15 +6,10 @@ using UnityEngine;
 public class Platform_Player_Script : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private float firstJumpForce = 10f;
-    [SerializeField] private float secondJumpForce = 8f;
     [SerializeField] private Rigidbody2D Rigidbody2D;
-    [SerializeField] private Transform GroundCheckTransform = null;
     [SerializeField] private Transform Pointer;
     public Boolean isNSFW;
     public Boolean canWalk = true;
-    float jumpForce;
-    public int jumps = 1;
     public Animator animator;
     private Vector3 mousepos;
     private float mouserotX;
@@ -26,7 +21,7 @@ public class Platform_Player_Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        jumpForce = firstJumpForce;
+ 
     }
 
     // Update is called once per frame
@@ -53,7 +48,7 @@ public class Platform_Player_Script : MonoBehaviour
             }
         }
 
-        if (jumps > 0)
+        /*if (jumps > 0)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -84,7 +79,6 @@ public class Platform_Player_Script : MonoBehaviour
         mousePos.x = mousePos.x - gunPos.x;
         mousePos.y = mousePos.y - gunPos.y;
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        print(mousePos);
         if (transform.localScale.x==1)
         {
             if (isNSFW)

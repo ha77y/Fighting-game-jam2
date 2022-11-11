@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b1b37b0f422957645b6e239eac5f678b
+guid: ee4e6d974cfae3247b4254a024f8d025
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,7 +106,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tutorial_button_2_0
+      name: final_smg_enemy_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1a63c01ab97cc64d9b1cca5dc0b7555
-      internalID: 1971206954
+      spriteID: adb004d7560bb24458a71e2e5205f4ab
+      internalID: 1899505811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_button_2_1
+      name: final_smg_enemy_1
       rect:
         serializedVersion: 2
         x: 256
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2458b8a7955d6fd4aa17cc489e98319c
-      internalID: -141766976
+      spriteID: f8ba4e5e802464d4482504967dce2b44
+      internalID: 1318093464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_button_2_2
+      name: final_smg_enemy_2
       rect:
         serializedVersion: 2
         x: 0
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25f4d9a4a6f49be49ab939ca92005bc9
-      internalID: -1737862020
+      spriteID: 779164130e8227141957cc0baed42104
+      internalID: -1339152500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_button_2_3
+      name: final_smg_enemy_3
       rect:
         serializedVersion: 2
         x: 256
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 622011626f0bc844faad4c6e021c4b6f
-      internalID: -1066684405
+      spriteID: ea9c01467bc593f49ad7213ff4c2854a
+      internalID: -1159319365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_button_2_4
+      name: final_smg_enemy_4
       rect:
         serializedVersion: 2
         x: 0
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65098ba0553a7be4885c8e9aa1ae4a8d
-      internalID: -408291007
+      spriteID: 292b91c8b6c03c84fa3a8db0672dd3b7
+      internalID: -1230775092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_button_2_5
+      name: final_smg_enemy_5
       rect:
         serializedVersion: 2
         x: 256
@@ -236,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c74e7b137f3e55499c9b97179dc9872
-      internalID: 398116796
+      spriteID: 0ca833fd948a1f64f9098838affca879
+      internalID: -1232103912
       vertices: []
       indices: 
       edges: []
@@ -253,12 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tutorial_button_2_0: 1971206954
-      tutorial_button_2_2: -1737862020
-      tutorial_button_2_4: -408291007
-      tutorial_button_2_3: -1066684405
-      tutorial_button_2_5: 398116796
-      tutorial_button_2_1: -141766976
+      final_smg_enemy_1: 1318093464
+      final_smg_enemy_5: -1232103912
+      final_smg_enemy_0: 1899505811
+      final_smg_enemy_3: -1159319365
+      final_smg_enemy_4: -1230775092
+      final_smg_enemy_2: -1339152500
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

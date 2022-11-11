@@ -36,6 +36,9 @@ public class RailgunAnimation : MonoBehaviour
             evnt.time = 1.8f;
             evnt.functionName = "TargetingLaserColor";
             clip.AddEvent(evnt);
+            evnt.time = 1.3f;
+            evnt.functionName = "TargetingLaserColor";
+            clip.AddEvent(evnt);
             railgunAddEvents = false;
         }
         
