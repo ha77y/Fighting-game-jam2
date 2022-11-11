@@ -12,6 +12,8 @@ public class PlayerStats : MonoBehaviour
     public float invincibilityDuration = 1.35f;
     public float invincibilityDelta = 0.15f;
 
+    public healthbar healthbar;
+
     public Boolean isAttacking = false;
     public Boolean isDeflecting = false;
     public Boolean isDashing = false;
@@ -198,6 +200,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (invincible) return;
         health -= amount;
+        healthbar.SetHealth(health);
         if (health <= 0)
         {     
             GameOver();
@@ -236,9 +239,12 @@ public class PlayerStats : MonoBehaviour
 
             health += healing;
             healing = 45;
+            healthbar.SetHealth(health);
             Destroy(collision.gameObject);
         }
     }
+
+
     public void GameOver()
     {
         print("Game Over");
