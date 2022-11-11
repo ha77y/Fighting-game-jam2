@@ -142,6 +142,9 @@ public class Enemy : MonoBehaviour
                     if (enemyAnim == "smg")
                     {
                         StartCoroutine(transform.GetComponent<smgAnimator>().Land());
+                    } else if (enemyAnim == "fatguy")
+                    {
+                        StartCoroutine(transform.GetComponent<fatguyAnimator>().Land());
                     }
                 }
                 canJump = true;
@@ -212,6 +215,9 @@ public class Enemy : MonoBehaviour
             if (enemyAnim == "smg")
             {
                 transform.GetComponent<smgAnimator>().Jump();
+            } else if (enemyAnim == "fatguy")
+            {
+                transform.GetComponent<fatguyAnimator>().Jump();
             }
             yield return new WaitForSeconds(0.2f);
             transform.GetComponent<Rigidbody2D>().AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
