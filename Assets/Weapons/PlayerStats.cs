@@ -47,10 +47,10 @@ public class PlayerStats : MonoBehaviour
     public Animator animator;
 
     RaycastHit2D wallLeft, wallRight, wallLeftFoot, wallRightFoot;
-  
+
     private void deflect()
     {
-        isDeflecting = true; 
+        isDeflecting = true;
         facingByMovement = false;                                                               // character no longer faces direction of motion
         animator.Play("PlayerDeflect");
         StartCoroutine(Cooldown("isDeflecting", deflectDuration));                              // after deflect length, player faces direction of motion again
@@ -93,10 +93,10 @@ public class PlayerStats : MonoBehaviour
     void FixedUpdate()
     {
         // casting raycasts to stop movement into walls 
-        wallLeft = Physics2D.Raycast(transform.position, Vector2.left, 5, (LayerMask.GetMask("Default","SolidTiles")));
-        wallRight = Physics2D.Raycast(transform.position, Vector2.right, 5, (LayerMask.GetMask("Default","SolidTiles")));
-        wallLeftFoot = Physics2D.Raycast(foot.transform.position, Vector2.left, 5, (LayerMask.GetMask("Default","SolidTiles")));
-        wallRightFoot = Physics2D.Raycast(foot.transform.position, Vector2.right, 5, (LayerMask.GetMask("Default","SolidTiles")));
+        wallLeft = Physics2D.Raycast(transform.position, Vector2.left, 5, (LayerMask.GetMask("Default", "SolidTiles")));
+        wallRight = Physics2D.Raycast(transform.position, Vector2.right, 5, (LayerMask.GetMask("Default", "SolidTiles")));
+        wallLeftFoot = Physics2D.Raycast(foot.transform.position, Vector2.left, 5, (LayerMask.GetMask("Default", "SolidTiles")));
+        wallRightFoot = Physics2D.Raycast(foot.transform.position, Vector2.right, 5, (LayerMask.GetMask("Default", "SolidTiles")));
 
         //sets booleans for neccessary colliders
         if (isDeflecting)
@@ -128,13 +128,13 @@ public class PlayerStats : MonoBehaviour
             dashDamageCollision.gameObject.SetActive(false);
         }
 
-        if ((wallLeft.distance <1.5f & wallLeft.distance != 0) | (wallLeftFoot.distance <1.5f & wallLeftFoot.distance != 0))
+        if ((wallLeft.distance < 1.5f & wallLeft.distance != 0) | (wallLeftFoot.distance < 1.5f & wallLeftFoot.distance != 0))
         {
             isWallLeft = true;
         }
         else isWallLeft = false;
 
-        if ((wallRight.distance <1.5f & wallRight.distance != 0) | (wallRightFoot.distance <1.5f & wallRightFoot.distance != 0))
+        if ((wallRight.distance < 1.5f & wallRight.distance != 0) | (wallRightFoot.distance < 1.5f & wallRightFoot.distance != 0))
         {
             isWallRight = true;
         }
@@ -143,19 +143,19 @@ public class PlayerStats : MonoBehaviour
     }
     private void Update()
     {
-         // on press E or right click
+        // on press E or right click
         if ((Input.GetKeyDown(KeyCode.E) | Input.GetKeyDown(KeyCode.Mouse1)) & !deflectCooldown & !isAttacking & !isDashing)
         {
             deflect();
-        } 
+        }
 
-         // on press left shift or middle mouse in 
+        // on press left shift or middle mouse in 
         else if ((Input.GetKeyDown(KeyCode.LeftShift) | Input.GetKeyDown(KeyCode.Mouse2)) & !dashCooldown & !isAttacking & !isDeflecting)
         {
             playerDash();
         }
 
-         // on press q or left click
+        // on press q or left click
         else if ((Input.GetKeyDown(KeyCode.Q) | Input.GetKeyDown(KeyCode.Mouse0)) & !isAttacking & !isDeflecting & !isDashing)
         {
             attack();
@@ -171,14 +171,9 @@ public class PlayerStats : MonoBehaviour
         }
 
         // jumping
-        if (Input.GetKeyDown(KeyCode.Space) && jumps !=0)
+        if (Input.GetKeyDown(KeyCode.Space) && jumps != 0)
         {
-            isJumping = true;
-            animator.Play("PlayerJump");
-            rb.velocity = Vector3.zero;
-            rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-            jumps -= 1;
-            jumpForce = secondJumpForce;
+            StartCoroutine(Jump());
         }
 
 
@@ -220,10 +215,36 @@ public class PlayerStats : MonoBehaviour
             dashCooldown = !dashCooldown;
         }
         else if (boolean == "isAttacking") isAttacking = !isAttacking;
-        
-            
-        
+
+
+
     }
+    public IEnumerator Jump()
+    {
+        isJumping = true;
+        if (jumpForce == firstJumpForce)
+        {
+            animator.Play("PlayerJump");
+        } else
+        {
+            animator.Play("PlayerSecondJump");
+        }
+        rb.velocity = Vector3.zero;
+        rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.1f);
+        isJumping = true;
+        if (jumpForce == firstJumpForce)
+        {
+            animator.Play("PlayerJump");
+        }
+        else
+        {
+            animator.Play("PlayerSecondJump");
+        }
+        jumps -= 1;
+        jumpForce = secondJumpForce;
+    }
+
     public IEnumerator Dash(float duration)
     {
         rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
