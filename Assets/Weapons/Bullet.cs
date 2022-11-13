@@ -57,10 +57,18 @@ public class Bullet : MonoBehaviour
     public void Expire()
     {
         if (this.gameObject.layer == 11) return;
-        Destroy(this.gameObject);
+        StartCoroutine("Dissapate");
     }
     public void ExpireCollision()
     {
+        StartCoroutine("Dissapate");
+    }
+
+    public IEnumerator Dissapate()
+    {
+        transform.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        transform.GetComponent<Animator>().Play("BulletExpire");
+        yield return new WaitForSeconds(0.3f);
         Destroy(this.gameObject);
     }
 }

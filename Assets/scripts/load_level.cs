@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,10 +8,29 @@ public class load_level : MonoBehaviour
 {
     private MusicBetweenScenes Music;
     public int sceneNum;
+    public Animator anim;
+    public Boolean hovering = false;
     private void Start()
     {
         Music = GameObject.FindWithTag("GameMusic").GetComponent<MusicBetweenScenes>();
     }
+
+    private void FixedUpdate()
+    {
+        if (anim != null)
+        {
+            if (hovering)
+            {
+                anim.Play("tryAgain");
+            }
+            else
+            {
+                anim.Play("idle");
+            }
+        }
+    }
+
+
     public void GoLevel1()
     {
         Music.fadedown();
@@ -37,5 +57,15 @@ public class load_level : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quit!");
+    }
+
+    public void CursorHover()
+    {
+        hovering = true;
+    }
+
+    public void CursorStopHover()
+    {
+        hovering = false;
     }
 }
