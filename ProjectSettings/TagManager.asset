@@ -10,6 +10,7 @@ TagManager:
   - Attack
   - Healthpack
   - Collectable
+  - GameMusic
   layers:
   - Default
   - TransparentFX

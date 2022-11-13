@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -327,6 +328,9 @@ public class PlayerStats : MonoBehaviour
     public void GameOver()
     {
         print("Game Over");
+
+        SceneManager.LoadScene(2);
+
     }
 }
 

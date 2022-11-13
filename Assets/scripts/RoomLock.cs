@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class RoomLock : MonoBehaviour
 {
+    public MusicBetweenScenes Music;
     public bool PlayerEnter;
     public Tilemap door1;
     public Tilemap door2;
@@ -12,6 +13,8 @@ public class RoomLock : MonoBehaviour
 
     private void Start()
     {
+        Music = GameObject.FindWithTag("GameMusic").GetComponent<MusicBetweenScenes>();
+
         filter.useLayerMask = true;
         filter.layerMask = LayerMask.GetMask("Enemy");
         door1.GetComponent<TilemapRenderer>().enabled = false;
@@ -31,6 +34,7 @@ public class RoomLock : MonoBehaviour
             door2.GetComponent<TilemapRenderer>().enabled = false;
             door2.GetComponent<TilemapCollider2D>().enabled = false;
             PlayerEnter = false;
+            Music.fadedown();
         }
     }
 
@@ -45,6 +49,7 @@ public class RoomLock : MonoBehaviour
             door1.GetComponent<TilemapCollider2D>().enabled = true;
             door2.GetComponent<TilemapRenderer>().enabled = true;
             door2.GetComponent<TilemapCollider2D>().enabled = true;
+            Music.fadeup();
         }
 
     }
