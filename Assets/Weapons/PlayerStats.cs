@@ -222,10 +222,10 @@ public class PlayerStats : MonoBehaviour
     public IEnumerator Jump()
     {
         isJumping = true;
-        if (jumpForce == firstJumpForce)
+        if (jumpForce == firstJumpForce & !isDeflecting)
         {
             animator.Play("PlayerJump");
-        } else
+        } else if (!isDeflecting)
         {
             animator.Play("PlayerSecondJump");
         }
@@ -233,11 +233,12 @@ public class PlayerStats : MonoBehaviour
         rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.1f);
         isJumping = true;
-        if (jumpForce == firstJumpForce)
+        if (jumpForce == firstJumpForce & !isDeflecting)
+
         {
             animator.Play("PlayerJump");
         }
-        else
+        else if (!isDeflecting)
         {
             animator.Play("PlayerSecondJump");
         }
