@@ -329,7 +329,7 @@ public class PlayerStats : MonoBehaviour
     {
         print("Game Over");
 
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
 
     }
 }
