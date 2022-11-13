@@ -13,7 +13,7 @@ public class RoomLock : MonoBehaviour
 
     private void Start()
     {
-        Music = GameObject.FindWithTag("GameMusic").GetComponent<MusicBetweenScenes>();
+       
 
         filter.useLayerMask = true;
         filter.layerMask = LayerMask.GetMask("Enemy");
@@ -21,6 +21,7 @@ public class RoomLock : MonoBehaviour
         door1.GetComponent<TilemapCollider2D>().enabled = false;
         door2.GetComponent<TilemapRenderer>().enabled = false;
         door2.GetComponent<TilemapCollider2D>().enabled = false;
+        Music = GameObject.FindWithTag("GameMusic").GetComponent<MusicBetweenScenes>();
     }
 
     private void FixedUpdate()

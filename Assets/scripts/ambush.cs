@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class ambush : MonoBehaviour
 {
     public GameObject[] enemies;
+    public Tilemap door;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,8 @@ public class ambush : MonoBehaviour
             {
                 enemy.SetActive(true);
             }
+            door.GetComponent<TilemapRenderer>().enabled = true;
+            door.GetComponent<TilemapCollider2D>().enabled = true;
         }
     }
 }
