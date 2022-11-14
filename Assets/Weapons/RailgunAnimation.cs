@@ -32,7 +32,7 @@ public class RailgunAnimation : MonoBehaviour
         targetingLaser.enabled = false;
         targetingLaser.startColor = start;
         targetingLaser.endColor = start;
-        if (railgunAddEvents)
+        /*if (railgunAddEvents)
         {
             AnimationEvent evnt;
             evnt = new AnimationEvent();
@@ -47,7 +47,7 @@ public class RailgunAnimation : MonoBehaviour
             evnt.functionName = "TargetingLaserEnabled";
             clip.AddEvent(evnt);
             railgunAddEvents = false;
-        }
+        }*/
         
     }
 

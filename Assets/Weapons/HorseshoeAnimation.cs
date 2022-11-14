@@ -21,6 +21,7 @@ public class HorseshoeAnimation : MonoBehaviour
         
         if (horseshoeAddEvents)
         {
+            /*
             //Shoot animation event
             AnimationEvent evnt;
             evnt = new AnimationEvent();
@@ -46,6 +47,7 @@ public class HorseshoeAnimation : MonoBehaviour
             evnt.functionName = "Reload";
             clip.AddEvent(evnt);
             horseshoeAddEvents = false;
+            */
         }
         
     }
