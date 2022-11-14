@@ -14,6 +14,7 @@ public class MusicBetweenScenes : MonoBehaviour
     }
     private void Awake()
     {
+        Music = gameObject.GetComponent<AudioSource>();
         Music.volume = 0.8f;
         GameObject[] musicObj = GameObject.FindGameObjectsWithTag("GameMusic");
         if(musicObj.Length > 1)
