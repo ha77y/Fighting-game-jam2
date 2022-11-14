@@ -25,7 +25,8 @@ public class MusicBetweenScenes : MonoBehaviour
     {
         while (Music.volume < 1f)
         {
-            Music.volume += 0.1f * Time.deltaTime;
+            Music.volume += 0.01f *Time.deltaTime;
+            print(Music.volume);
         }
         Music.volume = 1f;
     }
@@ -33,7 +34,8 @@ public class MusicBetweenScenes : MonoBehaviour
     {
         while (Music.volume > 0.6f)
         {
-            Music.volume -= 0.1f * Time.deltaTime;
+            Music.volume -= 0.01f*Time.deltaTime;
+            print(Music.volume);
         }
         Music.volume = 0.6f;
     }

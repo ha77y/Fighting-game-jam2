@@ -41,6 +41,8 @@ public class load_level : MonoBehaviour
             Data.DamageTaken = 0;
             Data.amountHealed = 0;
             Data.EnemiesKilled = 0;
+            Data.MaxCollectables = 0;
+            Data.MaxEnemies = 0;
             if (Music.transform.GetComponent<AudioSource>().enabled != true)
             {
                 Music.transform.GetComponent<AudioSource>().enabled = true;
