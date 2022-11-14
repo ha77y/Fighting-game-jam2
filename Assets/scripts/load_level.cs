@@ -41,9 +41,9 @@ public class load_level : MonoBehaviour
             Data.DamageTaken = 0;
             Data.amountHealed = 0;
             Data.EnemiesKilled = 0;
-            if (Music.enabled != true)
+            if (Music.transform.GetComponent<AudioSource>().enabled != true)
             {
-                Music.enabled = true;
+                Music.transform.GetComponent<AudioSource>().enabled = true;
             }
         }
         if (sceneNum == 3)
