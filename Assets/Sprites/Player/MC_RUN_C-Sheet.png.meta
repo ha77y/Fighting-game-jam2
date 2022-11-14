@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 59db5b02b8bb42a43a04f8a0b6a89359
+guid: ca23d97a02186d349aa11c67587cac6d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MC_ATTACK_A-Sheet_0
+      name: MC_RUN_C-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bf37657cd8dcb74a8e96e0a35253069
-      internalID: -184479721
+      spriteID: 24d77c7d26c713549b17b3857fd56ad2
+      internalID: -2014367846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_ATTACK_A-Sheet_1
+      name: MC_RUN_C-Sheet_1
       rect:
         serializedVersion: 2
         x: 375
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c68f4b71c0a387a4d81aed19ef1c6d86
-      internalID: -1417502617
+      spriteID: d1c84721e05496045b12609d63590aea
+      internalID: -351793520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_ATTACK_A-Sheet_2
+      name: MC_RUN_C-Sheet_2
       rect:
         serializedVersion: 2
         x: 750
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e85f5dc5369ae841b63edbdd1c5220a
-      internalID: 1619838406
+      spriteID: 9bfc9cceaef349b4ca8f30725338856f
+      internalID: -1081831274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_ATTACK_A-Sheet_3
+      name: MC_RUN_C-Sheet_3
       rect:
         serializedVersion: 2
         x: 1125
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f7b3805c4cfea44388fafcea1f9f3f0
-      internalID: 51528193
+      spriteID: 792a52a85a5e6f04c8435ff31f0d7d9d
+      internalID: 986958211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_ATTACK_A-Sheet_4
+      name: MC_RUN_C-Sheet_4
       rect:
         serializedVersion: 2
         x: 1500
@@ -215,50 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55c99a270f929a441baacb3adfca50b9
-      internalID: -1920381935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_ATTACK_A-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 1875
-        y: 0
-        width: 375
-        height: 440
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4008c9955bf542c4f849713e8d3ea6e8
-      internalID: 511946050
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_ATTACK_A-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 2250
-        y: 0
-        width: 375
-        height: 440
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f7a95cb2c895d840a329baff0e345f3
-      internalID: -1072388953
+      spriteID: dbf4235a796e25748ac28c1039741a84
+      internalID: -890790763
       vertices: []
       indices: 
       edges: []
@@ -274,13 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MC_ATTACK_A-Sheet_5: 511946050
-      MC_ATTACK_A-Sheet_2: 1619838406
-      MC_ATTACK_A-Sheet_6: -1072388953
-      MC_ATTACK_A-Sheet_3: 51528193
-      MC_ATTACK_A-Sheet_0: -184479721
-      MC_ATTACK_A-Sheet_4: -1920381935
-      MC_ATTACK_A-Sheet_1: -1417502617
+      MC_RUN_C-Sheet_4: -890790763
+      MC_RUN_C-Sheet_0: -2014367846
+      MC_RUN_C-Sheet_3: 986958211
+      MC_RUN_C-Sheet_1: -351793520
+      MC_RUN_C-Sheet_2: -1081831274
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

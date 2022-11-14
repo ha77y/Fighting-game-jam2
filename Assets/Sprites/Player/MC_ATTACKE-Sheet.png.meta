@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9cae851e00c2cf44e9b508ee5a3f806f
+guid: 7844e046c9e50214b98acdf4c2c7e91a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MC_RUN_B-Sheet_0
+      name: MC_ATTACKE-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fa6fadbb70570f43aa14cd4acfbccde
-      internalID: -1939659417
+      spriteID: b33655fd6482192459b9bac4ebff67b2
+      internalID: 1296891534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_RUN_B-Sheet_1
+      name: MC_ATTACKE-Sheet_1
       rect:
         serializedVersion: 2
         x: 375
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bef1699ed63d94e4c80f035b9b9bb949
-      internalID: 1188614695
+      spriteID: 0ebea3359d895324dae68922c457caa4
+      internalID: 297871588
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_RUN_B-Sheet_2
+      name: MC_ATTACKE-Sheet_2
       rect:
         serializedVersion: 2
         x: 750
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98c8c950d09403844bc531401621c37f
-      internalID: -1427479587
+      spriteID: 49cae6f26549af64785dace2474b24ce
+      internalID: -1860716355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_RUN_B-Sheet_3
+      name: MC_ATTACKE-Sheet_3
       rect:
         serializedVersion: 2
         x: 1125
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f83910185e5f1a44d91df5829fc03010
-      internalID: -653919058
+      spriteID: b91ba28149381df40b0f5a4899cec92c
+      internalID: 253954154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_RUN_B-Sheet_4
+      name: MC_ATTACKE-Sheet_4
       rect:
         serializedVersion: 2
         x: 1500
@@ -215,8 +215,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8fff5f4338f6de4c903a0378f7ad43b
-      internalID: 1476177345
+      spriteID: f6c2d82e6fee1a74cbf42e7ae1f01679
+      internalID: -1042033257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC_ATTACKE-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 0
+        width: 375
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d290d17b55b17c4db878cb6acf0f1de
+      internalID: 25688697
       vertices: []
       indices: 
       edges: []
@@ -232,11 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MC_RUN_B-Sheet_2: -1427479587
-      MC_RUN_B-Sheet_0: -1939659417
-      MC_RUN_B-Sheet_3: -653919058
-      MC_RUN_B-Sheet_4: 1476177345
-      MC_RUN_B-Sheet_1: 1188614695
+      MC_ATTACKE-Sheet_0: 1296891534
+      MC_ATTACKE-Sheet_4: -1042033257
+      MC_ATTACKE-Sheet_1: 297871588
+      MC_ATTACKE-Sheet_3: 253954154
+      MC_ATTACKE-Sheet_2: -1860716355
+      MC_ATTACKE-Sheet_5: 25688697
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
