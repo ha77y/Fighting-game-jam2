@@ -14,6 +14,7 @@ public class PlayerStats : MonoBehaviour
     public float invincibilityDelta = 0.15f;
 
     public healthbar hp;
+    public CollectableCounter counter;
 
     public Boolean isAttacking = false;
     public Boolean isDeflecting = false;
@@ -88,6 +89,7 @@ public class PlayerStats : MonoBehaviour
     {
         canvas.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         canvas.transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        counter = GameObject.FindWithTag("CollectableCounter").GetComponent<CollectableCounter>();
     }
 
     // Update is called once per frame
@@ -320,6 +322,7 @@ public class PlayerStats : MonoBehaviour
         if(collision.gameObject.tag == "Collectable")
         {
             Data.collectables++;
+            counter.UpdateCounter();
             Destroy(collision.gameObject);
         }
     }
