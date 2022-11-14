@@ -15,14 +15,14 @@ public class secrets : MonoBehaviour
         if (isEntered)
         {
             
-            tilemap.color = new Color(1, 1, 1, opacity);
+            tilemap.color = new Color(tilemap.color.r, tilemap.color.g, tilemap.color.b, opacity);
             if (opacity > 0) 
             {
                 opacity -= 0.05f;
             }
         } else
         {
-            tilemap.color = new Color(1, 1, 1, opacity);
+            tilemap.color = new Color(tilemap.color.r, tilemap.color.g, tilemap.color.b, opacity);
             if (opacity < 1f)
             {
                 opacity += 0.05f;
