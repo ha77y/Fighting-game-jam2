@@ -24,6 +24,9 @@ public class TextBox : MonoBehaviour
     public Boolean awaitingPortrait;
     public Boolean keyDown;
     public Boolean ignoreInput;
+    public Boolean italic = false;
+    public Boolean bold = false;
+    public Boolean shrunk = false;
     public GameObject[] images;
     public GameObject[] imagesToDisable;
     public IEnumerator cameraInstruction;
@@ -41,38 +44,52 @@ public class TextBox : MonoBehaviour
     public float textPause;
     void Start()
     {
+        textList = new string[,] {
+            {"blank;"},
+            {"£$Sigh$£ Who are you and what do you want?#.#.#.;" },
+            {"Oh? you have a job for me.¬Go on..¬£$This better pay well#.#.#.$£;"},
+            {"The bandits in the area stole this @02           from you?;" },
+            {"And, you need me to collect these @01         ?¬You'd better be paying ^extra^ for that.;" },
+            {"Alright, lets get on with it then#.#.#.¬You can move me ^left or right^ by pressing the ^A or D^ keys."},
+            {">0200.05.Do you see this enemy over there?| He can shoot me with his railgun and it doesn't feel great.#.#. but thankfully I have a trick up my sleeve.;"},
+            {"<0200.05.If you press E or Right Click then I will swing my sword infront of me and any incoming projectiles or lasers from the direcction im facing will be deflected towards your mouse position, don't let me down#.#. got it?;"},
+            {">0200.05.During this, I will face towards your mouse rather than the direction you're moving. _ This means I can walk away from an enemy while deflecting at them.# Neat, right? Try it out."}
+        };
         Hide();
         textDelay = defaultTextDelay;
         textPause = defaultTextPause;
+        StartCoroutine(DisplayNext(1));
 
         //To display an image, use the @ symbol with 2 numbers after it. eg: @11
         //You will need to drag this image into the appropriate index in the images[] list in the inspector
 
+        //To change the current portrait use the : symbol followed by a 2 numbers after it. eg: :11
+        //You will need to drag this image into the appropriate index in the portraits[] list in the inspector
+
+
         //To have a longer pause use the # symbol
+
+        //To pause until user input use the | symbol
+
         //To autoplay the next section, use the ; symbol at the end of the string
 
         //To pan & pan return the camera use the ~ symbol followed by a 3 digit number, a 3 digit decimal and a 1 digit number eg @1000.052.
 
         //To pan the camera in a direction use the > or < symbol followed by a 3 digit number, a 3 digit decimal and a . eg >0100.05.
 
-        //To pause until user input use the | symbol
-
-        //To clear the current text use the ! symbol
-        
         //To center the camera on the player again use the _ symbol (note: this will instantly jump the camera back to the player, to smoothly do this, use the < pan mentioned above)
 
-        //To change the current portrait use the : symbol followed by a 2 numbers after it. eg: :11
-        //You will need to drag this image into the appropriate index in the portraits[] list in the inspector
+        //To clear the current text use the ! symbol
 
-        textList = new string[,] {
-            {"blank;"},
-            {"So, what did you #h#i#r#e# me for again?#.#.#.;" },
-            {"And, you need me to collect these @01         ?;" },
-            {"Alright, lets get on with it then#.#.#."},
-            {">0200.05.Do you see this enemy over there?| He can shoot me with his railgun and it doesn't feel great.#.#. but thankfully I have a trick up my sleeve.;"},
-            {"<0200.05.If you press E or Right Click then I will swing my sword infront of me and any incoming projectiles or lasers from the direcction im facing will be deflected towards your mouse position, don't let me down#.#. got it?;"},
-            {">0200.05.During this, I will face towards your mouse rather than the direction you're moving. _ This means you can walk away from an enemy while deflecting at them.# Neat, right? Try it out."}
-        };
+        //To add a new line use the ¬ symbol
+
+        //To embolden use the ^ symbol, to unembolden use the same symbol
+
+        //To italicise use the $ symbol, to unitalicise use the same symbol
+
+        //To shrink text use the £ symbol, to unshrink use the same symbol;
+
+
     }
 
     public void Hide()
@@ -143,13 +160,14 @@ public class TextBox : MonoBehaviour
         {
             displayNext = false;
             transform.parent.GetComponent<CameraMovement>().centerOnPlayer = false;
-            StartCoroutine(DisplayNext());
+            StartCoroutine(DisplayNext(index++));
             
         }
         
     }
-    public IEnumerator DisplayNext()
+    public IEnumerator DisplayNext(int Startindex)
     {
+        index = Startindex;
         awaiting = false;
         autoplay = false;
         player.GetComponent<PlayerStats>().Freeze();
@@ -259,12 +277,48 @@ public class TextBox : MonoBehaviour
             } else if (c.ToString() == "_")
             {
                 transform.parent.GetComponent<CameraMovement>().Recenter();
+            } else if (c.ToString() == "¬")
+            {
+                text.text += "<br>";
+            } else if (c.ToString() == "^")
+            {
+                if (bold)
+                {
+                    text.text += "</b>";
+                    bold = false;
+                } else
+                {
+                    text.text += "<b>";
+                    bold = true;
+                }
+            } else if (c.ToString() == "$")
+            {
+                if (italic)
+                {
+                    text.text += "</i>";
+                    italic = false;
+                } else
+                {
+                    text.text += "<i>";
+                    italic = true;
+                }
+            } else if (c.ToString() == "£")
+            {
+                if (shrunk)
+                {
+                    text.text += "<size=100%>";
+                    shrunk = false;
+                } else
+                {
+                    text.text += "<size=70%>";
+                    shrunk = true;
+                }
             }
             else
             {
                 text.text += c.ToString();
             }
-            if (c.ToString() != "" & c.ToString() != "@" & !awaitingImage)
+            if (c.ToString() != " " & c.ToString() != "@" & !awaitingImage)
             {
                 yield return new WaitForSeconds(textDelay);
             }

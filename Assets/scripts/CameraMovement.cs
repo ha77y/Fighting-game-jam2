@@ -42,6 +42,7 @@ public class CameraMovement : MonoBehaviour
     public IEnumerator Pan(float amount, float delta)
     {
         panning = true;
+        centerOnPlayer = false;
         float i = 0;
         while ((amount > 0 & (i += delta) < amount) | (amount < 0 & (i += delta) > amount))
         {
