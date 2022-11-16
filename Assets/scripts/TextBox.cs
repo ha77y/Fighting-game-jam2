@@ -52,7 +52,6 @@ public class TextBox : MonoBehaviour
         //To autoplay the next section, use the ; symbol at the end of the string
 
         //To pan & pan return the camera use the ~ symbol followed by a 3 digit number, a 3 digit decimal and a 1 digit number eg @1000.052.
-        //Make sure to put this at the end of the line or where you want the text to pause as the text will not display until the camera finishes panning
 
         //To pan the camera in a direction use the > or < symbol followed by a 3 digit number, a 3 digit decimal and a . eg >0100.05.
 
@@ -72,7 +71,7 @@ public class TextBox : MonoBehaviour
             {"Alright, lets get on with it then#.#.#."},
             {">0200.05.Do you see this enemy over there?| He can shoot me with his railgun and it doesn't feel great.#.#. but thankfully I have a trick up my sleeve.;"},
             {"<0200.05.If you press E or Right Click then I will swing my sword infront of me and any incoming projectiles or lasers from the direcction im facing will be deflected towards your mouse position, don't let me down#.#. got it?;"},
-            {"During this, I will face towards your mouse rather than the direction you're moving. This means you can walk away from an enemy while deflecting at them.# Neat, right? Try it out."}
+            {">0200.05.During this, I will face towards your mouse rather than the direction you're moving. _ This means you can walk away from an enemy while deflecting at them.# Neat, right? Try it out."}
         };
     }
 
@@ -259,7 +258,7 @@ public class TextBox : MonoBehaviour
                 awaitingPortrait = true;
             } else if (c.ToString() == "_")
             {
-                transform.parent.transform.position = new Vector3(player.transform.position.x, transform.parent.transform.position.y, transform.parent.transform.position.z);
+                transform.parent.GetComponent<CameraMovement>().Recenter();
             }
             else
             {

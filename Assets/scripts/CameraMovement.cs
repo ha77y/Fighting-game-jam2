@@ -10,6 +10,8 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     public Boolean centerOnPlayer = true;
     public Boolean panning = false;
+    public GameObject parralax;
+    public GameObject player;
 
     void Start()
     {
@@ -37,22 +39,21 @@ public class CameraMovement : MonoBehaviour
         centerOnPlayer = true;
     }
 
-public IEnumerator Pan(float amount, float delta) {
+    public IEnumerator Pan(float amount, float delta)
+    {
         panning = true;
         float i = 0;
         while ((amount > 0 & (i += delta) < amount) | (amount < 0 & (i += delta) > amount))
         {
             transform.position = new Vector3(transform.position.x + delta, transform.position.y, transform.position.z);
+            parralax.transform.position = new Vector3(transform.position.x / 4, parralax.transform.position.y, parralax.transform.position.z);
             yield return new WaitForSeconds(Time.deltaTime);
         }
         panning = false;
     }
-
-public IEnumerator Recenter()
+    public void Recenter()
     {
-        centerOnPlayer = true;
-        yield return null;
-        yield return null;
-        centerOnPlayer = false;
+        transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+        parralax.transform.position = new Vector3(transform.position.x / 4, parralax.transform.position.y, parralax.transform.position.z);
     }
 }

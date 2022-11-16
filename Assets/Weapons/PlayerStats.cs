@@ -148,7 +148,7 @@ public class PlayerStats : MonoBehaviour
     private void Update()
     {
         if (frozen) {
-            animator.Play("Idle");
+            animator.Play("PlayerIdle");
             return;
         }
         // on press E or right click
