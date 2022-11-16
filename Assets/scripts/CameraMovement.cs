@@ -52,9 +52,26 @@ public class CameraMovement : MonoBehaviour
         }
         panning = false;
     }
+
+    public IEnumerator PanTo(GameObject obj, float delta)
+    {
+        float amount = obj.transform.position.x - transform.position.x;
+        if (amount < 0)
+        {
+            delta = -delta;
+        }
+        yield return StartCoroutine(Pan(amount*2, delta));
+        
+    }
+
     public void Recenter()
     {
         transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+        parralax.transform.position = new Vector3(transform.position.x / 4, parralax.transform.position.y, parralax.transform.position.z);
+    }
+    public void CenterOn(GameObject obj)
+    {
+        transform.position = new Vector3(obj.transform.position.x, transform.position.y, transform.position.z);
         parralax.transform.position = new Vector3(transform.position.x / 4, parralax.transform.position.y, parralax.transform.position.z);
     }
 }
