@@ -9,7 +9,6 @@ public class background : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print("Hello");
         StartCoroutine("Delay");
     }
 
@@ -22,7 +21,6 @@ public class background : MonoBehaviour
     public IEnumerator Delay()
     {
         yield return new WaitForSeconds(delay);
-        print("Play");
         anim.Play("Background");
     }
 }
