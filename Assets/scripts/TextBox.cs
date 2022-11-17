@@ -48,12 +48,15 @@ public class TextBox : MonoBehaviour
     public float defaultTextPause = 0.2f;
     public float textDelay;
     public float textPause;
+    public AudioSource[] clicks;
+
+
     void Start()
     {
         textList = new string[,] {
             {"blank;"},
 
-            {"£$Sigh$£ Who are you and what do you want?\\#.#.#.;" },
+            {":00£$Sigh$£ Who are you and what do you want?\\#.#.#.;" },
             {"Oh? you have a job for me.¬Go on..¬£$I hope this pays well#.#.#.$£;"},
             {"The bandits in the area stole this @01           from you?;" },
             {"And, you need me to collect these @00         ?¬You'd better be paying ^extra^ for that.;" },
@@ -390,6 +393,8 @@ public class TextBox : MonoBehaviour
             } 
             else
             {
+                System.Random rnd = new System.Random();
+                clicks[rnd.Next(0,3)].Play();
                 text.text += c.ToString();
             }
             if (c.ToString() != " " & c.ToString() != "@" & !awaitingImage)

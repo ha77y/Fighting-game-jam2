@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
 {
     public int damage = 10;
     public AnimationClip flyAnimation;
+    public AudioSource expire;
     void Start()
     {
     }
@@ -68,6 +69,7 @@ public class Bullet : MonoBehaviour
     {
         transform.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         transform.GetComponent<Animator>().Play("BulletExpire");
+        expire.Play();
         yield return new WaitForSeconds(0.3f);
         Destroy(this.gameObject);
     }
