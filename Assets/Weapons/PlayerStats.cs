@@ -13,6 +13,9 @@ public class PlayerStats : MonoBehaviour
     public float invincibilityDuration = 1.35f;
     public float invincibilityDelta = 0.15f;
 
+    public Texture2D DeflectSprite;
+    public Vector2 cursorHotspot;
+
     public healthbar hp;
     public CollectableCounter counter;
 
@@ -59,6 +62,8 @@ public class PlayerStats : MonoBehaviour
         StartCoroutine(Cooldown("isDeflecting", deflectDuration));                              // after deflect length, player faces direction of motion again
         canvas.transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().enabled = true; // enables the black box infront of the hud icon
         deflectCooldown = true;
+        Cursor.SetCursor(DeflectSprite, cursorHotspot, CursorMode.ForceSoftware);                // shows deflect icon in place of cursor
+        
         StartCoroutine(Cooldown("deflectCooldown", deflectCooldownLength));                     //deactivates the black box infront of hud after deflect cooldown 
     }
 
@@ -90,6 +95,7 @@ public class PlayerStats : MonoBehaviour
     {
         canvas.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         canvas.transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        cursorHotspot = new Vector2(DeflectSprite.width /2 , DeflectSprite.height / 2);
         counter = GameObject.FindWithTag("CollectableCounter").GetComponent<CollectableCounter>();
     }
 
@@ -202,11 +208,13 @@ public class PlayerStats : MonoBehaviour
 
     public IEnumerator Cooldown(string boolean, float duration)
     {
+        
         yield return new WaitForSeconds(duration);
         if (boolean == "isDeflecting")
         {
             isDeflecting = !isDeflecting;
             facingByMovement = true;
+            Cursor.SetCursor(default, Vector2.zero, CursorMode.ForceSoftware);
         }
         else if (boolean == "deflectCooldown")
         {
