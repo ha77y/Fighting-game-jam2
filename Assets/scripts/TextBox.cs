@@ -61,11 +61,13 @@ public class TextBox : MonoBehaviour
 
             {"&010.10Do you see this small fry over there?| He's the most basic of bandits in the area and typically equipped with an SMG;"},
             {"These SMGs are quite low power so the bullets dont travel fast or hurt too much but they make up for this in quanitity;" },
+            {"Bandits love to trap people in spaces with them so they cant flee#.# Be careful#, when you aproach them#, you wont be able to leave the area until there are no bandits;"},
             {"&000.10You can beat him up by pressing ^Left Mouse Buttton or Q^ to ^attack in the direction I'm facing^;" },
             {"If my @02                    reaches @03                 ¬I won't be able to continue fighting, so do $try$ not to walk me into bullets#.#.#." },
 
             {"Well, I guess a god does exist, you actually managed to get past..;" },
-            {"Up ahead is this wonderful thing, a healthpack\\!¬When I touch a healthpack I will instinctly use it to replenish up to half of my maximum health¬They havent invented the technology to go over my maxiumum health yet though.." },
+            {"&020.10Up ahead is this wonderful thing, a healthpack\\!|&000.10¬When I touch a healthpack I will instinctly use it to replenish up to half of my maximum health;"},
+            {"They havent invented the technology to go over my maxiumum health yet though#.#. And they do not replenish so use them sparingly" },
 
 
             {"&010.05Do you see this enemy over there?| He can shoot me with his railgun and it doesn't feel great.#.#. but thankfully I have a trick up my sleeve.;"},
