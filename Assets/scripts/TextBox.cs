@@ -54,11 +54,20 @@ public class TextBox : MonoBehaviour
             {"blank;"},
 
             {"£$Sigh$£ Who are you and what do you want?\\#.#.#.;" },
-            {"Oh? you have a job for me.¬Go on..¬£$This better pay well#.#.#.$£;"},
+            {"Oh? you have a job for me.¬Go on..¬£$I hope this pays well#.#.#.$£;"},
             {"The bandits in the area stole this @01           from you?;" },
             {"And, you need me to collect these @00         ?¬You'd better be paying ^extra^ for that.;" },
             {"Alright, lets get on with it then#.#.#.¬You can move me ^left or right^ by pressing the ^A or D^ keys."},
-            
+
+            {"&010.10Do you see this small fry over there?| He's the most basic of bandits in the area and typically equipped with an SMG;"},
+            {"These SMGs are quite low power so the bullets dont travel fast or hurt too much but they make up for this in quanitity;" },
+            {"&000.10You can beat him up by pressing ^Left Mouse Buttton or Q^ to ^attack in the direction I'm facing^;" },
+            {"If my @02                    reaches @03                 ¬I won't be able to continue fighting, so do $try$ not to walk me into bullets#.#.#." },
+
+            {"Well, I guess a god does exist, you actually managed to get past..;" },
+            {"Up ahead is this wonderful thing, a healthpack\\!¬When I touch a healthpack I will instinctly use it to replenish up to half of my maximum health¬They havent invented the technology to go over my maxiumum health yet though.." },
+
+
             {"&010.05Do you see this enemy over there?| He can shoot me with his railgun and it doesn't feel great.#.#. but thankfully I have a trick up my sleeve.;"},
             {"&000.05If you press E or Right Click then I will swing my sword infront of me and any incoming projectiles or lasers from the direcction im facing will be deflected towards your mouse position, don't let me down#.#. got it?;"},
             {">0200.05.During this, I will face towards your mouse rather than the direction you're moving. |_ This means I can walk away from an enemy while deflecting at them.# Neat, right? Try it out."}
@@ -68,19 +77,20 @@ public class TextBox : MonoBehaviour
         textPause = defaultTextPause;
         StartCoroutine(DisplayNext(1));
 
+        //To write any of the below symbols without their functionality, but a \\ in front of it
+
         //To display an image, use the @ symbol with 2 numbers after it. eg: @11
         //You will need to drag this image into the appropriate index in the images[] list in the inspector
 
         //To change the current portrait use the : symbol followed by a 2 numbers after it. eg: :11
         //You will need to drag this image into the appropriate index in the portraits[] list in the inspector
 
-        //To write any of the below symbols without their functionality, but a \\ in front of it
-
         //To have a longer pause use the # symbol
 
         //To pause until user input use the | symbol
 
         //To autoplay the next section, use the ; symbol at the end of the string
+
 
         //To pan & pan return the camera use the ~ symbol followed by a 3 digit number, a 3 digit decimal and a 1 digit number eg @1000.052.
 
@@ -93,6 +103,7 @@ public class TextBox : MonoBehaviour
 
         //To pan the camera to a game object use the & symbol followed by 2 numbers equal to the index in objects[] and a 3 digit decimal
         //You will need to drag this game object into the appropriate index in the objects[] list in the inspector
+
 
         //To clear the current text use the ! symbol
 
