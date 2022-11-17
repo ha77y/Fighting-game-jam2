@@ -21,6 +21,7 @@ public class TextBox : MonoBehaviour
     public Boolean awaiting;
     public Boolean awaitingImage;
     public Boolean awaitingObject;
+    public Boolean awaitingPitch;
     public Boolean fastforwardable = false;
     public Boolean autoplay = false;
     public Boolean awaitingCamera;
@@ -39,6 +40,7 @@ public class TextBox : MonoBehaviour
     public string imageIndex = "";
     public string portraitIndex = "";
     public string objectIndex = "";
+    public string voicePitchChange = "";
     public string duration;
     public string delta;
     public string pauseDuration;
@@ -48,6 +50,8 @@ public class TextBox : MonoBehaviour
     public float defaultTextPause = 0.2f;
     public float textDelay;
     public float textPause;
+    public int playSound = 0;
+    public int voicePitch = 0;
     public AudioSource[] clicks;
 
 
@@ -56,26 +60,28 @@ public class TextBox : MonoBehaviour
         textList = new string[,] {
             {"blank;"},
 
-            {":00£$Sigh$£ Who are you and what do you want?\\#.#.#.;" },
-            {"Oh? you have a job for me.¬Go on..¬£$I hope this pays well#.#.#.$£;"},
-            {"The bandits in the area stole this @01           from you?;" },
-            {"And, you need me to collect these @00         ?¬You'd better be paying ^extra^ for that.;" },
+            {":00£$Sigh$£ Who are you and what do you want\\?#.#.#.;" },
+            {"Oh\\? you have a job for me.¬Go on..¬£$I hope this pays well#.#.#.$£;"},
+            {"The bandits in the area stole this @01           from you\\?;" },
+            {"And, you need me to collect these @00         \\?¬You'd better be paying ^extra^ for that.;" },
             {"Alright, lets get on with it then#.#.#.¬You can move me ^left or right^ by pressing the ^A or D^ keys."},
 
-            {"&010.10Do you see this small fry over there?| He's the most basic of bandits in the area and typically equipped with an SMG;"},
+            {"&010.20Do you see this small fry over there\\?| He's the most basic of bandits in the area and typically equipped with an SMG;"},
             {"These SMGs are quite low power so the bullets dont travel fast or hurt too much but they make up for this in quanitity;" },
             {"Bandits love to trap people in spaces with them so they cant flee#.# Be careful#, when you aproach them#, you wont be able to leave the area until there are no bandits;"},
-            {"&000.10You can beat him up by pressing ^Left Mouse Buttton or Q^ to ^attack in the direction I'm facing^;" },
-            {"If my @02                    reaches @03                 ¬I won't be able to continue fighting, so do $try$ not to walk me into bullets#.#.#." },
+            {"?06:01Who's there\\? #C#o#m#e# o#u#t. I only want to say hello.;" },
+            {"?00:00Seems like he's noticed us..|&000.20You can beat him up by pressing ^Left Mouse Buttton or Q^ to ^attack in the direction I'm facing^;" },
+            {"If my @02                    reaches @03 ¬I won't be able to continue fighting, so do $try$ not to walk me into bullets#.#.#." },
+            
 
-            {"Well, I guess a god does exist, you actually managed to get past..;" },
-            {"&020.10Up ahead is this wonderful thing, a healthpack\\!|&000.10¬When I touch a healthpack I will instinctly use it to replenish up to half of my maximum health;"},
-            {"They havent invented the technology to go over my maxiumum health yet though#.#. And they do not replenish so use them sparingly" },
+            {"?00:00Well, I guess a god does exist, you actually managed to get past..;" },
+            {"&020.10Up ahead is this wonderful thing, a healthpack\\!|&000.10¬When I touch a healthpack I will instincitvely use it to replenish up to half of my maximum health;"},
+            {"They havent invented the technology to go over my maxiumum health yet though#.#. And there is only one at each station so,# use them sparingly" },
 
 
-            {"&010.05Do you see this enemy over there?| He can shoot me with his railgun and it doesn't feel great.#.#. but thankfully I have a trick up my sleeve.;"},
-            {"&000.05If you press E or Right Click then I will swing my sword infront of me and any incoming projectiles or lasers from the direcction im facing will be deflected towards your mouse position, don't let me down#.#. got it?;"},
-            {">0200.05.During this, I will face towards your mouse rather than the direction you're moving. |_ This means I can walk away from an enemy while deflecting at them.# Neat, right? Try it out."}
+            {"&010.05Do you see this enemy over there\\?| He can shoot me with his railgun and it doesn't feel great.#.#. but thankfully I have a trick up my sleeve.;"},
+            {"&000.05If you press E or Right Click then I will swing my sword infront of me and any incoming projectiles or lasers from the direcction im facing will be deflected towards your mouse position, don't let me down#.#. got it\\?;"},
+            {">0200.05.During this, I will face towards your mouse rather than the direction you're moving. |_ This means I can walk away from an enemy while deflecting at them.# Neat, right\\? Try it out."}
         };
         Hide();
         textDelay = defaultTextDelay;
@@ -118,7 +124,9 @@ public class TextBox : MonoBehaviour
 
         //To italicise use the $ symbol, to unitalicise use the same symbol
 
-        //To shrink text use the £ symbol, to unshrink use the same symbol;
+        //To shrink text use the £ symbol, to unshrink use the same symbol
+
+        //To change the voice pitch use ? followed by a 2 digit number, this will shift the range by that amount
 
 
     }
@@ -271,6 +279,16 @@ public class TextBox : MonoBehaviour
                 {
                     objectIndex += c.ToString();
                 }
+            }else if (awaitingPitch)
+            {
+                voicePitchChange += c.ToString();
+                if (voicePitchChange.Length > 1)
+                {
+                    int i = int.Parse(voicePitchChange);
+                    voicePitch = i;
+                    voicePitchChange = "";
+                    awaitingPitch = false;
+                }
             }
             else if (awaitingCamera) {
                 if (duration.Length > 2)
@@ -325,6 +343,10 @@ public class TextBox : MonoBehaviour
             }
             else if (c.ToString() == "-") {
                 awaitingObject = true;
+            } 
+            else if (c.ToString() == "?")
+            {
+                awaitingPitch = true;
             }
             else if (c.ToString() == "#")
             {
@@ -393,12 +415,20 @@ public class TextBox : MonoBehaviour
             } 
             else
             {
-                System.Random rnd = new System.Random();
-                clicks[rnd.Next(0,3)].Play();
                 text.text += c.ToString();
             }
             if (c.ToString() != " " & c.ToString() != "@" & !awaitingImage)
             {
+                if (!(textDelay <= 0.01))
+                {
+                    System.Random rnd = new System.Random();
+                    playSound++;
+                    if (playSound > 3)
+                    {
+                        clicks[rnd.Next(0 + voicePitch, 6 + voicePitch)].Play();
+                        playSound = 0;
+                    }
+                }
                 yield return new WaitForSeconds(textDelay);
             }
             
