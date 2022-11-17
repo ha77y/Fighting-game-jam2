@@ -22,6 +22,8 @@ public class RailgunAnimation : MonoBehaviour
     public LineRenderer targetingLaser;
     public Color start;
     public Color end;
+    public AudioSource charge;
+    public AudioSource fire;
 
     void Start()
     {
@@ -86,6 +88,7 @@ public class RailgunAnimation : MonoBehaviour
         targetingLaser.startColor = start;
         targetingLaser.endColor = start;
         targetingLaser.enabled = false;
+        fire.Play();
 
         if (deflect.distance != 0) //if the player deflects the ray
         {
@@ -170,5 +173,6 @@ public class RailgunAnimation : MonoBehaviour
     public void TargetingLaserEnabled()
     {
         targetingLaser.enabled = true;
+        charge.Play();
     }
 }
