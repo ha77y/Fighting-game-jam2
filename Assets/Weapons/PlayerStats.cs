@@ -24,6 +24,7 @@ public class PlayerStats : MonoBehaviour
     public Boolean canWalk = true;
     public Boolean facingByMovement = true;
     public Boolean isJumping = false;
+    public Boolean frozen = false;
 
     public int jumps = 2;
     public int jumpForce = 0;
@@ -146,6 +147,10 @@ public class PlayerStats : MonoBehaviour
     }
     private void Update()
     {
+        if (frozen) {
+            animator.Play("PlayerIdle");
+            return;
+        }
         // on press E or right click
         if ((Input.GetKeyDown(KeyCode.E) | Input.GetKeyDown(KeyCode.Mouse1)) & !deflectCooldown & !isAttacking & !isDashing)
         {
@@ -327,7 +332,16 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-
+    public void Freeze()
+    {
+        frozen = true;
+        canWalk = false;
+    }
+    public void UnFreeze()
+    {
+        frozen = false;
+        canWalk = true;
+    }
     public void GameOver()
     {
         print("Game Over");

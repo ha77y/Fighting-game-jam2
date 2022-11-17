@@ -33,6 +33,7 @@ public class load_level : MonoBehaviour
 
     public void GoLevel1()
     {
+        Music = GameObject.FindWithTag("GameMusic").GetComponent<MusicBetweenScenes>();
         Music.fadedown();
         if (sceneNum == 1|| sceneNum == 0)
         {
@@ -53,6 +54,7 @@ public class load_level : MonoBehaviour
             Music.enabled = false;
         }
         SceneManager.LoadScene(sceneNum);
+        
     }
 
     public void Exit()
