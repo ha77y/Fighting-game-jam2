@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -24,7 +24,6 @@ public class RoomLock : MonoBehaviour
         door2.GetComponent<TilemapRenderer>().enabled = false;
         door2.GetComponent<TilemapCollider2D>().enabled = false;
         Music = GameObject.FindWithTag("GameMusic").GetComponent<MusicBetweenScenes>();
-        print("fadedown?");
         Music.fadedown();
     }
 
@@ -41,7 +40,6 @@ public class RoomLock : MonoBehaviour
             PlayerEnter = false;
             if (!faded)
             {
-                print("fadedown?");
                 Music.fadedown();
                 faded = true;
             }
@@ -59,7 +57,6 @@ public class RoomLock : MonoBehaviour
             door1.GetComponent<TilemapCollider2D>().enabled = true;
             door2.GetComponent<TilemapRenderer>().enabled = true;
             door2.GetComponent<TilemapCollider2D>().enabled = true;
-            print("fadeup?");
             Music.fadeup();
         }
 
