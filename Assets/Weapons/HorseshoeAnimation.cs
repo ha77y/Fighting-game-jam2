@@ -12,6 +12,7 @@ public class HorseshoeAnimation : MonoBehaviour
     public Rigidbody2D bullet;
     public int damage = 5;
     static public Boolean horseshoeAddEvents = true;
+    public AudioSource fire;
 
     void Start()
     {
@@ -71,6 +72,7 @@ public class HorseshoeAnimation : MonoBehaviour
     }
     public void Shoot()
     {
+        fire.Play();
         Rigidbody2D b = Instantiate(bullet, new Vector2(this.gameObject.transform.parent.GetChild(1).position.x, this.gameObject.transform.parent.GetChild(1).position.y), Quaternion.identity);
         b.velocity = transform.right * -10.0f;
         b.GetComponent<Bullet>().damage = damage;
