@@ -10,6 +10,7 @@ public class Sensor : MonoBehaviour
     public CircleCollider2D sensorBox;
     public Transform Player = null;
     public bool showGizmos = true;
+    public bool seenPlayer = false;
     public Transform head;
     void Start()
     {
@@ -19,7 +20,7 @@ public class Sensor : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (this.transform.parent.GetComponent<Enemy>().playerInRange & !Player.transform.GetComponent<PlayerStats>().frozen)
+        if (this.transform.parent.GetComponent<Enemy>().playerInRange && !Player.transform.GetComponent<PlayerStats>().frozen)
         {
             RaycastHit2D hit = Physics2D.Raycast(head.transform.position, Player.position - head.transform.position, Vector2.Distance(head.transform.position, Player.position), LayerMask.GetMask("SolidTiles"));
             if (hit.distance != 0)
@@ -42,6 +43,7 @@ public class Sensor : MonoBehaviour
             sensorBox.radius = transform.parent.GetComponent<Enemy>().leaveLOSRange;
             transform.parent.GetComponent<Enemy>().playerInRange = true;
             Player = collision.gameObject.transform;
+            seenPlayer = true;
         }
     }
 
@@ -51,7 +53,7 @@ public class Sensor : MonoBehaviour
         {
             sensorBox.radius = transform.parent.GetComponent<Enemy>().enterLOSRange;
             transform.parent.GetComponent<Enemy>().playerInRange = false;
-            Player = null;
+            //Player = null;
         }
     }
 }

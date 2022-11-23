@@ -78,7 +78,27 @@ public class TextBox : MonoBehaviour
             {"&020.10Up ahead is this wonderful thing, a healthpack\\!|&000.10¬When I touch a healthpack I will instincitvely use it to replenish up to half of my maximum health;"},
             {"They havent invented the technology to go over my maxiumum health yet though#.#. And there is only one at each station so,# use them sparingly" },
 
+            {">0200.20.I won't be able to get to the next section without jumping.¬You can press ^Space^ to ^jump^;"},
+            {"<0200.20.I can also ^jump once while in mid air^ thanks to these shiny boots." },
 
+            {">0400.20.In the next area there are these         platforms.¬Bullets can pass through these and the Bandits will be able to see me through them!" },
+            {"<0400.20.Be mindful of the enemies on the other side\\!" },
+
+            {"Good job,# this next section looks like I will need to use my first ability#.#.#.¬If you press the ^Shift^ or ^Middle Mouse Button^,# I will ^dash a short distance in the direction I'm facing^;" },
+            {"I am ^uneffected by gravity and anything damaging^ during this and will ^hit all enemies I pass through twice^¬A nice movement tool and an even nicer combat ability;" },
+            {"This ability can ^only be used every 5 seconds^" },
+
+            {"&030.20Oh \\%\\8\\*\\$ it's one of these guys#.#.#;" },
+            {"?12:02^Hahahahaha^ Nobody is a match for my railgun\\!;" },
+            {"?00:00&000.10Well, as he so kindly pointed out, this Bandit is equipped with a railgun, these enemies are a little more deadly than the SMG guys and will try to keep their distance from you;" },
+            {"He will charge up his weapon when he sees you, first comes the pink targeting laser, then the red and then the laser. Please $Try$ to not get me hit by the laser" },
+
+            {"Why are there TWO now#.#.#.¬|I think its time to tell you about my second ability;" },
+            {"If you press ^E or Right Click^, I will swing my sword in front of me and ^reflect any incoming projectles and lasers to the mouse position^;" },
+            {"During this, instead of facing towards the direction I'm moving, ^I will face towards your mouse cursor^;" },
+            {"Holding my sword like this is very tiring so I can only do this for about ^4 seconds at a time^ and need a ^break of at least 6 seconds^;" },
+            {"Try it out and show these two who's boss\\!" },
+            
             {"&010.05Do you see this enemy over there\\?| He can shoot me with his railgun and it doesn't feel great.#.#. but thankfully I have a trick up my sleeve.;"},
             {"&000.05If you press E or Right Click then I will swing my sword infront of me and any incoming projectiles or lasers from the direcction im facing will be deflected towards your mouse position, don't let me down#.#. got it\\?;"},
             {">0200.05.During this, I will face towards your mouse rather than the direction you're moving. |_ This means I can walk away from an enemy while deflecting at them.# Neat, right\\? Try it out."}
@@ -266,9 +286,6 @@ public class TextBox : MonoBehaviour
                     if (delta.Length > 3)
                     {
                         int i = int.Parse(objectIndex);
-                        print(i);
-                        print(delta);
-                        print(objects[i].transform.position.x);
                         StartCoroutine(transform.parent.GetComponent<CameraMovement>().PanTo(objects[i], float.Parse(delta)));
                         objectIndex = "";
                         delta = "";
