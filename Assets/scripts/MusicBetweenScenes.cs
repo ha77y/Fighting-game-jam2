@@ -20,6 +20,7 @@ public class MusicBetweenScenes : MonoBehaviour
         if(musicObj.Length > 1)
         {
             Destroy(this.gameObject);
+            print("music destroyed");
         }
         DontDestroyOnLoad(this.gameObject);
     }
