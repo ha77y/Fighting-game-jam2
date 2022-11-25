@@ -257,7 +257,8 @@ public class TextBox : MonoBehaviour
                     imageIndex = "";
                     awaitingImage = false;
                 }
-            } else if (awaitingPortrait)
+            }
+            else if (awaitingPortrait)
             {
                 portraitIndex += c.ToString();
                 if (portraitIndex.Length >= 2)
@@ -267,7 +268,8 @@ public class TextBox : MonoBehaviour
                     portraitIndex = "";
                     awaitingPortrait = false;
                 }
-            } else if (awaitingObject)
+            }
+            else if (awaitingObject)
             {
                 objectIndex += c.ToString();
                 if (objectIndex.Length >= 2)
@@ -277,9 +279,10 @@ public class TextBox : MonoBehaviour
                     objectIndex = "";
                     awaitingObject = false;
                 }
-            } else if (awaitingObjectPan)
+            }
+            else if (awaitingObjectPan)
             {
-                
+
                 if (objectIndex.Length >= 2)
                 {
                     delta += c.ToString();
@@ -292,11 +295,13 @@ public class TextBox : MonoBehaviour
                         awaitingObjectPan = false;
 
                     }
-                } else
+                }
+                else
                 {
                     objectIndex += c.ToString();
                 }
-            }else if (awaitingPitch)
+            }
+            else if (awaitingPitch)
             {
                 voicePitchChange += c.ToString();
                 if (voicePitchChange.Length > 1)
@@ -307,19 +312,23 @@ public class TextBox : MonoBehaviour
                     awaitingPitch = false;
                 }
             }
-            else if (awaitingCamera) {
+            else if (awaitingCamera)
+            {
                 if (duration.Length > 2)
                 {
                     if (delta.Length > 3)
                     {
                         pauseDuration += c.ToString();
-                        if (movementType == "PanReturn") {
-                            StartCoroutine(transform.parent.GetComponent<CameraMovement>().PanReturn(float.Parse(duration, CultureInfo.InvariantCulture), float.Parse(delta, CultureInfo.InvariantCulture), float.Parse(pauseDuration, CultureInfo.InvariantCulture)));
-                        } else if (movementType == "PanRight")
+                        if (movementType == "PanReturn")
                         {
-                            
+                            StartCoroutine(transform.parent.GetComponent<CameraMovement>().PanReturn(float.Parse(duration, CultureInfo.InvariantCulture), float.Parse(delta, CultureInfo.InvariantCulture), float.Parse(pauseDuration, CultureInfo.InvariantCulture)));
+                        }
+                        else if (movementType == "PanRight")
+                        {
+
                             StartCoroutine(transform.parent.GetComponent<CameraMovement>().Pan(float.Parse(duration, CultureInfo.InvariantCulture), float.Parse(delta, CultureInfo.InvariantCulture)));
-                        } else if (movementType == "PanLeft")
+                        }
+                        else if (movementType == "PanLeft")
                         {
                             StartCoroutine(transform.parent.GetComponent<CameraMovement>().Pan(-float.Parse(duration, CultureInfo.InvariantCulture), -float.Parse(delta, CultureInfo.InvariantCulture)));
                         }
@@ -327,20 +336,159 @@ public class TextBox : MonoBehaviour
                         duration = "";
                         delta = "";
                         pauseDuration = "";
-                    } else
+                    }
+                    else
                     {
                         delta += c.ToString();
                     }
 
 
-                } else
+                }
+                else
                 {
                     duration += c.ToString();
                 }
-                            
-                
+
+
+            }
+            else
+            {
+                switch (c.ToString())
+                {
+                    case "~":
+                        {
+                            awaitingCamera = true;
+                            movementType = "PanReturn";
+                            break;
+                        }
+                    case ">":
+                        {
+                            awaitingCamera = true;
+                            movementType = "PanRight";
+                            break;
+                        }
+                    case "<":
+                        {
+                            awaitingCamera = true;
+                            movementType = "PanLeft";
+                            break;
+                        }
+                    case "@":
+                        {
+                            awaitingImage = true;
+                            break;
+                        }
+                    case "-":
+                        {
+                            awaitingObject = true;
+                            break;
+                        }
+                    case "?":
+                        {
+                            awaitingPitch = true;
+                            break;
+                        }
+                    case "#":
+                        {
+                            yield return new WaitForSeconds(textPause);
+                            break;
+                        }
+                    case ";":
+                        {
+                            autoplay = true;
+                            break;
+                        }
+                    case "|":
+                        {
+                            keyDown = false;
+                            ignoreInput = true;
+                            textDelay = defaultTextDelay;
+                            textPause = defaultTextPause;
+                            yield return new WaitUntil(() => keyDown);
+                            break;
+                        }
+                    case "!":
+                        {
+                            text.text = "";
+                            break;
+                        }
+                    case ":":
+                        {
+                            awaitingPortrait = true;
+                            break;
+                        }
+                    case "_":
+                        {
+                            transform.parent.GetComponent<CameraMovement>().Recenter();
+                            break;
+                        }
+                    case "¬":
+                        {
+                            text.text += "<br>";
+                            break;
+                        }
+                    case "^":
+                        {
+                            if (bold)
+                            {
+                                text.text += "</b>";
+                                bold = false;
+                            }
+                            else
+                            {
+                                text.text += "<b>";
+                                bold = true;
+                            }
+                            break;
+                        }
+                    case "$":
+                        {
+                            if (italic)
+                            {
+                                text.text += "</i>";
+                                italic = false;
+                            }
+                            else
+                            {
+                                text.text += "<i>";
+                                italic = true;
+                            }
+                            break;
+                        }
+                    case "£":
+                        {
+                            if (shrunk)
+                            {
+                                text.text += "<size=100%>";
+                                shrunk = false;
+                            }
+                            else
+                            {
+                                text.text += "<size=70%>";
+                                shrunk = true;
+                            }
+                            break;
+                        }
+                    case "\\":
+                        {
+                            incomingRaw = true;
+                            break;
+                        }
+                    case "&":
+                        {
+                            awaitingObjectPan = true;
+                            break;
+                        }
+                    default:
+                        {
+                            text.text += c.ToString();
+                            break;
+                        }
+
+                }
             }
 
+            /*
             else if (c.ToString() == "~")
             {
                 awaitingCamera = true;
@@ -433,7 +581,9 @@ public class TextBox : MonoBehaviour
             else
             {
                 text.text += c.ToString();
-            }
+            }*/
+
+
             if (c.ToString() != " " & c.ToString() != "@" & !awaitingImage)
             {
                 if (!(textDelay <= 0.01))
