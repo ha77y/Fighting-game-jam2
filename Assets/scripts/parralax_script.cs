@@ -31,7 +31,7 @@ public class parralax_script : MonoBehaviour
         {
             cameraTransform.position = new Vector3(PlayerTransform.position.x, cameraTransform.position.y, cameraTransform.position.z);
             //gameObject.transform.position = new Vector3(gameObject.transform.position.x - (frameDiff.x / 4), gameObject.transform.position.y, gameObject.transform.position.z);
-            gameObject.transform.position = new Vector3((PlayerTransform.position.x / 4), gameObject.transform.position.y, gameObject.transform.position.z);
+            gameObject.transform.position = new Vector3((PlayerTransform.position.x / 2), gameObject.transform.position.y, gameObject.transform.position.z);
         }
         
 

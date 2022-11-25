@@ -5,13 +5,16 @@ using UnityEngine;
 public class PlayerSpawn : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        if (Data.SpawnPoint != null)
+
+
+        if (Data.SpawnPoint != new Vector3(0,0,0))
         {
-            this.transform.position = Data.SpawnPoint.position;
+            gameObject.transform.position = Data.SpawnPoint;
         }
     }
+    
 
 
 }

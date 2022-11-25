@@ -47,7 +47,7 @@ public class CameraMovement : MonoBehaviour
         while ((amount > 0 & (i += delta) < amount) | (amount < 0 & (i += delta) > amount))
         {
             transform.position = new Vector3(transform.position.x + delta, transform.position.y, transform.position.z);
-            parralax.transform.position = new Vector3(transform.position.x / 4, parralax.transform.position.y, parralax.transform.position.z);
+            parralax.transform.position = new Vector3(transform.position.x / 2, parralax.transform.position.y, parralax.transform.position.z);
             yield return new WaitForSeconds(Time.deltaTime);
         }
         panning = false;
@@ -67,11 +67,11 @@ public class CameraMovement : MonoBehaviour
     public void Recenter()
     {
         transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
-        parralax.transform.position = new Vector3(transform.position.x / 4, parralax.transform.position.y, parralax.transform.position.z);
+        parralax.transform.position = new Vector3(transform.position.x / 2, parralax.transform.position.y, parralax.transform.position.z);
     }
     public void CenterOn(GameObject obj)
     {
         transform.position = new Vector3(obj.transform.position.x, transform.position.y, transform.position.z);
-        parralax.transform.position = new Vector3(transform.position.x / 4, parralax.transform.position.y, parralax.transform.position.z);
+        parralax.transform.position = new Vector3(transform.position.x / 2, parralax.transform.position.y, parralax.transform.position.z);
     }
 }

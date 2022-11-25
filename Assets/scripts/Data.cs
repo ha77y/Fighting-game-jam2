@@ -12,6 +12,6 @@ public class Data: MonoBehaviour
     public static int EnemiesKilled;
     public static int amountHealed;
     public static bool TutorialPlayed;
-    public static Transform SpawnPoint;
+    public static Vector3 SpawnPoint;
 
 }
