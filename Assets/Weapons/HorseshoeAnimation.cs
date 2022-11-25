@@ -18,38 +18,7 @@ public class HorseshoeAnimation : MonoBehaviour
     {
         //anim = gameObject.GetComponent(typeof(Animator)) as Animator;
         this.transform.parent.parent.parent.GetComponent<Enemy>().ammo = 5;
-       
-        
-        if (horseshoeAddEvents)
-        {
-            /*
-            //Shoot animation event
-            AnimationEvent evnt;
-            evnt = new AnimationEvent();
-            evnt.time = 0.1f;
-            evnt.functionName = "Shoot";
-            //anim = gameObject.GetComponent(typeof(Animator)) as Animator;
-            clip = anim.runtimeAnimatorController.animationClips[2];
-            clip.AddEvent(evnt);
-            evnt.time = 0.3f;
-            clip.AddEvent(evnt);
-            evnt.time = 0.5f;
-            clip.AddEvent(evnt);
-            evnt.time = 0.7f;
-            clip.AddEvent(evnt);
-            evnt.time = 0.9f;
-            clip.AddEvent(evnt);
-            evnt.time = 1.1f;
-            clip.AddEvent(evnt);
-
-            //Reload animation event
-            clip = anim.runtimeAnimatorController.animationClips[1];
-            evnt.time = 1.1f;
-            evnt.functionName = "Reload";
-            clip.AddEvent(evnt);
-            horseshoeAddEvents = false;
-            */
-        }
+     
         
     }
 
