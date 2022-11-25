@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 2043169828453822498}
   - component: {fileID: 2043169828453822499}
   - component: {fileID: 2043169828453822500}
+  - component: {fileID: 8627079613467371019}
   - component: {fileID: 2043169828453822501}
   - component: {fileID: 2043169828453822502}
   - component: {fileID: 5914446114900383924}
@@ -333,7 +334,10 @@ MonoBehaviour:
   sprite: {fileID: 2043169829073024269}
   invincibilityDuration: 1.35
   invincibilityDelta: 0.15
+  DeflectSprite: {fileID: 0}
+  cursorHotspot: {x: 0, y: 0}
   hp: {fileID: 0}
+  counter: {fileID: 0}
   isAttacking: 0
   isDeflecting: 0
   isDashing: 0
@@ -342,6 +346,7 @@ MonoBehaviour:
   canWalk: 1
   facingByMovement: 1
   isJumping: 0
+  frozen: 0
   jumps: 2
   jumpForce: 20
   firstJumpForce: 20
@@ -363,6 +368,18 @@ MonoBehaviour:
   isWallRight: 0
   canvas: {fileID: 0}
   animator: {fileID: 6055366973066859207}
+--- !u!114 &8627079613467371019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043169828453822555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca15a0825dd80c94097e0bb40c38de6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &2043169828453822501
 BoxCollider2D:
   m_ObjectHideFlags: 0

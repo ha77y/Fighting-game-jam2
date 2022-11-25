@@ -15,7 +15,7 @@ public class MusicBetweenScenes : MonoBehaviour
     private void Awake()
     {
         Music = gameObject.GetComponent<AudioSource>();
-        Music.volume = 0.8f;
+        Music.volume = 0.3f;
         GameObject[] musicObj = GameObject.FindGameObjectsWithTag("GameMusic");
         if(musicObj.Length > 1)
         {
@@ -29,7 +29,7 @@ public class MusicBetweenScenes : MonoBehaviour
     {
         if (upfade)
         {
-            if (Music.volume < 0.8f)
+            if (Music.volume < 0.3f)
             {
                 Music.volume += 0.01f;
             } else
@@ -39,7 +39,7 @@ public class MusicBetweenScenes : MonoBehaviour
         }
         else if (downfade)
         {
-            if (Music.volume > 0.6f)
+            if (Music.volume > 0.2f)
             {
                 Music.volume -= 0.01f;
             }
