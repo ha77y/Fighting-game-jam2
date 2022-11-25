@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerSpawn : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    [SerializeField] private GameObject listOfDoors;
+
     void Start()
     {
 
