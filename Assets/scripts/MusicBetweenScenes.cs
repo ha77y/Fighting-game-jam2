@@ -8,6 +8,7 @@ public class MusicBetweenScenes : MonoBehaviour
     private AudioSource Music;
     public Boolean upfade;
     public Boolean downfade;
+    public Boolean Speaking;
     private void Start()
     {
         Music = gameObject.GetComponent<AudioSource>();
@@ -48,9 +49,28 @@ public class MusicBetweenScenes : MonoBehaviour
                 downfade = false;
             }
         }
+        if (Speaking)
+        {
+            if (Music.volume > 0.1f)
+            {
+                Music.volume -= 0.01f;
+            }
+        }
+        if (!Speaking)
+        {
+            if (!upfade && !downfade)
+            {
+                if (Music.volume < 0.2f)
+                {
+                    Music.volume += 0.01f;
+                }
+            }
+        }
+        
         print(Music.volume);
         print(upfade);
         print(downfade);
+        print(Speaking);
     }
 
 
@@ -63,6 +83,16 @@ public class MusicBetweenScenes : MonoBehaviour
     {
         upfade = false;
         downfade = true;
+    }
+    public void SpeakingStart()
+    {
+        Speaking = true;
+        upfade = false;
+        downfade = false;
+    }
+    public void SpeakingEnd()
+    {
+        Speaking = false;
     }
 
 }

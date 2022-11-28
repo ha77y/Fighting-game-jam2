@@ -53,6 +53,7 @@ public class TextBox : MonoBehaviour
     public int playSound = 0;
     public int voicePitch = 0;
     public AudioSource[] clicks;
+    public MusicBetweenScenes Music;
 
 
     void Start()
@@ -103,11 +104,19 @@ public class TextBox : MonoBehaviour
             {"&000.05If you press E or Right Click then I will swing my sword infront of me and any incoming projectiles or lasers from the direcction im facing will be deflected towards your mouse position, don't let me down#.#. got it\\?;"},
             {">0200.05.During this, I will face towards your mouse rather than the direction you're moving. |_ This means I can walk away from an enemy while deflecting at them.# Neat, right\\? Try it out."}
         };
+        if (GameObject.FindWithTag("GameMusic") != null)
+        {
+            Music = GameObject.FindWithTag("GameMusic").GetComponent<MusicBetweenScenes>();
+
+        }
+       
+
         Hide();
         textDelay = defaultTextDelay;
         textPause = defaultTextPause;
         StartCoroutine(DisplayNext(1));
 
+        
         //To write any of the below symbols without their functionality, but a \\ in front of it
 
         //To display an image, use the @ symbol with 2 numbers after it. eg: @11
@@ -153,12 +162,18 @@ public class TextBox : MonoBehaviour
 
     public void Hide()
     {
+        
         foreach (var button in abilityButtons)
         {
             button.transform.position = new Vector3(button.transform.position.x, button.transform.position.y - 4, button.transform.position.z);
         }
         CleanImages();
         transform.GetChild(0).gameObject.SetActive(false);
+        if (Music != null)
+        {
+            Music.SpeakingEnd();
+        }
+        
     }
 
     public void CleanImages()
@@ -168,6 +183,7 @@ public class TextBox : MonoBehaviour
             image.gameObject.SetActive(false);
         }
         imagesToDisable = new GameObject[0];
+        
     }
 
     public void Show()
@@ -176,6 +192,10 @@ public class TextBox : MonoBehaviour
         foreach (var button in abilityButtons)
         {
             button.transform.position = new Vector3(button.transform.position.x, button.transform.position.y + 4, button.transform.position.z);
+        }
+        if (Music != null)
+        {
+            Music.SpeakingStart();
         }
     }
 
