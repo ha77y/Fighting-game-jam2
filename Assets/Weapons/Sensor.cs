@@ -23,7 +23,7 @@ public class Sensor : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!attatchedToEnemy || this.transform.parent.GetComponent<Enemy>().playerInRange && !Player.transform.GetComponent<PlayerStats>().frozen)
+        if ((!attatchedToEnemy && !Player.transform.GetComponent<PlayerStats>().frozen) ||  (this.transform.parent.GetComponent<Enemy>().playerInRange && !Player.transform.GetComponent<PlayerStats>().frozen))
         {
             RaycastHit2D hit = Physics2D.Raycast(head.transform.position, Player.position - head.transform.position, Vector2.Distance(head.transform.position, Player.position), LayerMask.GetMask("SolidTiles"));
             if (hit.distance != 0)

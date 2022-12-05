@@ -8,13 +8,20 @@ public class tankAnimator : MonoBehaviour
     public Animator anim;
     void Start()
     {
-        anim.Play("TankAttack");
+        anim.Play("TankIdle");
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void Started()
+    {
+        transform.parent.GetComponent<Boss>().startFlip = true;
+        transform.parent.GetComponent<Boss>().started = true;
+        anim.Play("TankAttack");
     }
 
     public void Fire()

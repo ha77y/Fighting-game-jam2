@@ -221,6 +221,9 @@ MonoBehaviour:
   Player: {fileID: 0}
   showGizmos: 1
   seenPlayer: 0
+  playerInLOS: 0
+  playerInRange: 0
+  attatchedToEnemy: 1
   head: {fileID: 598940124701514697}
 --- !u!120 &2276924179641821758
 LineRenderer:
@@ -423,6 +426,7 @@ MonoBehaviour:
   ableToJump: 0
   walkThroughEnemies: 1
   canWalk: 1
+  flip: 1
   leftFoot: {fileID: 3078411952125411971}
   rightFoot: {fileID: 6124036599564952393}
   left: {fileID: 1528991933423919081}
@@ -430,11 +434,14 @@ MonoBehaviour:
   sprite: {fileID: 4228036443357773379}
   player: {fileID: 0}
   kiteDistance: 15
+  gunSize: 1
   leaveLOSRange: 18
   enterLOSRange: 12
   jumpForce: 25
   gunOffset: 0.6
   enemyAnim: smg
+  flipped: 1
+  flipped2: 0
   ammo: -1
   maxAmmo: -1
   health: 30

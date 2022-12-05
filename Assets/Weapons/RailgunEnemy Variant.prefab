@@ -293,6 +293,10 @@ PrefabInstance:
       propertyPath: charge
       value: 
       objectReference: {fileID: 3649880247571294562}
+    - target: {fileID: 7249636651973467040, guid: 305f90e64f801ed49a0da01d59ce6f02, type: 3}
+      propertyPath: canShoot
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 305f90e64f801ed49a0da01d59ce6f02, type: 3}
 --- !u!1 &1195786066946435958 stripped

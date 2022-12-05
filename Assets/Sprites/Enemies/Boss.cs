@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
@@ -25,16 +25,19 @@ public class Boss : MonoBehaviour
     public Transform parentObject;
     public Transform leftCollision;
     public Transform rightCollision;
+    public Boolean started = false;
+    public Boolean startFlip = false;
+    public GameObject music;
     void Start()
     {
         enemyScript = transform.GetChild(1).GetComponent<Enemy>();
-        StartCoroutine(CheckFlip());
+        
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (flipping == false && charging == false && transform.GetChild(2).GetComponent<Sensor>().playerInLOS)
+        if (flipping == false && charging == false && transform.GetChild(2).GetComponent<Sensor>().playerInLOS && started)
         {
             charging = true;
         }
@@ -46,33 +49,43 @@ public class Boss : MonoBehaviour
 
     private void Update()
     {
-        Vector2 localPlayerPos;
-        try
+        if (startFlip)
         {
+            StartCoroutine(CheckFlip());
+            startFlip = false;
+        }
+        if (started)
+        {
+            Vector2 localPlayerPos;
+            try
+            {
+                localPlayerPos.x = this.transform.position.x - enemyScript.player.position.x;
+                localPlayerPos.y = this.transform.position.y - enemyScript.player.position.y;
+            }
+            catch
+            {
+                return;
+            }
             localPlayerPos.x = this.transform.position.x - enemyScript.player.position.x;
             localPlayerPos.y = this.transform.position.y - enemyScript.player.position.y;
+            float angle = Mathf.Atan2(localPlayerPos.y, localPlayerPos.x) * Mathf.Rad2Deg;
+            Transform gun = transform.GetChild(1).transform.GetChild(1);
+            if (facingLeft && ((angle < 0 && angle > -90) || (angle > 0 && angle < 90)))
+            {
+                gun.GetChild(0).GetChild(0).GetComponent<RailgunAnimation>().canShoot = true;
+                gun.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            }
+            else if (!facingLeft && ((angle < 180 && angle > 90) || (angle > -180 && angle < -90)))
+            {
+                gun.GetChild(0).GetChild(0).GetComponent<RailgunAnimation>().canShoot = true;
+                gun.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            }
+            else
+            {
+                gun.GetChild(0).GetChild(0).GetComponent<RailgunAnimation>().canShoot = false;
+            }
         }
-        catch
-        {
-            return;
-        }
-        localPlayerPos.x = this.transform.position.x - enemyScript.player.position.x; 
-        localPlayerPos.y = this.transform.position.y - enemyScript.player.position.y;
-        float angle = Mathf.Atan2(localPlayerPos.y, localPlayerPos.x) * Mathf.Rad2Deg;
-        Transform gun = transform.GetChild(1).transform.GetChild(1);
-        if (facingLeft && ((angle < 0 && angle > -90) || (angle > 0 && angle < 90)))
-        {
-            gun.GetChild(0).GetChild(0).GetComponent<RailgunAnimation>().canShoot = true;
-            gun.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        }
-        else if (!facingLeft && ((angle < 180 && angle > 90) || (angle > -180 && angle < -90)))
-        {
-            gun.GetChild(0).GetChild(0).GetComponent<RailgunAnimation>().canShoot = true;
-            gun.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        } else
-        {
-            gun.GetChild(0).GetChild(0).GetComponent<RailgunAnimation>().canShoot = false;
-        }
+        
     }
     public IEnumerator CheckFlip()
     {
@@ -151,6 +164,7 @@ public class Boss : MonoBehaviour
         if (health <= 0)
         {
             Data.EnemiesKilled++;
+            SceneManager.LoadScene(2);
             Destroy(this.gameObject);
         }
     }
