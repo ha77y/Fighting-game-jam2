@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1966370423958646727, guid: 85ebdccf2c9517843a4a9cdf79ed1a16, type: 3}
       propertyPath: gunOffset
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1966370423958646727, guid: 85ebdccf2c9517843a4a9cdf79ed1a16, type: 3}
       propertyPath: kiteDistance
