@@ -22,11 +22,18 @@ public class Enemy : MonoBehaviour
     public Boolean canJump = false;
     public Boolean invincible = false;
     public Boolean isLanding = false;
+    public Boolean ableToJump = true;
+    public Boolean walkThroughEnemies = false;
+    public Boolean canWalk = true;
+    public Boolean flip = true;
     public Transform leftFoot;
     public Transform rightFoot;
     public Transform left;
     public Transform right;
+    public Transform sprite;
+    public Transform player;
     public int kiteDistance = 5;
+    public float gunSize = 1f;
     public int leaveLOSRange = 18;
     public int enterLOSRange = 12;
     public float jumpForce = 10f;
@@ -36,8 +43,8 @@ public class Enemy : MonoBehaviour
     private bool tooClose;
     private int counter;
     private string jumpDirection;
-    bool flipped = true;
-    bool flipped2 = false;
+    public bool flipped = true;
+    public bool flipped2 = false;
 
     private RaycastHit2D groundBelowLeft;
     private RaycastHit2D groundBelowRight;
@@ -53,13 +60,17 @@ public class Enemy : MonoBehaviour
     public int health = 30;
     void Start()
     {
-        canJump = true;
+        if (ableToJump)
+        {
+            canJump = true;
+        }
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Transform player = transform.GetChild(0).GetComponent<Sensor>().Player;
+        player = transform.GetChild(0).GetComponent<Sensor>().Player;
 
         groundAboveLeft = Physics2D.Raycast(leftFoot.transform.position, Vector2.up, 10, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
         groundAboveRight = Physics2D.Raycast(rightFoot.transform.position, Vector2.up, 10, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles")));
@@ -69,42 +80,9 @@ public class Enemy : MonoBehaviour
         highgroundLeft = Physics2D.Raycast(left.transform.position, Vector2.up, 15, LayerMask.GetMask("Water"));
         highgroundRight = Physics2D.Raycast(right.transform.position, Vector2.up, 15, LayerMask.GetMask("Water"));
 
-        if (playerInLOS & playerInRange)
+        if (playerInLOS & playerInRange & flip)
         {
-            Vector2 localPlayerPos;
-
-            Vector2 playerPos = this.transform.GetChild(0).GetComponent<Sensor>().Player.position;
-            if (playerPos != null)
-            {
-                localPlayerPos.x = this.transform.position.x - playerPos.x;
-                localPlayerPos.y = this.transform.position.y - playerPos.y;
-                float angle = Mathf.Atan2(localPlayerPos.y, localPlayerPos.x) * Mathf.Rad2Deg;
-                Transform gun = this.transform.GetChild(1);
-                Transform sprite = transform.GetChild(2);
-                gun.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-                if (localPlayerPos.x >= 0) {
-                    //gameObject.transform.localScale = new Vector3(1, 1, 1);
-                    sprite.transform.localScale = new Vector3(1, 1, 1);
-                    gun.transform.localScale = new Vector3(1, 1, 1);
-                    if (!flipped)
-                    {
-                        gun.transform.position = new Vector3(gun.transform.position.x -gunOffset, gun.transform.position.y, gun.transform.position.z);
-                        flipped = true;
-                        flipped2 = false;
-                    }
-                } else
-                {
-                    //gameObject.transform.localScale = new Vector3(-1, 1, 1);
-                    gun.transform.localScale = new Vector3(1, -1, 1);
-                    sprite.transform.localScale = new Vector3(-1, 1, 1);
-                    if (!flipped2)
-                    {
-                        gun.transform.position = new Vector3(gun.transform.position.x+gunOffset, gun.transform.position.y, gun.transform.position.z);
-                        flipped2 = true;
-                        flipped = false;
-                    }
-                }
-            }
+            Flip();
         }
         if (ammo == 0 & !isreloading)
         {
@@ -128,13 +106,66 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Update() {
-        wallLeft = Physics2D.Raycast(leftFoot.transform.position, Vector2.left * 2, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles") | LayerMask.GetMask("Enemy")));
-        wallRight = Physics2D.Raycast(rightFoot.transform.position, Vector2.right * 2, 5, (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles") | LayerMask.GetMask("Enemy")));
-        Transform player = transform.GetChild(0).GetComponent<Sensor>().Player;
-        if (playerInLOS & playerInRange & !jumping &!isLanding)
+    public void Flip()
+    {
+        Vector2 localPlayerPos;
+
+        Vector2 playerPos = player.position;
+        if (playerPos != null)
         {
-            
+            localPlayerPos.x = this.transform.position.x - playerPos.x;
+            localPlayerPos.y = this.transform.position.y - playerPos.y;
+            float angle = Mathf.Atan2(localPlayerPos.y, localPlayerPos.x) * Mathf.Rad2Deg;
+            Transform gun = this.transform.GetChild(1);
+            Transform sprite = transform.GetChild(2);
+
+            if (localPlayerPos.x >= 0)
+            {
+                sprite.transform.localScale = new Vector3(1, 1, 1);
+                if (gun.tag == "Weapon")
+                {
+                    gun.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                    gun.transform.localScale = new Vector3(gunSize, gunSize, gunSize);
+                    if (!flipped)
+                    {
+                        gun.transform.position = new Vector3(gun.transform.position.x - gunOffset, gun.transform.position.y, gun.transform.position.z);
+                        flipped = true;
+                        flipped2 = false;
+                    }
+                }
+            }
+            else
+            {
+                sprite.transform.localScale = new Vector3(-1, 1, 1);
+                if (gun.tag == "Weapon")
+                {
+                    gun.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                    if (!flipped2)
+                    {
+                        gun.transform.localScale = new Vector3(gunSize, -gunSize, gunSize);
+                        gun.transform.position = new Vector3(gun.transform.position.x + gunOffset, gun.transform.position.y, gun.transform.position.z);
+                        flipped2 = true;
+                        flipped = false;
+                    }
+                }
+            }
+        }
+
+    }
+    void Update() {
+        LayerMask mask;
+        if (!walkThroughEnemies)
+        {
+            mask = (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles") | LayerMask.GetMask("Enemy"));
+        } else
+        {
+            mask = (LayerMask.GetMask("Default") | LayerMask.GetMask("SolidTiles"));
+        }
+        wallLeft = Physics2D.Raycast(leftFoot.transform.position, Vector2.left * 2, 5, mask);
+        wallRight = Physics2D.Raycast(rightFoot.transform.position, Vector2.right * 2, 5, mask);
+        player = transform.GetChild(0).GetComponent<Sensor>().Player;
+        if (playerInLOS & playerInRange & !jumping &!isLanding)
+        {   
             if (groundBelowLeft.distance < 0.3f | groundBelowRight.distance < 0.3f)
             {
                 if (canJump == false)
@@ -147,7 +178,10 @@ public class Enemy : MonoBehaviour
                         StartCoroutine(transform.GetComponent<fatguyAnimator>().Land());
                     }
                 }
-                canJump = true;
+                if (ableToJump) {
+                    canJump = true;
+                }
+                
             }
 
             if ((kiteDistance / 2) > (Vector2.Distance(player.position, transform.position)))
@@ -156,8 +190,10 @@ public class Enemy : MonoBehaviour
                 }
 
             if (
+                canWalk &&
                 ((Math.Abs(transform.position.x - player.position.x) > kiteDistance+1) & (player.position.x < transform.position.x) | (Math.Abs(transform.position.x - player.position.x) < kiteDistance-1) & (player.position.x > transform.position.x))
-                & (wallLeft.distance == 0 | wallLeft.distance > 1)) // if no wall left
+                & (wallLeft.distance == 0 | wallLeft.distance > 1)
+                ) // if no wall left
             {
                 if ((groundBelowLeft.distance < 1)|((willDrop | tooClose) & (groundBelowLeft.distance < 50))) // if will not fall off platform unless willDrop == true or player is within 1/4 kite distance
                 {
@@ -170,6 +206,7 @@ public class Enemy : MonoBehaviour
                 }
                 
             } else if (
+                canWalk &&
                 ((Math.Abs(transform.position.x - player.position.x) > kiteDistance+1) & (player.position.x > transform.position.x) | (Math.Abs(transform.position.x - player.position.x) < kiteDistance-1) & (player.position.x < transform.position.x))
                 & (wallRight.distance == 0 | wallRight.distance > 1))
             {

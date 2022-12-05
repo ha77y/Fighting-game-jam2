@@ -1,0 +1,2142 @@
+fileFormatVersion: 2
+guid: 3fa119db8013e5947af3bf48efe7e0b5
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 85
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tank start up_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11520
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f15dbf57e74298d43878aef965883026
+      internalID: 83195732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_1
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 11520
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63445b2c92172dc4191224d6f837980d
+      internalID: 202729213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_2
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 11520
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3ddc3a09c95a146bd572b2f6a84879
+      internalID: 188232119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_3
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 11520
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1b465a371b67f84da6aa0fc6e73c738
+      internalID: -1811779494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_4
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 11520
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b771db1fc5a17d448427072a0db2ff7
+      internalID: -694209936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_5
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 11520
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cd5edcc07026f04a8a01a712f7f61b3
+      internalID: -421973548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10752
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aa994a2256180842a91f2d71ef0d92f
+      internalID: -250435785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_7
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 10752
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2b3cb2115e3a0240a99c41bf1f4f4c3
+      internalID: 1343386272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_8
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 10752
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bcce8bb4dd4ee84dba94e4705c1d3c9
+      internalID: 1632926086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_9
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 10752
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72395eaddd93af141b415d5fdd0cb8fd
+      internalID: 314721294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_10
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 10752
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6d18c850ca67034a96c0355368dcbfe
+      internalID: -1057214083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_11
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 10752
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5911c5d14f4aaf4ca1078eb3be4679d
+      internalID: 1221083628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9984
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b1379d5991099142a27856ba5127374
+      internalID: 565932108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_13
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 9984
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1175227fc90d8d4fa0d1ebd5e47fe8a
+      internalID: 384587192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_14
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 9984
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f25604c4fb844047a33087b70341a9f
+      internalID: 1237415721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_15
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 9984
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0abe48360799ef74784b5f95ad725885
+      internalID: 693235697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_16
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 9984
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d31b13f29a5dfdc488779771abc6bbf9
+      internalID: 3565346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_17
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 9984
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d1e8031204315442bf5c25d723aff49
+      internalID: 1762678528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9216
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5ff5b286949aea439457a5bb86ab85d
+      internalID: -1575110559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_19
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 9216
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f4fb373ed0de045975bfb6a6a1d08f
+      internalID: -1365950117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_20
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 9216
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 551410e414843c84b9e265ce53b96ed9
+      internalID: 824968442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_21
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 9216
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 931b2cb61bf27e34a8811ef65b1c5c53
+      internalID: 32322371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_22
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 9216
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4679e4490de305644ad5808ae35f97fe
+      internalID: 1324202798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_23
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 9216
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca40892286bd6004cab9d3bbf0fdde9d
+      internalID: -1095355321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8448
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08514d4b510ba9c42896632ff7499577
+      internalID: 1554556552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_25
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 8448
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf7052a7967dcdc46a9c5cc543dc241e
+      internalID: -656930644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_26
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 8448
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 613f948e5b19d8f4c95ef51c6fbae040
+      internalID: 740266593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_27
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 8448
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6228176d1d7a19841978c09cabcb8c43
+      internalID: 1974885120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_28
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 8448
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e93808ae064e32e4a90ce17f5f9b73d6
+      internalID: 1506225361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_29
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 8448
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7473e3392c89f5444b656af22fe49471
+      internalID: -1722698737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7680
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b52af9fe9bb40428678123cb98cd87
+      internalID: -964027141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_31
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 7680
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcf1973d30efc0d4fba451f521d430f1
+      internalID: -893952213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_32
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 7680
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 253766a17d993d14ea9cc361b8bca7af
+      internalID: -655650176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_33
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 7680
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e7aadcb5c38df14eaa7f2c23a3f98b9
+      internalID: 1542545518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_34
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 7680
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8603dc734921724080567610c997666
+      internalID: -542989076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_35
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 7680
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0af19cbf29cf324a849e447382f80f7
+      internalID: 1013993121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6912
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 123c54f3420f70046ace6741aac479ac
+      internalID: 1498082077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_37
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 6912
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c8031f34a1b8e488868efb2ccc12d0
+      internalID: 612273439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_38
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 6912
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c29aa2d0be3bea7419c201589e64f191
+      internalID: 808938587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_39
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 6912
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04898b8b1f85af143a1495bf93dd0f1a
+      internalID: 1559850367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_40
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 6912
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81dca92e334adec468126a9897547d37
+      internalID: 1780906764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_41
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 6912
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da969e8dbf3feb44af2d6fdda6b61b6
+      internalID: 1382811551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6144
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bab847845e215ec4f8dbf9bc0c582a29
+      internalID: -686125527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_43
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 6144
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d9ff41004dfef849a25b6251c82ca47
+      internalID: -299554180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_44
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 6144
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8a74d84139afdf42b54f6d13d143aa0
+      internalID: -1197570089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_45
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 6144
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2938f2d7e05a999498bde13157b1a6d6
+      internalID: 858723340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_46
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 6144
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0d5ec8d8cec8814aa5bc03aa3320762
+      internalID: 475024428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_47
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 6144
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89cea30848f770c40abfaa36947b1d3a
+      internalID: 1045075957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5376
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cd452e507ec48049bc60e3ef00f00b7
+      internalID: -1547244113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_49
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 5376
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d1c6816825117445a5dbc8e9ba72193
+      internalID: 739631496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_50
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 5376
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 817610fb573ccbe45b274d613aee997c
+      internalID: -1342283889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_51
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 5376
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5deaa810a34e0b74caa4c3b8145322dd
+      internalID: 2098637734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_52
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 5376
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 880ae4d4ea170174eae7fead52c17019
+      internalID: -2127387003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_53
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 5376
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4aca10478725174b9f23d2215d4c019
+      internalID: -1580110650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4608
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 633dcb0fbf07f564e8e1982e27effcf4
+      internalID: 1649769137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_55
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 4608
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c9da5600376d584987859073ab658ab
+      internalID: 395953530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_56
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 4608
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3240113a65192ca44bfb665b22f5273b
+      internalID: -1512552329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_57
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 4608
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ebbf010c6ccf024597ec9dc05302a91
+      internalID: 596553849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_58
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 4608
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24ce16a94d960e4d905b02c01596f97
+      internalID: 502299625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_59
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 4608
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42b7a3bb7137ddf469585fde524b2a91
+      internalID: 1889002392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05c42489c1bab3a4fb90cef5cda1be59
+      internalID: -1115583333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_61
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 3840
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 625601cd12b271442b0fea82982cd44d
+      internalID: 1154932212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_62
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 3840
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56a56f6097564c64fbd6983f4b3ecbd4
+      internalID: -288195153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_63
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 3840
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22193cf8755cc5c4aa87d64e9c370111
+      internalID: -508823922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_64
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 3840
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea90951e18a003f46ac95507c1521391
+      internalID: 357786741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_65
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 3840
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a78a2347f6ef33e488d496ef29d85a99
+      internalID: -227712529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7b7a55c056bb849aace1a64a59b44b
+      internalID: -752226375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_67
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 3072
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 827ad28fdee1c0c418a72789715c4190
+      internalID: -455702217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_68
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 3072
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 206ffdc062c537341aa6c798f8b13b40
+      internalID: 227034054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_69
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 3072
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 110c4750c775c3f46bd9bcee81a4a71e
+      internalID: -1616119993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_70
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 3072
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9abddc647e780654a89f848e5906f195
+      internalID: -726847147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_71
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 3072
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d695900fd8746a04ca177e036f0da99c
+      internalID: -1367415346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c6930d2ae2594341b96639d3a2e979b
+      internalID: 2068184677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_73
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 2304
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0066b3c138123304dbde2a5450d17b54
+      internalID: -636753705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_74
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 2304
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ef7dc392c9e034ba3e862f2dec8d80
+      internalID: 1727549855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_75
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 2304
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c9abcb375ac3845b41482bbe19571f
+      internalID: 463300171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_76
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 2304
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8779091147c845a4fa226cb534c9e448
+      internalID: 289968500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_77
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 2304
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62475e5a5a38cba4da6f221765307f1a
+      internalID: -755352020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_78
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b92f53930eb6ea4dba777fe3f550ad5
+      internalID: 448385250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_79
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1536
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e5bdfbb5b2f0f40b9d617b441c339a
+      internalID: 1193624509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_80
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 1536
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fa9ac99f2d06ad469e9155140ccd94f
+      internalID: -46861474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_81
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 1536
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f9cf5e2240c31d43a1ddde6ad320879
+      internalID: 1170268880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_82
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 1536
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f8dcb37528dd24782f147b4d39f7e1
+      internalID: 487321912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_83
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 1536
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1b685908020f7d4c85e0f6cd7f245e3
+      internalID: -1917027077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb1509a32f3ac6a48949c9f3153cc433
+      internalID: 558697655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_85
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 768
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e4a32620b7bef94aa049bd578438f55
+      internalID: 69069836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_86
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 768
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5730529f22f05ca46813057900a7440f
+      internalID: 856024061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_87
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 768
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce6e46b1261da974b923aaffc6221c93
+      internalID: 1287230997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_88
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 768
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 269a9b76daadb404cb511892c93bfcbf
+      internalID: 1995493495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_89
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 768
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 454db9dbc10b32d419323fb9225ac481
+      internalID: -1251184777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank start up_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1800
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bb5f2460f25371419f67ae2c2aaf3c0
+      internalID: -342675203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      tank start up_53: -1580110650
+      tank start up_77: -755352020
+      tank start up_88: 1995493495
+      tank start up_35: 1013993121
+      tank start up_73: -636753705
+      tank start up_6: -250435785
+      tank start up_28: 1506225361
+      tank start up_48: -1547244113
+      tank start up_52: -2127387003
+      tank start up_43: -299554180
+      tank start up_51: 2098637734
+      tank start up_11: 1221083628
+      tank start up_59: 1889002392
+      tank start up_12: 565932108
+      tank start up_25: -656930644
+      tank start up_40: 1780906764
+      tank start up_62: -288195153
+      tank start up_93: 1421168795
+      tank start up_68: 227034054
+      tank start up_19: -1365950117
+      tank start up_27: 1974885120
+      tank start up_14: 1237415721
+      tank start up_63: -508823922
+      tank start up_64: 357786741
+      tank start up_0: 83195732
+      tank start up_30: -964027141
+      tank start up_60: -1115583333
+      tank start up_65: -227712529
+      tank start up_57: 596553849
+      tank start up_32: -655650176
+      tank start up_95: -462741536
+      tank start up_80: -46861474
+      tank start up_21: 32322371
+      tank start up_46: 475024428
+      tank start up_76: 289968500
+      tank start up_45: 858723340
+      tank start up_81: 1170268880
+      tank start up_26: 740266593
+      tank start up_16: 3565346
+      tank start up_67: -455702217
+      tank start up_13: 384587192
+      tank start up_42: -686125527
+      tank start up_89: -1251184777
+      tank start up_44: -1197570089
+      tank start up_75: 463300171
+      tank start up_41: 1382811551
+      tank start up_71: -1367415346
+      tank start up_70: -726847147
+      tank start up_39: 1559850367
+      tank start up_18: -1575110559
+      tank start up_49: 739631496
+      tank start up_5: -421973548
+      tank start up_37: 612273439
+      tank start up_90: -342675203
+      tank start up_17: 1762678528
+      tank start up_82: 487321912
+      tank start up_83: -1917027077
+      tank start up_92: -1408394810
+      tank start up_15: 693235697
+      tank start up_47: 1045075957
+      tank start up_31: -893952213
+      tank start up_56: -1512552329
+      tank start up_50: -1342283889
+      tank start up_23: -1095355321
+      tank start up_29: -1722698737
+      tank start up_85: 69069836
+      tank start up_33: 1542545518
+      tank start up_55: 395953530
+      tank start up_79: 1193624509
+      tank start up_8: 1632926086
+      tank start up_69: -1616119993
+      tank start up_94: -1365414038
+      tank start up_91: -328238586
+      tank start up_86: 856024061
+      tank start up_20: 824968442
+      tank start up_61: 1154932212
+      tank start up_78: 448385250
+      tank start up_24: 1554556552
+      tank start up_34: -542989076
+      tank start up_72: 2068184677
+      tank start up_54: 1649769137
+      tank start up_36: 1498082077
+      tank start up_74: 1727549855
+      tank start up_84: 558697655
+      tank start up_10: -1057214083
+      tank start up_58: 502299625
+      tank start up_7: 1343386272
+      tank start up_22: 1324202798
+      tank start up_66: -752226375
+      tank start up_1: 202729213
+      tank start up_9: 314721294
+      tank start up_2: 188232119
+      tank start up_87: 1287230997
+      tank start up_4: -694209936
+      tank start up_3: -1811779494
+      tank start up_38: 808938587
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

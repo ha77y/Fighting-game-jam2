@@ -12,6 +12,8 @@ TagManager:
   - Collectable
   - GameMusic
   - CollectableCounter
+  - Weapon
+  - Boss
   layers:
   - Default
   - TransparentFX

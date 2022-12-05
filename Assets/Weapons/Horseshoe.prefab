@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7680473872844432858}
   m_Layer: 0
   m_Name: Horseshoe
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   anim: {fileID: 1062018560890111594}
   bullet: {fileID: 6545462476269784612, guid: 86931f52d972f944c882c4d95ff95629, type: 3}
   damage: 5
+  fire: {fileID: 0}
 --- !u!1 &6839842851318215850
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,8 +30,7 @@ public class Bullet : MonoBehaviour
             Vector2 mousePoint = new Vector2(mouseRay.direction.x + mouseRay.origin.x, mouseRay.direction.y + mouseRay.origin.y);
             //mousePoint = mousePoint - new Vector2(collision.transform.position.x, collision.transform.position.y);
             gameObject.layer = 11;
-            Rigidbody2D b = this.transform.GetComponent<Rigidbody2D>();
-            Transform t = collision.transform.parent.parent.GetChild(3).GetChild(0).GetChild(0);
+            Rigidbody2D b = transform.GetComponent<Rigidbody2D>();
             Vector2 toMouse = (mousePoint - new Vector2(transform.position.x, transform.position.y)).normalized;
             b.velocity = Vector2.zero;
             b.velocity = toMouse.normalized * 10f;
@@ -49,7 +48,12 @@ public class Bullet : MonoBehaviour
         {
             collision.transform.GetComponent<Enemy>().Damaged(damage);
             ExpireCollision();
-        } else
+        } else if (collision.gameObject.tag == "Boss" & gameObject.layer == 11)
+        {
+            collision.transform.GetComponent<Boss>().Damaged(damage);
+            ExpireCollision();
+        }
+        else
         {
             ExpireCollision();
         }

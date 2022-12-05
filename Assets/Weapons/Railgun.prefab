@@ -126,6 +126,8 @@ MonoBehaviour:
   targetingLaser: {fileID: 2345348824485606071}
   start: {r: 1, g: 0.4481132, b: 0.4481132, a: 0}
   end: {r: 1, g: 0, b: 0, a: 0}
+  charge: {fileID: 0}
+  fire: {fileID: 0}
 --- !u!1 &3184007227195530479
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +272,7 @@ GameObject:
   - component: {fileID: 7627544466095426566}
   m_Layer: 0
   m_Name: Railgun
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
