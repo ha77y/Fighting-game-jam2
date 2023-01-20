@@ -33,6 +33,11 @@ public class load_level : MonoBehaviour
 
     public void GoLevel1()
     {
+        if(Time.timeScale == 0f)
+        {
+            Time.timeScale = 1f;
+        }
+
         Music = GameObject.FindWithTag("GameMusic").GetComponent<MusicBetweenScenes>();
         Music.fadedown();
         if (sceneNum == 1|| sceneNum == 0)
