@@ -13,7 +13,6 @@ public class victoryCrate : MonoBehaviour
             music = GameObject.FindWithTag("GameMusic");
             music.GetComponent<AudioSource>().enabled = false;
             SceneManager.LoadScene(2);
-            
         }
     }
 }

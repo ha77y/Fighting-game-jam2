@@ -97,7 +97,7 @@ public class TextBox : MonoBehaviour
             {"Why are there TWO now#.#.#.¬|I think its time to tell you about my second ability;" },
             {"If you press ^E or Right Click^, I will swing my sword in front of me and ^reflect any incoming projectles and lasers to the mouse position^;" },
             {"During this, instead of facing towards the direction I'm moving, ^I will face towards your mouse cursor^;" },
-            {"Holding my sword like this is very tiring so I can only do this for about ^4 seconds at a time^ and need a ^break of at least 6 seconds^;" },
+            {"Holding my sword like this is very tiring so I can only do this for about ^2 seconds at a time^ and need a ^break of at least 5 seconds^;" },
             {"Try it out and show these two who's boss\\!" },
             
             {"&010.05Do you see this enemy over there\\?| He can shoot me with his railgun and it doesn't feel great.#.#. but thankfully I have a trick up my sleeve.;"},

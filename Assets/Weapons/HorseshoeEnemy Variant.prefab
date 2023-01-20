@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1758695846001426086, guid: 0c3171f6d47e57a4b8131a4237d21d5c, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 3374222893067942774, guid: 0c3171f6d47e57a4b8131a4237d21d5c, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -219,6 +223,10 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1966370423958646727, guid: 85ebdccf2c9517843a4a9cdf79ed1a16, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 2680841089477293923}
+    - target: {fileID: 1966370423958646727, guid: 85ebdccf2c9517843a4a9cdf79ed1a16, type: 3}
       propertyPath: willDrop
       value: 1
       objectReference: {fileID: 0}
@@ -349,6 +357,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!4 &2680841089477293923 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5915409399925023209, guid: 85ebdccf2c9517843a4a9cdf79ed1a16, type: 3}
+  m_PrefabInstance: {fileID: 8584849653149275786}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5208036298660225748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4568103774041846878, guid: 85ebdccf2c9517843a4a9cdf79ed1a16, type: 3}

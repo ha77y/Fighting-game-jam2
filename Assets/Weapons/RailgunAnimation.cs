@@ -21,6 +21,7 @@ public class RailgunAnimation : MonoBehaviour
     public int damage = 10;
     public LineRenderer targetingLaser;
     public Color start;
+    public Boolean canShoot = true;
     public Color end;
     public AudioSource charge;
     public AudioSource fire;
@@ -63,21 +64,34 @@ public class RailgunAnimation : MonoBehaviour
             targetingLaser.SetPosition(0, firingPoint);
             targetingLaser.SetPosition(1, playerPos);
             //targetingLaser.enabled = true;
-        } else
+        }
+        else
         {
             targetingLaser.enabled = false;
         }
 
 
-        if (this.transform.parent.parent.parent.GetComponent<Enemy>().isshooting)
+        if (this.transform.parent.parent.parent.GetComponent<Enemy>().isshooting & canShoot)
         {
             anim.Play("RailgunShoot");
-        } else {
+        }
+        else
+        {
             anim.Play("RailgunIdle");
         }
-        
-
     }
+    void Update()
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("RailgunIdle"))
+        {
+            lineRenderer.enabled = false;
+            targetingLaser.enabled = false;
+            targetingLaser.startColor = start;
+            targetingLaser.endColor = start;
+        }
+    }
+
+    
     public IEnumerator Shoot()
     {        
         Vector2 firingPoint = new Vector2(this.gameObject.transform.parent.GetChild(1).position.x, this.gameObject.transform.parent.GetChild(1).position.y);
@@ -123,11 +137,23 @@ public class RailgunAnimation : MonoBehaviour
             {
                 if ((deflectHit.distance > result.distance & result.distance != 0) | (deflectHit.distance == 0 & result.distance > 0)) // If hit enemy before wall
                 {
-                    Enemy enemy = result.collider.GetComponent<Enemy>();
-                    if (enemy != null)
+                    if (result.collider.gameObject.tag == "Boss")
                     {
-                        enemy.Damaged(damage);
+                        Boss enemy = result.collider.GetComponent<Boss>();
+                        if (enemy != null)
+                        {
+                            enemy.Damaged(damage);
+                        }
+                    } else
+                    {
+                        Enemy enemy = result.collider.GetComponent<Enemy>();
+                        if (enemy != null)
+                        {
+                            enemy.Damaged(damage);
+                        }
                     }
+                    
+                    
                 }
             }
         }
