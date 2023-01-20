@@ -24,6 +24,8 @@ public class MusicBetweenScenes : MonoBehaviour
             print("music destroyed");
         }
         DontDestroyOnLoad(this.gameObject);
+
+        Music.enabled = false;
     }
 
     private void FixedUpdate()

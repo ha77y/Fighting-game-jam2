@@ -51,6 +51,7 @@ public class Enemy : MonoBehaviour
     public int ammo = -1;
     public int maxAmmo = -1;
     public int health = 30;
+    public healthbar hp;
     void Start()
     {
         canJump = true;
@@ -262,6 +263,7 @@ public class Enemy : MonoBehaviour
         health -= amount;
         Data.DamageDealt += amount;
         invincible = true;
+        hp.SetHealth(health);
         StartCoroutine(spriteFlash(0.6f, 0.15f));
         if (health <= 0)
         {
